@@ -1,0 +1,15 @@
+body{
+    background: url(../img/pawel-czerwinski-2Y8ol_OBS1I-unsplash.jpg) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+
+.navbar-light .navbar-nav .nav-link{
+    color: rgba(rgb(92, 87, 87), green, blue, alpha) !important;
+    font-weight: bold;
+    font-family:"Segoe UI", Arial, sans-serif;
+    font-size: 15pt;
+}
