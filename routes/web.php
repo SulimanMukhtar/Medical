@@ -14,3 +14,19 @@
 Route::get('/', function () {
     return view('pages.home');
 });
+
+Route::get('/Doctors', function () {
+    return view('pages.doctors');
+});
+
+Route::get('/Pharmacies', function () {
+    return view('pages.pharmacies');
+});
+
+Route::get('/Labs', function () {
+    return view('pages.labs');
+});
+
+Route::get('/Search', function () {
+    return view('pages.search');
+});

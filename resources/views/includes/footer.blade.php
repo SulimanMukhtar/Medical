@@ -4,7 +4,7 @@
     </div>
 </section> --}}
 
-<!-- Footer -->
+{{-- <!-- Footer -->
 <footer class="page-footer font-small blue">
 
     <!-- Copyright -->
@@ -14,4 +14,4 @@
     <!-- Copyright -->
   
   </footer>
-  <!-- Footer -->
+  <!-- Footer --> --}}

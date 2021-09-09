@@ -1,5 +1,6 @@
 <html lang="en">
 <head>
+    @section('title') {{ ' - Doctors' }} @endsection
   @include('includes.header')
 </head>
 <body>
@@ -13,11 +14,11 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav ml-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
-          </li>
           <li class="nav-item">
-            <a class="nav-link" href="/Doctors">Doctors</a>
+                <a class="nav-link" href="/">Home</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="/Doctors">Doctors <span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/Pharmacies">Pharmacies</a>
@@ -32,13 +33,7 @@
       </div>
     </nav>
     <!---------------------------------------------Navbar End------------------------------------------------>
-    <div class="container">
-      <div class="main-body">
-       <h1>WE PROVIDE TOP MEDICAL SERVICE </h1>
-       <P class="lead">MORE THAN 30 PROFESSIONAL</P>
-       <button class="Appiontment-btn"> Make APPOINTMENT</button>
-      </div>
-    </div>
+   
     @include('includes.footer')
     <script src="js/jquery-3.6.0.min.js"></script>
      <script src="js//bootstrap.min.js"></script>
