@@ -34,4 +34,19 @@ body{
       background-color: #587392 !important;
       padding-top: 0 !important;
   }
-  
+  .cards{
+      margin-top: 6rem;
+      margin-left: 9rem !important;
+   
+  }
+  .card-box{
+      margin-left:-0.8rem;
+      margin-bottom: 0.2rem;
+      border-top-left-radius: 10%;
+      border-top-right-radius: 10%;
+      position:relative;
+  }
+ a.btn.btn-primary {
+      width: 100% ;
+    
+  }

@@ -33,7 +33,70 @@
       </div>
     </nav>
     <!---------------------------------------------Navbar End------------------------------------------------>
-   
+ 
+    <div class="container cards">
+      <div class="row">
+        <div class="col-md-3 col-sm-6 col-xs-12">
+              <div class="card card-box" style="width: 15rem;">
+                <img class="card-img-top" src="{{URL::asset('img/Dr-Mike.jpeg')}}" style="border-radius:10%;" alt="Card image cap">
+                <div class="card-body">
+                  <h5 class="card-title">Dr. Mike Varshavski</h5>
+                  <p class="card-text">
+                  <ul>
+                    <li>University Of Russia</li>
+                    <li>Health And A Wareness</li>
+                  </ul></p>
+                  <a href="#" class="btn btn-primary">View</a>
+                </div>
+              </div>
+        </div>
+        <div class="col-md-3 col-sm-6 col-xs-12 ">
+              <div class="card card-box" style="width: 15rem;">
+                <img class="card-img-top" src="{{URL::asset('img/Dr-Mike.jpeg')}}" style="border-radius:10%;" alt="Card image cap">
+                <div class="card-body">
+                  <h5 class="card-title">Dr. Mike Varshavski</h5>
+                  <p class="card-text">
+                  <ul>
+                    <li>University Of Russia</li>
+                    <li>Health And A Wareness</li>
+                  </ul></p>
+                  <a href="#" class="btn btn-primary">View</a>
+                </div>
+              </div>
+        </div>
+        <div class="col-md-3 col-sm-6 col-xs-12">
+             <div class="card card-box" style="width: 15rem;">
+                <img class="card-img-top " src="{{URL::asset('img/Dr-Mike.jpeg')}}" style="border-radius:10%;" alt="Card image cap">
+                <div class="card-body">
+                  <h5 class="card-title">Dr. Mike Varshavski</h5>
+                  <p class="card-text">
+                  <ul>
+                    <li>University Of Russia</li>
+                    <li>Health And A Wareness</li>
+                  </ul></p>
+                  <a href="#" class="btn btn-primary">View</a>
+                </div>
+              </div>
+        </div>
+        <div class="col-md-3 col-sm-6 col-xs-12 ">
+             <div class="card card-box" style="width: 15rem;">
+                <img class="card-img-top" src="{{URL::asset('img/Dr-Mike.jpeg')}}" style="border-radius:10%;" alt="Card image cap">
+                <div class="card-body">
+                  <h5 class="card-title">Dr. Mike Varshavski</h5>
+                  <p class="card-text">
+                  <ul>
+                    <li>University Of Russia</li>
+                    <li>Health And A Wareness</li>
+                  </ul></p>
+                  <a href="#" class="btn btn-primary btn-card">View</a>
+                </div>
+              </div>
+        </div>
+        
+      </div>
+
+   </div>
+     
     @include('includes.footer')
     <script src="js/jquery-3.6.0.min.js"></script>
      <script src="js//bootstrap.min.js"></script>
