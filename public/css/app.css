@@ -36,7 +36,7 @@ body{
   }
   .cards{
       margin-top: 6rem;
-      margin-left: 9rem !important;
+      margin-left: 5rem !important;
    
   }
   .card-box{
@@ -48,5 +48,75 @@ body{
   }
  a.btn.btn-primary {
       width: 100% ;
-    
+     
+  }
+  @media (min-width:1349px) {
+    .cards{
+        margin-top: 6rem;
+        margin-left: 7rem !important;
+     
+    }
+  }
+  @media (min-width:800px) {
+    .cards{
+        margin-top: 6rem;
+        margin-left: 7rem !important;
+     
+    }
+  }
+  @media (min-width:744px) {
+    .cards{
+        margin-top: 6rem;
+        margin-left: 8rem !important;
+     
+    }
+  }
+  @media (min-width:960px) {
+    .cards{
+        margin-top: 6rem;
+        margin-left: 11rem !important;
+     
+    }
+  }
+  @media (min-width:1212px) {
+    .cards{
+        margin-top: 6rem;
+        margin-left: 4rem !important;
+     
+    }
+  }
+  @media (min-width:1191px) {
+    .cards{
+        margin-top: 6rem;
+        margin-left: 4rem !important;
+     
+    }
+  }
+  @media (min-width:437px) {
+    .cards{
+        margin-top: 6rem;
+        margin-left: 7.5rem !important;
+     
+    }
+  }
+  @media (min-width:772px) {
+    .cards{
+        margin-top: 6rem;
+        margin-left: 2.0rem !important;
+     
+    }
+  }
+  @media (min-width:1182px) {
+    .cards{
+        margin-top: 6rem;
+        margin-left: 9.0rem !important;
+     
+    }
+  }
+  @media (min-width:1100px) {
+    .cards{
+        margin-top: 6rem;
+        margin-left: 8.0rem !important;
+     
+    }
   }
