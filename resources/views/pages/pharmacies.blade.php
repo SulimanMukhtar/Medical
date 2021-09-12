@@ -21,7 +21,7 @@
             <a class="nav-link" href="/Doctors">Doctors</a>
           </li>
           <li class="nav-item active">
-            <a class="nav-link" href="/Pharmacies">Pharmacies  <span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="/Pharmacies">Drogs  <span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/Labs">Labs</a>
@@ -33,7 +33,12 @@
       </div>
     </nav>
     <!---------------------------------------------Navbar End------------------------------------------------>
-   
+      <div class="container">
+          <form class="example" action="action_page.php">
+              <input type="text" placeholder="Please Inter Your Drog Name..." name="search">
+              <button type="submit"><i class="fa fa-capsules"></i></button>
+          </form>
+      </div>
     @include('includes.footer')
     <script src="js/jquery-3.6.0.min.js"></script>
      <script src="js//bootstrap.min.js"></script>

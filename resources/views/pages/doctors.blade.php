@@ -21,7 +21,7 @@
             <a class="nav-link" href="/Doctors">Doctors <span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/Pharmacies">Pharmacies</a>
+            <a class="nav-link" href="/Pharmacies">Drogs</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/Labs">Labs</a>
