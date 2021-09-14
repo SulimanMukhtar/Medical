@@ -54,7 +54,7 @@
               <div class="card card-box" style="width: 15rem;">
                 <img class="card-img-top" src="{{URL::asset('img/Dr-Mike.jpeg')}}" style="border-radius:10%;" alt="Card image cap">
                 <div class="card-body">
-                  <h5 class="card-title">Dr. Mike Varshavski</h5>
+                  <h5 class="card-title">Dr. ahmed Varshavski</h5>
                   <p class="card-text">
                   <ul>
                     <li>University Of Russia</li>
@@ -68,7 +68,7 @@
              <div class="card card-box" style="width: 15rem;">
                 <img class="card-img-top " src="{{URL::asset('img/Dr-Mike.jpeg')}}" style="border-radius:10%;" alt="Card image cap">
                 <div class="card-body">
-                  <h5 class="card-title">Dr. Mike Varshavski</h5>
+                  <h5 class="card-title">Dr. Khalid Varshavski</h5>
                   <p class="card-text">
                   <ul>
                     <li>University Of Russia</li>
@@ -82,7 +82,7 @@
              <div class="card card-box" style="width: 15rem;">
                 <img class="card-img-top" src="{{URL::asset('img/Dr-Mike.jpeg')}}" style="border-radius:10%;" alt="Card image cap">
                 <div class="card-body">
-                  <h5 class="card-title">Dr. Mike Varshavski</h5>
+                  <h5 class="card-title">Dr. Qamer Varshavski</h5>
                   <p class="card-text">
                   <ul>
                     <li>University Of Russia</li>
@@ -109,7 +109,7 @@
         </button>
       </div>
       <div class="modal-body">  
-        <p class="lead">Welcome to Dr. Mike Varshavski Medical Center You can reserve an appointment immediately, and for any inquires contact with us  reserve through the following form Working hours daily except Saturday and Thursday from (8:00 PM TO 11:00PM)</p>
+        <p class="lead">Welcome to Dr. Mike Varshavski Medical Center You can reserve an appointment immediately, and for any inquires contact with us  reserve through the following form Working hours daily except Saturday and Thursday from (<span class= "work-time">8:00 PM  <span class="spanTO">TO </span>11:00PM</span>)</p>
       <form>
           <div class="form-group">
           <div class="row">
@@ -142,15 +142,13 @@
           <div class="form-group">
               <label for="exampleFormControlSelect1">Gender</label>
               <select class="form-control" id="exampleFormControlSelect1">
+                <option>...</option>
                 <option>Man</option>
                 <option>Women</option>
                 <option>Child</option>
               </select>
             </div>
-          <div class="form-group form-check">
-            <input type="checkbox" class="form-check-input" id="exampleCheck1">
-            <label class="form-check-label" for="exampleCheck1">Check me out</label>
-          </div>
+          
           <button type="submit" class="btn btn-primary">Make An Appointment</button>
       </form>
          
@@ -169,13 +167,13 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Dr. Mike Varshavski</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Dr. Ahmed Varshavski</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-      <p class="lead">Welcome to Dr. Mike Varshavski Medical Center You can reserve an appointment immediately, and for any inquires contact with us  reserve through the following form Working hours daily except Saturday and Thursday from (8:00 PM TO 11:00PM)</p>
+      <p class="lead">Welcome to Dr. Ahmed Varshavski Medical Center You can reserve an appointment immediately, and for any inquires contact with us  reserve through the following form Working hours daily except Saturday and Thursday from (<span class= "work-time">2:00 PM  <span class="spanTO">TO </span>11:00PM</span>)</p>
       <form>
           <div class="form-group">
           <div class="row">
@@ -208,21 +206,19 @@
           <div class="form-group">
               <label for="exampleFormControlSelect1">Gender</label>
               <select class="form-control" id="exampleFormControlSelect1">
+              <option>...</option>
                 <option>Man</option>
                 <option>Women</option>
                 <option>Child</option>
               </select>
             </div>
-          <div class="form-group form-check">
-            <input type="checkbox" class="form-check-input" id="exampleCheck1">
-            <label class="form-check-label" for="exampleCheck1">Check me out</label>
-          </div>
+          
           <button type="submit" class="btn btn-primary">Make An Appointment</button>
       </form>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        
       </div>
     </div>
   </div>
@@ -233,13 +229,13 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Dr. Mike Varshavski</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Dr. Kalid Varshavski</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-      <p class="lead">Welcome to Dr. Mike Varshavski Medical Center You can reserve an appointment immediately, and for any inquires contact with us  reserve through the following form Working hours daily except Saturday and Thursday from (8:00 PM TO 11:00PM)</p>
+      <p class="lead">Welcome to Dr. Mike khali Medical Center You can reserve an appointment immediately, and for any inquires contact with us  reserve through the following form Working hours daily except Saturday and Thursday from (<span class= "work-time">4:00 PM  <span class="spanTO">TO </span>11:00PM</span>)</p>
       <form>
           <div class="form-group">
           <div class="row">
@@ -272,21 +268,19 @@
           <div class="form-group">
               <label for="exampleFormControlSelect1">Gender</label>
               <select class="form-control" id="exampleFormControlSelect1">
+              <option>...</option>
                 <option>Man</option>
                 <option>Women</option>
                 <option>Child</option>
               </select>
             </div>
-          <div class="form-group form-check">
-            <input type="checkbox" class="form-check-input" id="exampleCheck1">
-            <label class="form-check-label" for="exampleCheck1">Check me out</label>
-          </div>
+          
           <button type="submit" class="btn btn-primary">Make An Appointment</button>
       </form>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        
       </div>
     </div>
   </div>
@@ -297,13 +291,13 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Dr. Mike Varshavski</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Dr. Qamer Varshavski</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-      <p class="lead">Welcome to Dr. Mike Varshavski Medical Center You can reserve an appointment immediately, and for any inquires contact with us  reserve through the following form Working hours daily except Saturday and Thursday from (8:00 PM TO 11:00PM)</p>
+      <p class="lead">Welcome to Dr. Mike Qamer Medical Center You can reserve an appointment immediately, and for any inquires contact with us  reserve through the following form :<br> Working hours daily except Saturday and Thursday from (<span class= "work-time">7:00 PM  <span class="spanTO">TO </span>11:00PM</span>)</p>
       <form>
           <div class="form-group">
           <div class="row">
@@ -336,21 +330,19 @@
           <div class="form-group">
               <label for="exampleFormControlSelect1">Gender</label>
               <select class="form-control" id="exampleFormControlSelect1">
+              <option>...</option>
                 <option>Man</option>
                 <option>Women</option>
                 <option>Child</option>
               </select>
             </div>
-          <div class="form-group form-check">
-            <input type="checkbox" class="form-check-input" id="exampleCheck1">
-            <label class="form-check-label" for="exampleCheck1">Check me out</label>
-          </div>
+          
           <button type="submit" class="btn btn-primary">Make An Appointment</button>
       </form>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        
       </div>
     </div>
   </div>
