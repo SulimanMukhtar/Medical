@@ -33,7 +33,69 @@
       </div>
     </nav>
     <!---------------------------------------------Navbar End------------------------------------------------>
-   
+    <div class="container cards">
+      <div class="row">
+        <div class=" col-xl-3 col-md-4 col-sm-6 col-xs-12">
+              <div class="card card-box" style="width: 15rem;">
+                <img class="card-img-top" src="{{URL::asset('img/lap2.jpeg')}}" style="border-radius:10%;" alt="Card image cap">
+                <div class="card-body">
+                  <h5 class="card-title">Altra Lap</h5>
+                  <p class="card-text">
+                  <ul>
+                    <li>University Of Russia</li>
+                    <li>Health And A Wareness</li>
+                  </ul></p>
+                  <a href="#" class="btn btn-primary"><i class="fas fa-phone-square-alt"></i>call us</a>
+                </div>
+              </div>
+        </div>
+        <div class=" col-xl-3 col-md-4 col-sm-6 col-xs-12 ">
+              <div class="card card-box" style="width: 15rem;">
+                <img class="card-img-top" src="{{URL::asset('img/lap2.jpeg')}}" style="border-radius:10%;" alt="Card image cap">
+                <div class="card-body">
+                  <h5 class="card-title">Lap Cheak</h5>
+                  <p class="card-text">
+                  <ul>
+                    <li>University Of Russia</li>
+                    <li>Health And A Wareness</li>
+                  </ul></p>
+                  <a href="#" class="btn btn-primary"><i class="fas fa-phone-square-alt"></i>call us</a>
+                </div>
+              </div>
+        </div>
+        <div class=" col-xl-3 col-md-4 col-sm-6 col-xs-12">
+             <div class="card card-box" style="width: 15rem;">
+                <img class="card-img-top " src="{{URL::asset('img/lap2.jpeg')}}" style="border-radius:10%;" alt="Card image cap">
+                <div class="card-body">
+                  <h5 class="card-title">Ferrero Lap</h5>
+                  <p class="card-text">
+                  <ul>
+                    <li>University Of Russia</li>
+                    <li>Health And A Wareness</li>
+                  </ul></p>
+                  <a href="#" class="btn btn-primary"> <i class="fas fa-phone-square-alt"></i>vcall us</a>
+                </div>
+              </div>
+        </div>
+        <div class=" col-xl-3 col-md-4 col-sm-6 col-xs-12 ">
+             <div class="card card-box" style="width: 15rem;">
+                <img class="card-img-top" src="{{URL::asset('img/lap2.jpeg')}}" style="border-radius:10%;" alt="Card image cap">
+                <div class="card-body">
+                  <h5 class="card-title">Speed Laps</h5>
+                  <p class="card-text">
+                  <ul>
+                    <li>University Of Russia</li>
+                    <li>Health And A Wareness</li>
+                  </ul></p>
+                  <a href="#" class="btn btn-primary btn-card"><i class="fas fa-phone-square-alt"></i>vcall us<a/>
+                </div>
+              </div>
+        </div>
+        
+      </div>
+
+   </div>
+     
     @include('includes.footer')
     <script src="js/jquery-3.6.0.min.js"></script>
      <script src="js//bootstrap.min.js"></script>

@@ -165,4 +165,6 @@ body{
     clear: both;
     display: table;
   }
-  
+  .cards li {
+    list-style: none;
+  }
