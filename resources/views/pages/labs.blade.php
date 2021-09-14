@@ -91,7 +91,6 @@
                 </div>
               </div>
         </div>
-        
       </div>
    </div>
      <!----- Start Modal number one ----------------------------------------------------------->
@@ -106,7 +105,6 @@
         </button>
       </div>
       <div class="modal-body">  
-        
          ......
       </div>
       <div class="modal-footer">

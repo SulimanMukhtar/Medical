@@ -5,8 +5,6 @@ body{
     -o-background-size: cover;
     background-size: cover;
 }
-
-
 .navbar-light .navbar-nav .nav-link{
     color: rgba(rgb(92, 87, 87), green, blue, alpha) !important;
     font-weight: bold;
@@ -120,9 +118,6 @@ body{
      
     }
   }
-
-  
-
   * {
     box-sizing: border-box;
   }
