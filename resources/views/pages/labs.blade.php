@@ -1,7 +1,7 @@
 <html lang="en">
 <head>
     @section('title') {{ ' - Labs' }} @endsection
-  @include('includes.header')
+    @include('includes.header')
 </head>
 <body>
     <!-----------------------------  Navbar---------------------------------------------------------------->
@@ -45,7 +45,7 @@
                     <li>University Of Russia</li>
                     <li>Health And A Wareness</li>
                   </ul></p>
-                  <a href="#" class="btn btn-primary"><i class="fas fa-phone-square-alt"></i>call us</a>
+                  <button type="button" class="btn btn-info btn-md" data-toggle="modal" data-target="#lap1">  Altra Lap Patient Services</button><a/>
                 </div>
               </div>
         </div>
@@ -59,7 +59,7 @@
                     <li>University Of Russia</li>
                     <li>Health And A Wareness</li>
                   </ul></p>
-                  <a href="#" class="btn btn-primary"><i class="fas fa-phone-square-alt"></i>call us</a>
+                  <button type="button" class="btn btn-info btn-md" data-toggle="modal" data-target="#lap2">LapCheck Patient Services</button><a/>
                 </div>
               </div>
         </div>
@@ -73,7 +73,7 @@
                     <li>University Of Russia</li>
                     <li>Health And A Wareness</li>
                   </ul></p>
-                  <a href="#" class="btn btn-primary"> <i class="fas fa-phone-square-alt"></i>vcall us</a>
+                  <button type="button" class="btn btn-info btn-md" data-toggle="modal" data-target="#lap3"> Ferrero Patient Services</button><a/>
                 </div>
               </div>
         </div>
@@ -87,15 +87,96 @@
                     <li>University Of Russia</li>
                     <li>Health And A Wareness</li>
                   </ul></p>
-                  <a href="#" class="btn btn-primary btn-card"><i class="fas fa-phone-square-alt"></i>vcall us<a/>
+                  <button type="button" class="btn btn-info btn-md" data-toggle="modal" data-target="#lap4"> Speed Patient Services</button><a/><a/>
                 </div>
               </div>
         </div>
         
       </div>
-
    </div>
-     
+     <!----- Start Modal number one ----------------------------------------------------------->
+   <!-- Modal -->
+<div class="modal fade" id="lap1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Altra Lap Patient Services</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">  
+        
+         ......
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!----- End Modal number one ----------------------------------------------------------->
+
+<!----- Start Modal number tow ----------------------------------------------------------->
+<div class="modal fade" id="lap2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">LapCheck Patient Services</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      .....
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!----- End Modal number tow ----------------------------------------------------------->
+<!----- Start Modal number three ----------------------------------------------------------->
+<div class="modal fade" id="lap3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Ferrero Patient Services</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+     ....
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        
+      </div>
+    </div>
+  </div>
+</div>
+<!----- End Modal number three ----------------------------------------------------------->
+<!----- Start Modal number four ----------------------------------------------------------->
+<div class="modal fade" id="lap4" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Speed Lap Patient Services</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      ....
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div> 
     @include('includes.footer')
     <script src="js/jquery-3.6.0.min.js"></script>
      <script src="js//bootstrap.min.js"></script>

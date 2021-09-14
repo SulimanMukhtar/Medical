@@ -93,9 +93,7 @@
                 </div>
               </div>
         </div>
-        
       </div>
-    
    </div>
    <!----- Start Modal number one ----------------------------------------------------------->
    <!-- Modal -->
@@ -155,7 +153,6 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-       
       </div>
     </div>
   </div>
@@ -218,7 +215,6 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        
       </div>
     </div>
   </div>
@@ -320,8 +316,8 @@
             <input type="phone" class="form-control" id="exampleInputPassword1">
           </div>
           <div class="form-group">
-            <label for="exampleInputPassword1">Address</label>
-            <input type="text" class="form-control" id="exampleInputPassword1">
+              <label for="exampleInputPassword1">Address</label>
+              <input type="text" class="form-control" id="exampleInputPassword1">
           </div>
           <div class="form-group">
             <label for="exampleInputPassword1">Date</label>
