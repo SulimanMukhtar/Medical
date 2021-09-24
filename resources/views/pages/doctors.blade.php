@@ -36,63 +36,25 @@
  
     <div class="container cards">
       <div class="row">
+        @foreach ($doctors as $doctor)
         <div class=" col-xl-3 col-md-4 col-sm-6 col-xs-12">
               <div class="card card-box" style="width: 15rem;">
                 <img class="card-img-top" src="{{URL::asset('img/Dr-Mike.jpeg')}}" style="border-radius:10%;" alt="Card image cap">
                 <div class="card-body">
-                  <h5 class="card-title">Dr. Mike Varshavski</h5>
+                  <h5 class="card-title">{{ $doctor['name'] }}</h5>
                   <p class="card-text">
                   <ul>
-                    <li>University Of Russia</li>
-                    <li>Health And A Wareness</li>
-                  </ul></p>
+                    <li>{{ $doctor['university'] }}</li>  
+                    <li>{{ $doctor['specialist'] }}</li> 
+                    <li>{{ $doctor['phone'] }}</li>                   </ul></p>
                   <button type="button" class="btn btn-info btn-md" data-toggle="modal" data-target="#myModal1">Make An Appointment</button>
                 </div>
               </div>
         </div>
-        <div class=" col-xl-3 col-md-4 col-sm-6 col-xs-12 ">
-              <div class="card card-box" style="width: 15rem;">
-                <img class="card-img-top" src="{{URL::asset('img/Dr-Mike.jpeg')}}" style="border-radius:10%;" alt="Card image cap">
-                <div class="card-body">
-                  <h5 class="card-title">Dr. ahmed Varshavski</h5>
-                  <p class="card-text">
-                  <ul>
-                    <li>University Of Russia</li>
-                    <li>Health And A Wareness</li>
-                  </ul></p>
-                  <button type="button" class="btn btn-info btn-md" data-toggle="modal" data-target="#myModal2">Make An Appointment</button>
-                </div>
-              </div>
-        </div>
-        <div class=" col-xl-3 col-md-4 col-sm-6 col-xs-12">
-             <div class="card card-box" style="width: 15rem;">
-                <img class="card-img-top " src="{{URL::asset('img/Dr-Mike.jpeg')}}" style="border-radius:10%;" alt="Card image cap">
-                <div class="card-body">
-                  <h5 class="card-title">Dr. Khalid Varshavski</h5>
-                  <p class="card-text">
-                  <ul>
-                    <li>University Of Russia</li>
-                    <li>Health And A Wareness</li>
-                  </ul></p>
-                  <button type="button" class="btn btn-info btn-md" data-toggle="modal" data-target="#myModal3">Make An Appointment</button>
-                </div>
-              </div>
-        </div>
-        <div class=" col-xl-3 col-md-4 col-sm-6 col-xs-12 ">
-             <div class="card card-box" style="width: 15rem;">
-                <img class="card-img-top" src="{{URL::asset('img/Dr-Mike.jpeg')}}" style="border-radius:10%;" alt="Card image cap">
-                <div class="card-body">
-                  <h5 class="card-title">Dr. Qamer Varshavski</h5>
-                  <p class="card-text">
-                  <ul>
-                    <li>University Of Russia</li>
-                    <li>Health And A Wareness</li>
-                  </ul>
-                </p>
-                  <button type="button" class="btn btn-info btn-md" data-toggle="modal" data-target="#myModal4">Make An Appointment</button>
-                </div>
-              </div>
-        </div>
+        @endforeach
+        
+            
+  
       </div>
    </div>
    <!----- Start Modal number one ----------------------------------------------------------->
