@@ -39,6 +39,8 @@ class DoctorsController extends Controller
         $doctor = new Doctor();
         $doctor->name = $request->name;
         $doctor->specialist = $request->specialist;
+        $doctor->university = $request->university;
+        $doctor->phone = $request->phone;
         $doctor->description = $request->description;
         $doctor->save();
         return back()->with('Doctor_Added','Doctor Has Been Added Successfully');

@@ -22,6 +22,13 @@ Route::get('/', function () {
 
 //Route::resource('/Doctors', DoctorsController::class);
 
+Route::get('/Admin',[ DoctorsController::class,'addDoctor'])->name('addADoctor');
+Route::post('/Admin', [ DoctorsController::class , 'store']);
+
+Route::get('/Pharmacies', function () {
+    return view('pages.pharmacies');
+});
+
 Route::get('/Labs', function () {
     return view('pages.labs');
 });

@@ -28,6 +28,14 @@
                                 <input type="text" name="specialist" id="specialist" class="form-control" placeholder="Doctor Specialist">
                             </div>
                             <div class="form-group">
+                                <label for="university">University</label>
+                                <input type="text" name="university" id="university" class="form-control" placeholder="Doctor University">
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Phone</label>
+                                <input type="text" name="phone" id="phone" class="form-control" placeholder="Doctor phone">
+                            </div>
+                            <div class="form-group">
                                 <label for="description">Doctor Description</label>
                                 <input type="text" name="description" id="description" class="form-control" rows="3" placeholder="Doctor Description">
                             </div>

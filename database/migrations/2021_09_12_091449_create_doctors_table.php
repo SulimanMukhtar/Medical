@@ -18,6 +18,7 @@ class CreateDoctorsTable extends Migration
             $table->string('name');
             $table->string('university');
             $table->string('specialist');
+            $table->string('description');
             $table->char('phone');
             $table->timestamps();
         });
