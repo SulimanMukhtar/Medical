@@ -20,12 +20,7 @@ Route::get('/', function () {
 //     return view('pages.doctors');
 // });
 
-Route::resource('/Doctors', DoctorsController::class);
-Route::get('/Admin',[ DoctorsController::class,'addDoctor']);
-Route::post('/Admin/store','DoctorsController@store')->name('addADoctor');
-Route::get('/Pharmacies', function () {
-    return view('pages.pharmacies');
-});
+//Route::resource('/Doctors', DoctorsController::class);
 
 Route::get('/Labs', function () {
     return view('pages.labs');
