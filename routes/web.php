@@ -17,17 +17,20 @@ Route::get('/', function () {
 });
 
 // Route::get('/Doctors', function () {
-//     return view('pages.doctors');
-// });
+//      return view('pages.doctors');
+//  });
 
-//Route::resource('/Doctors', DoctorsController::class);
+Route::resource('/Doctors', DoctorsController::class);
 
-Route::get('/Admin',[ DoctorsController::class,'addDoctor'])->name('addADoctor');
-Route::post('/Admin', [ DoctorsController::class , 'store']);
-
+Route::get('/Admin/AddDoctor',[ DoctorsController::class,'addDoctor'])->name('addADoctor');
+Route::post('/Admin/AddDoctor', [ DoctorsController::class , 'store']);
+Route::get('/Admin', function () {
+    return view('admin.dashboard');
+});
 Route::get('/Pharmacies', function () {
     return view('pages.pharmacies');
 });
+
 
 Route::get('/Labs', function () {
     return view('pages.labs');
