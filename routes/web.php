@@ -24,7 +24,7 @@ Route::resource('/Doctors', DoctorsController::class);
 
 Route::get('/Admin/AddDoctor',[ DoctorsController::class,'addDoctor'])->name('addADoctor');
 Route::post('/Admin/AddDoctor', [ DoctorsController::class , 'store']);
-Route::get('/Admin', function () {
+Route::get('/Admin/dashboard', function () {
     return view('admin.dashboard');
 });
 Route::get('/Pharmacies', function () {
