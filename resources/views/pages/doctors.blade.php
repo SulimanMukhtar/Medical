@@ -47,7 +47,7 @@
                     <li>{{ $doctor['specialist'] }}</li>
                     <li>{{ $doctor['phone'] }}</li>
                   </ul></p>
-                  <button type="button" class="btn btn-info btn-md" data-toggle="modal" data-target="#myModal1">Make An Appointment</button>
+                  <button type="button" class="btn btn-info btn-md" data-toggle="modal" data-target="#myModal">Make An Appointment</button>
                 </div>
               </div>
         </div>
@@ -55,7 +55,7 @@
    </div>
 <!----- Start Modal ----------------------------------------------------------->
 
-<div class="modal fade" id="myModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">

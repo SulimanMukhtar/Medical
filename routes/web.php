@@ -1,5 +1,6 @@
 <?php
 use App\Http\Controllers\DoctorsController;
+use App\Http\Controllers\LabsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,6 +22,7 @@ Route::get('/', function () {
 //  });
 
 Route::resource('/Doctors', DoctorsController::class);
+Route::resource('/Labs', LabsController::class);
 
 Route::get('/Admin/AddDoctor',[ DoctorsController::class,'addDoctor'])->name('addADoctor');
 Route::post('/Admin/AddDoctor', [ DoctorsController::class , 'store']);
@@ -29,11 +31,6 @@ Route::get('/Admin/dashboard', function () {
 });
 Route::get('/Pharmacies', function () {
     return view('pages.pharmacies');
-});
-
-
-Route::get('/Labs', function () {
-    return view('pages.labs');
 });
 
 Route::get('/Search', function () {
