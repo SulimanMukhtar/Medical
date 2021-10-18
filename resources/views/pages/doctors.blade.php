@@ -38,7 +38,7 @@
       <div class="row">
         <div class=" col-xl-3 col-md-4 col-sm-6 col-xs-12">
               <div class="card card-box" style="width: 15rem;">
-                <img class="card-img-top" src="{{URL::asset('img/Dr-Mike.jpeg')}}" style="border-radius:10%;" alt="Card image cap">
+                <img class="card-img-top" src="/images/doctors/{{$doctor['image'] }}" style="border-radius:10%;" alt="Card image cap">
                 <div class="card-body">
                   <h5 class="card-title">Dr. {{ $doctor['name'] }}</h5>
                   <p class="card-text">
