@@ -47,8 +47,6 @@
       <th scope="col">Password</th>
       <th scope="col">Department</th>
       <th scope="col">Modifiy</th>
-
-
     </tr>
   </thead>
   <tbody>
