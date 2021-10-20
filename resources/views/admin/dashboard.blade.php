@@ -3,37 +3,14 @@
 <head>
 @include('includes.header')
 <title>Dashboard</title>
-    <script>
-        $(document).ready(function() {
-          document.getElementById("defaultOpen").click();
-        });
-          function openPage(pageName, elmnt, color) {
-          // Hide all elements with class="tabcontent" by default */
-          var i, tabcontent, tablinks;
-          tabcontent = document.getElementsByClassName("tabcontent");
-          for (i = 0; i < tabcontent.length; i++) {
-            tabcontent[i].style.display = "none";
-          }
-          // Remove the background color of all tablinks/buttons
-          tablinks = document.getElementsByClassName("tablink");
-          for (i = 0; i < tablinks.length; i++) {
-            tablinks[i].style.backgroundColor = "";
-          }
-          // Show the specific tab content
-          document.getElementById(pageName).style.display = "block";
-          // Add the specific color to the button used to open the tab content
-          elmnt.style.backgroundColor = color;
-        }
-        // Get the element with id="defaultOpen" and click on it
-    </script>
 </head>
 <body>
 <div class="info admin">
   <p><strong>Admin</strong> Qamer Ibrhim</p>
 </div>
 
-<button class="tablink" onclick="openPage('Home', this, 'rgba(0, 255, 234, 0.315)')">Adminstrators</button>
-<button class="tablink" onclick="openPage('News', this, 'rgba(0, 195, 255, 0.356)')" id="defaultOpen">Laps</button>
+<button id="defaultOpen" class="tablink" onclick="openPage('Home', this, 'rgba(0, 255, 234, 0.315)')" >Adminstrators</button>
+<button class="tablink" onclick="openPage('News', this, 'rgba(0, 195, 255, 0.356)')" >Laps</button>
 <button class="tablink" onclick="openPage('Contact', this, 'rgba(0, 255, 106, 0.315)')">Doctors</button>
 <button class="tablink" onclick="openPage('About', this, 'rgba(43, 255, 0, 0.315)')">Drogs</button>
 
@@ -55,26 +32,15 @@
       <td>Mark</td>
       <td>09075</td>
       <td>Laps</td>
-      <td> <button class = "btn1" data-bs-toggle="tooltip" data-bs-placement="left" title="edite"><i class="fas fa-edit"></i></button> <button class="btn2" data-bs-toggle="tooltip" data-bs-placement="left" title="delete"><i class="fa fa-trash"></i></button> <button class ="btn3"data-bs-toggle="tooltip" data-bs-placement="left" title="save"><i class="far fa-save"></i></button></td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>09090</td>
-      <td>Drogs</td>
-      <td> <button class = "btn1" data-bs-toggle="tooltip" data-bs-placement="top" title="edite"><i class="fas fa-edit"></i></button> <button class="btn2" data-bs-toggle="tooltip" data-bs-placement="top" title="delete"><i class="fa fa-trash"></i></button> <button class ="btn3"data-bs-toggle="tooltip" data-bs-placement="top" title="save"><i class="far fa-save"></i></button></td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>Larry</td>
-      <td>76778</td>
-      <td>Doctors</td>
-      <td> <button class = "btn1" data-bs-toggle="tooltip" data-bs-placement="top" title="edite"><i class="fas fa-edit"></i></button> <button class="btn2" data-bs-toggle="tooltip" data-bs-placement="top" title="delete"><i class="fa fa-trash"></i></button> <button class ="btn3"data-bs-toggle="tooltip" data-bs-placement="top" title="save"><i class="far fa-save"></i></button></td>
+       <td>  
+         <button type="button" class="btn btn-info btn-md" data-toggle="modal" data-target="#modall">Edit</button>
+         <button type="button" class="btn btn-info btn-md" data-toggle="modal" data-target="#modall">Add</button>
+         <button type="button" class="btn btn-info btn-md" data-toggle="modal" data-target="#modall">Del</button>
+      </td>
     </tr>
   </tbody>
 </table>
 </div>
-
 <div id="News" class="tabcontent">
   <h3>Laps</h3>
  <table class="table table-striped table-hover">
@@ -95,24 +61,13 @@
       <td>0907557112</td>
       <td>Khrtoum uin</td>
       <td>emage alt</td>
-      <td> <button class = "btn1" data-bs-toggle="tooltip" data-bs-placement="top" title="edite"><i class="fas fa-edit"></i></button> <button class="btn2" data-bs-toggle="tooltip" data-bs-placement="top" title="delete"><i class="fa fa-trash"></i></button> <button class ="btn3"data-bs-toggle="tooltip" data-bs-placement="top" title="save"><i class="far fa-save"></i></button></td>
+      <td> 
+      <button type="button" class="btn btn-info btn-md" data-toggle="modal" data-target="#modall">Edit</button>
+         <button type="button" class="btn btn-info btn-md" data-toggle="modal" data-target="#modall">Add</button>
+         <button type="button" class="btn btn-info btn-md" data-toggle="modal" data-target="#modall">Del</button>
+      </td>
     </tr>
     <tr>
-      <th scope="row">2</th>
-      <<td>Lap check</td>
-      <td>0907557112</td>
-      <td>Khrtoum uin</td>
-      <td>emage alt</td>
-      <td> <button class = "btn1" data-bs-toggle="tooltip" data-bs-placement="top" title="edite"><i class="fas fa-edit"></i></button> <button class="btn2" data-bs-toggle="tooltip" data-bs-placement="top" title="delete"><i class="fa fa-trash"></i></button> <button class ="btn3"data-bs-toggle="tooltip" data-bs-placement="top" title="save"><i class="far fa-save"></i></button></td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>Speed lap</td>
-      <td>0907557112</td>
-      <td>Khrtoum uin</td>
-      <td>emage alt</td>
-      <td> <button class = "btn1" data-bs-toggle="tooltip" data-bs-placement="top" title="edite"><i class="fas fa-edit"></i></button> <button class="btn2" data-bs-toggle="tooltip" data-bs-placement="top" title="delete"><i class="fa fa-trash"></i></button> <button class ="btn3"data-bs-toggle="tooltip" data-bs-placement="top" title="save"><i class="far fa-save"></i></button></td>
-    </tr>
   </tbody>
 </table>
 </div>
@@ -139,26 +94,13 @@
       <td>Khrtoum</td>
       <td>97887</td>
       <td>Live in sudan </td>
-      <td> <button class = "btn1" data-bs-toggle="tooltip" data-bs-placement="left" title="edite"><i class="fas fa-edit"></i></button> <button class="btn2" data-bs-toggle="tooltip" data-bs-placement="left" title="delete"><i class="fa fa-trash"></i></button> <button class ="btn3"data-bs-toggle="tooltip" data-bs-placement="left" title="save"><i class="far fa-save"></i></button></td>
+      <td>
+        <button type="button" class="btn btn-info btn-md" data-toggle="modal" data-target="#modall">Edit</button>
+         <button type="button" class="btn btn-info btn-md" data-toggle="modal" data-target="#modall">Add</button>
+         <button type="button" class="btn btn-info btn-md" data-toggle="modal" data-target="#modall">Del</button>
+      </td>
     </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>mohammed sir</td>
-      <td>Dental</td>
-      <td>Khrtoum</td>
-      <td>23456</td>
-      <td>Live in sudan </td>
-      <td> <button class = "btn1" data-bs-toggle="tooltip" data-bs-placement="top" title="edite"><i class="fas fa-edit"></i></button> <button class="btn2" data-bs-toggle="tooltip" data-bs-placement="top" title="delete"><i class="fa fa-trash"></i></button> <button class ="btn3"data-bs-toggle="tooltip" data-bs-placement="top" title="save"><i class="far fa-save"></i></button></td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>Ahmed Kd</td>
-      <td>Dental</td>
-      <td>Khrtoum</td>
-      <td>54545</td>
-      <td>Live in sudan </td>
-      <td> <button class = "btn1" data-bs-toggle="tooltip" data-bs-placement="top" title="edite"><i class="fas fa-edit"></i></button> <button class="btn2" data-bs-toggle="tooltip" data-bs-placement="top" title="delete"><i class="fa fa-trash"></i></button> <button class ="btn3"data-bs-toggle="tooltip" data-bs-placement="top" title="save"><i class="far fa-save"></i></button></td>
-    </tr>
+   
   </tbody>
 </table>
 
@@ -187,36 +129,35 @@
       <td>6564</td>
       <td>atbra str</td>
       <td>Your body needs vitamin A,</td>
-      <td> <button class = "btn1" data-bs-toggle="tooltip" data-bs-placement="left" title="edite"><i class="fas fa-edit"></i></button> <button class="btn2" data-bs-toggle="tooltip" data-bs-placement="left" title="delete"><i class="fa fa-trash"></i></button> <button class ="btn3"data-bs-toggle="tooltip" data-bs-placement="left" title="save"><i class="far fa-save"></i></button></td>
+      <td>
+      <button type="button" class="btn btn-info btn-md" data-toggle="modal" data-target="#modall">Edit</      button>
+         <button type="button" class="btn btn-info btn-md" data-toggle="modal" data-target="#modall">Add</button>
+         <button type="button" class="btn btn-info btn-md" data-toggle="modal" data-target="#modall">Del</button>
+      </td>
     </tr>
-    <th scope="row">2</th>
-    <td>Fursmid</td>
-      <td>lasix</td>
-      <td>Elsmah</td>
-      <td>6564</td>
-      <td>atbra str</td>
-      <td>Your body needs vitamin A,</td>
-      <td> <button class = "btn1" data-bs-toggle="tooltip" data-bs-placement="left" title="edite"><i class="fas fa-edit"></i></button> <button class="btn2" data-bs-toggle="tooltip" data-bs-placement="left" title="delete"><i class="fa fa-trash"></i></button> <button class ="btn3"data-bs-toggle="tooltip" data-bs-placement="left" title="save"><i class="far fa-save"></i></button></td>
-    </tr>
-    <th scope="row">1</th>
-    <td>Fursmid</td>
-      <td>lasix</td>
-      <td>Elsmah</td>
-      <td>6564</td>
-      <td>atbra str</td>
-      <td>Your body needs vitamin A,</td>
-      <td> <button class = "btn1" data-bs-toggle="tooltip" data-bs-placement="left" title="edite"><i class="fas fa-edit"></i></button> <button class="btn2" data-bs-toggle="tooltip" data-bs-placement="left" title="delete"><i class="fa fa-trash"></i></button> <button class ="btn3"data-bs-toggle="tooltip" data-bs-placement="left" title="save"><i class="far fa-save"></i></button></td>
-    </tr>
+    
   </table>
-
+</div>
+</div>
+<div class="modal fade" id="modall" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Edit</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">  
+        ..........
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
 </div>
 
-</div>
-@include('includes.footer')
-    <script src="js/popper.js"></script>
-    <script src="js/jquery-3.6.0.min.js"></script>
-     <script src="js//bootstrap.min.js"></script>
-     <script src="js//app.js"></script>
-     <script src="js//all.min.js"></script>    
+@include('includes.footer') 
 </body>
 </html>

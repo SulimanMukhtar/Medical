@@ -295,7 +295,7 @@ input[type=submit] {
   padding: 20px;
   border-left: 10px solid #2196F3 ;
   border-right: 10px solid #2196F3 ;
-  border-radius: 7%;
+
   
 }
 
@@ -340,4 +340,10 @@ color: rgba(89, 0, 255, 0.842);
 border-right: 3px solid #0376f8;
 font-size: 17pt;
 margin-right: 10px;
+}
+hr{
+  border: 1px solid #0376f8;
+}
+.modal-backdrop {
+  z-index: -1;
 }

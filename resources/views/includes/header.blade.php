@@ -7,3 +7,7 @@
 <link rel="stylesheet" href="{{ URL::asset('css/all.min.css') }}">
 <link rel="stylesheet" href="{{ URL::asset('css/bootstrap.min.css') }}"> 
 <link rel="stylesheet" href="{{ URL::asset('css/app.css') }}">
+<script src="{{ URL::asset('js/jquery-3.6.0.min.js')}}"></script>
+<script src="{{ URL::asset('js//bootstrap.min.js')}}"></script>
+<script src="{{ URL::asset('js//app.js')}}"></script>
+<script src="{{ URL::asset('js//all.min.js')}}"></script> 
