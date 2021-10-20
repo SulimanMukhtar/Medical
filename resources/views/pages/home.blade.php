@@ -37,7 +37,7 @@
       <div class="main-body">
        <h1>WE PROVIDE TOP MEDICAL SERVICE </h1>
        <P class="lead">MORE THAN 30 PROFESSIONAL</P>
-       <button class="Appiontment-btn"> Make APPOINTMENT</button>
+       <button class="Appiontment-btn"> JOIN TO US</button>
       </div>
     </div>
     @include('includes.footer')
