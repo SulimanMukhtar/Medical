@@ -25,8 +25,8 @@ Route::resource('/Doctors', DoctorsController::class);
 Route::resource('/Labs', LabsController::class);
 Route::resource('/Admin', DoctorsController::class);
 
-Route::get('/Admin/AddDoctor',[ DoctorsController::class,'addDoctor'])->name('addADoctor');
-Route::post('/Admin/AddDoctor', [ DoctorsController::class , 'store']);
+Route::get('/AddDoctor',[ DoctorsController::class,'addDoctor'])->name('addADoctor');
+Route::post('/AddDoctor', [ DoctorsController::class , 'store']);
 // Route::get('/Admin/dashboard',[ DoctorsController::class,'index'])->name('admin');
 // Route::post('/Admin/dashboard/{id}', [ DoctorsController::class , 'update']);
 // Route::put('/Admin/dashboard', [ DoctorsController::class , 'update']);
