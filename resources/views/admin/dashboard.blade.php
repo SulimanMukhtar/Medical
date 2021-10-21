@@ -171,7 +171,6 @@
                   @method('DELETE')
                <h3>Are You Sure ?</h3>
                <p>You Won't Be Able To Revert This !</p>
-               <input type="text" name="id" value="{{ $doctor['id'] }}" id="id">
               </div>
               <div class="modal-footer">
                 <button type="submit" class="btn btn-danger">Delete</button>
