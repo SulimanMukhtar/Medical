@@ -32,7 +32,7 @@
       <td>Mark</td>
       <td>09075</td>
       <td>Laps</td>
-       <td>  
+       <td> 
          <button type="button" class="btn btn-info btn-md" data-toggle="modal" data-target="#editeadmin">Edit</button>
          <button type="button" class="btn btn-info btn-md" data-toggle="modal" data-target="#addadmin">Add</button>
          <button type="button" class="btn btn-info btn-md" data-toggle="modal" data-target="#modall">Del</button>
@@ -46,21 +46,26 @@
  <table class="table table-striped table-hover">
   <thead>
     <tr>
-      <th scope="col">#</th>
-      <th scope="col">Lap Name</th>
-      <th scope="col">Phone Number</th>
+      <th scope="col"></th>
+      <th scope="col">Name</th>
+      <th scope="col">Location</th>
+      <th scope="col">Phone</th>
       <th scope="col">Description</th>
       <th scope="col">Logo</th>
-      <th scope="col">Modifiy</th>
+      <th scope="col"></th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th scope="row">1</th>
-      <td>Altra Lap</td>
-      <td>0907557112</td>
-      <td>Khrtoum uin</td>
-      <td>emage alt</td>
+      @foreach ($labs as $lab)
+          
+      @endforeach
+      <th scope="row">{{ $lab['id'] }}</th>
+      <td>{{ $lab['name'] }}</td>
+      <td>{{ $lab['location'] }}</td>
+      <td>{{ $lab['phone'] }}</td>
+      <td>{{ $lab['description'] }}</td>
+      <td>{{ $lab['image'] }}</td>
       <td> 
       <button type="button" class="btn btn-info btn-md" data-toggle="modal" data-target="#editlap">Edit</button>
          <button type="button" class="btn btn-info btn-md" data-toggle="modal" data-target="#addlap">Add</button>
@@ -77,34 +82,116 @@
   <table class="table table-striped table-hover">
   <thead>
     <tr>
-      <th scope="col">ID</th>
+      <th scope="col"></th>
       <th scope="col">Doctor Name</th>
       <th scope="col">Doctor Specialist</th>
       <th scope="col">University</th>
       <th scope="col">phone</th>
       <th scope="col">Doctor Description</th>
+      <th scope="col">Image</th>
       <th scope="col">Modifiy</th>
     </tr>
   </thead>
   <tbody>
+    @foreach ($doctors as $doctor)
     <tr>
-      <th scope="row">1</th>
-      <td>Qamer Ibrahim</td>
-      <td>Dental</td>
-      <td>Khrtoum</td>
-      <td>97887</td>
-      <td>Live in sudan </td>
+      <th scope="row">{{ $doctor['id'] }}</th>
+      <td>{{ $doctor['name'] }}</td>
+      <td>{{ $doctor['specialist'] }}</td>
+      <td>{{ $doctor['university'] }}</td>
+      <td>{{ $doctor['phone'] }}</td>
+      <td>{{ $doctor['description'] }}</td>
+      <td>{{ $doctor['image'] }}</td>
       <td>
-        <button type="button" class="btn btn-info btn-md" data-toggle="modal" data-target="#editdoctors">Edit</button>
-         <button type="button" class="btn btn-info btn-md" data-toggle="modal" data-target="#adddoctors">Add</button>
-         <button type="button" class="btn btn-info btn-md" data-toggle="modal" data-target="#modall">Del</button>
-      </td>
+        <button type="button" class="btn btn-info btn-md" data-toggle="modal" data-target="#editdoctors{{ $doctor['id'] }}">Edit</button>
+         <button type="button" class="btn btn-danger btn-md" data-toggle="modal" data-target="#del{{ $doctor['id'] }}">Del</button>
+        <div class="modal fade" id="editdoctors{{ $doctor['id'] }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Edit  Record</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">  
+                @if(Session::has('Doctor_Edited'))
+                                <div class="alert alert-success" role="alert">
+                                    {{ Session::get('Doctor_Edited') }}
+                                </div>
+                                @endif
+              <form action="{{ Route('Admin.update',$doctor['id']) }}" method="POST" enctype="multipart/form-data">
+                  @csrf
+                  @method('PUT')
+                  <div class="form-group">
+                    <label for="Name">Doctor Name</label>
+                    <input type="text"  name="name" value="{{ $doctor['name'] }}" class="form-control" id="name">
+                  </div>
+                  <div class="form-group">
+                      <label for="Specialist">Doctor Specialist</label>
+                      <input type="text"  name="specialist" value="{{ $doctor['specialist'] }}" class="form-control" id="specialist">
+                  </div>
+                  <div class="form-group">
+                      <label for="University">University</label>
+                      <input type="text"  name="university" value="{{ $doctor['university'] }}" class="form-control" id="university">
+                  </div>
+                  <div class="form-group">
+                      <label for="Phone">phone</label>
+                      <input type="text"  name="phone" value="{{ $doctor['phone'] }}" class="form-control" id="phone">
+                  </div>
+                  <div class="form-group">
+                      <label for="Description">Doctor Description	</label>
+                      <input type="text"  name="description" value="{{ $doctor['description'] }}" class="form-control" id="description">
+                  </div>
+                  <div class="form-group">
+                    <label for="file">Doctor Image	</label>
+                    <input type="file" name="image" class="form-control" id="image">
+                </div>
+                  <button type="submit" class="btn btn-primary">Save Change</button>
+              </form>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal fade" id="del{{ $doctor['id'] }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Confirm  Deletion</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body text-center">  
+                <form action="{{ Route('Admin.destroy',$doctor['id']) }}" method="POST">
+                  @csrf
+                  @method('DELETE')
+               <h3>Are You Sure ?</h3>
+               <p>You Won't Be Able To Revert This !</p>
+               <input type="text" name="id" value="{{ $doctor['id'] }}" id="id">
+              </div>
+              <div class="modal-footer">
+                <button type="submit" class="btn btn-danger">Delete</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              </div>
+            </form>
+            </div>
+          </div>
+        </div>
+        
+      </td>  
     </tr>
-   
+    @endforeach
   </tbody>
 </table>
-
 </div>
+
+
+
+
 
 <div id="Drugs" class="tabcontent">
   <h3>Drogs</h3>
@@ -282,50 +369,7 @@
   </div>
 </div>
 <!----------------end----- add lap modal---------------------------->
-<!----------------start----- edit Doctors modal---------------------------->
 
-<div class="modal fade" id="editdoctors" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Edit  Record</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">  
-      <form action="">
-          <div class="form-group">
-            <label for="exampleInputPassword1">Doctor Name</label>
-            <input type="text" class="form-control" id="exampleInputPassword1">
-          </div>
-          <div class="form-group">
-              <label for="exampleInputPassword1">Doctor Specialist</label>
-              <input type="text" class="form-control" id="exampleInputPassword1">
-          </div>
-          <div class="form-group">
-              <label for="exampleInputPassword1">University</label>
-              <input type="text" class="form-control" id="exampleInputPassword1">
-          </div>
-          <div class="form-group">
-              <label for="exampleInputPassword1">phone</label>
-              <input type="text" class="form-control" id="exampleInputPassword1">
-          </div>
-          <div class="form-group">
-              <label for="exampleInputPassword1">Doctor Description	</label>
-              <input type="text" class="form-control" id="exampleInputPassword1">
-          </div>
-          <button type="submit" class="btn btn-primary">Save Change</button>
-      </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!----------------end----- edit doctors modal---------------------------->
 <!----------------start----- add Doctors modal---------------------------->
 <div class="modal fade" id="adddoctors" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
@@ -467,5 +511,6 @@
 
 <!----------------end----- add Druge modal---------------------------->
 @include('includes.footer') 
+
 </body>
 </html>

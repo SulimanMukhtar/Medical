@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Doctor;
+use App\Models\Lab;
 
 class DoctorsController extends Controller
 {
@@ -15,7 +16,14 @@ class DoctorsController extends Controller
     public function index()
     {
         $doctors = Doctor::all()->toArray();
-        return view('pages.doctors' , compact('doctors'));
+        $labs = Lab::all()->toArray();
+
+        if (url()->current() === url('Admin'))
+        {
+            return view('admin.dashboard' , compact('doctors') , compact('labs'));
+        }else{
+            return view('pages.doctors' , compact('doctors'));
+        }
     }
 
     /**
@@ -79,7 +87,16 @@ class DoctorsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $doctor = Doctor::find($id);
+        $doctor->name = $request->name;
+        $doctor->specialist = $request->specialist;
+        $doctor->university = $request->university;
+        $doctor->phone = $request->phone; $nameW = basename($request->file('image')->getClientOriginalName(), '.'.$request->file('image')->getClientOriginalExtension());$extention = $request->file('image')->getClientOriginalExtension();$name = $nameW . rand(00000 , 9999) . time() .'.'. $extention;
+        $request->file('image')->move(public_path('/images/doctors/') , $name);
+        $doctor->image = $name;
+        $doctor->description = $request->description;
+        $doctor->save();
+        return back()->with('Doctor_Edited','Doctor Has Been Edited Successfully');
     }
 
     /**
@@ -90,6 +107,7 @@ class DoctorsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Doctor::destroy($id);
+        return back()->with('Doctor_Deleted','Doctor Has Been Deleted Successfully');
     }
 }
