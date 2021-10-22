@@ -58,8 +58,6 @@
   <tbody>
     <tr>
       @foreach ($labs as $lab)
-          
-      @endforeach
       <th scope="row">{{ $lab['id'] }}</th>
       <td>{{ $lab['name'] }}</td>
       <td>{{ $lab['location'] }}</td>
@@ -67,12 +65,82 @@
       <td>{{ $lab['description'] }}</td>
       <td>{{ $lab['image'] }}</td>
       <td> 
-      <button type="button" class="btn btn-info btn-md" data-toggle="modal" data-target="#editlap">Edit</button>
-         <button type="button" class="btn btn-info btn-md" data-toggle="modal" data-target="#addlap">Add</button>
-         <button type="button" class="btn btn-info btn-md" data-toggle="modal" data-target="#modall">Del</button>
+          <button type="button" class="btn btn-info btn-md" data-toggle="modal" data-target="#editlap{{ $lab['id'] }}">Edit</button>
+          <button type="button" class="btn btn-danger btn-md" data-toggle="modal" data-target="#dellab{{ $lab['id'] }}">Del</button>
+          <div class="modal fade" id="editlap{{ $lab['id'] }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Edit Record</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                    <div class="modal-body">  
+                      @if(Session::has('Lab_Edited'))
+                      <div class="alert alert-success" role="alert">
+                          {{ Session::get('Lab_Edited') }}
+                      </div>
+                      @endif
+                    <form action="{{ Route('Labs.update',$lab['id']) }}" method="POST" enctype="multipart/form-data">
+                        @csrf
+                        @method('PUT')
+                    <div class="form-group">
+                      <label for="name">Lap Name</label>
+                      <input type="text" value="{{ $lab['name'] }}" name="name" class="form-control" >
+                    </div>
+                    <div class="form-group">
+                      <label for="location">Location</label>
+                      <input type="text" value="{{ $lab['location'] }}" name="location" class="form-control">
+                  </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="text" value="{{ $lab['phone'] }}" name="phone" class="form-control" >
+                    </div>
+                    <div class="form-group">
+                        <label for="description">Description</label>
+                        <input type="text" value="{{ $lab['description'] }}" name="description" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="image">Logo</label>
+                        <input type="file" name="image" class="form-control">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Save Change</button>
+                </form>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal fade" id="dellab{{ $lab['id'] }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Confirm  Deletion</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body text-center">  
+                  <form action="{{ Route('Labs.destroy',$lab['id']) }}" method="POST">
+                    @csrf
+                    @method('DELETE')
+                 <h3>Are You Sure ?</h3>
+                 <p>You Won't Be Able To Revert This !</p>
+                </div>
+                <div class="modal-footer">
+                  <button type="submit" class="btn btn-danger">Delete</button>
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+              </form>
+              </div>
+            </div>
+          </div>
       </td>
     </tr>
-    <tr>
+    @endforeach
   </tbody>
 </table>
 </div>
@@ -292,44 +360,7 @@
   </div>
 </div>
 <!----------------end----- add admin modal---------------------------->
-<!----------------strat----- edit lap modal---------------------------->
-<div class="modal fade" id="editlap" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Edit Record</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">  
-      <form action="">
-          <div class="form-group">
-            <label for="exampleInputPassword1">Lap Name</label>
-            <input type="text" class="form-control" id="exampleInputPassword1">
-          </div>
-          <div class="form-group">
-              <label for="exampleInputPassword1">Phone Number</label>
-              <input type="text" class="form-control" id="exampleInputPassword1">
-          </div>
-          <div class="form-group">
-              <label for="exampleInputPassword1">Description</label>
-              <input type="text" class="form-control" id="exampleInputPassword1">
-          </div>
-          <div class="form-group">
-              <label for="exampleInputPassword1">Logo</label>
-              <input type="text" class="form-control" id="exampleInputPassword1">
-          </div>
-          <button type="submit" class="btn btn-primary">Save Change</button>
-      </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-      </div>
-    </div>
-  </div>
-</div>
-<!----------------end----- edit lap modal---------------------------->
+
 <!----------------start----- add lap modal---------------------------->
 <div class="modal fade" id="addlap" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">

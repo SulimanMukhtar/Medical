@@ -71,7 +71,16 @@ class LabsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $lab = Lab::find($id);
+        $lab->name = $request->name;
+        $lab->location = $request->location;
+        $lab->phone = $request->phone;
+        $lab->description = $request->description;
+        $nameW = basename($request->file('image')->getClientOriginalName(), '.'.$request->file('image')->getClientOriginalExtension());$extention = $request->file('image')->getClientOriginalExtension();$name = $nameW . rand(00000 , 9999) . time() .'.'. $extention;
+        $request->file('image')->move(public_path('/images/labs/') , $name);
+        $lab->image = $name;
+        $lab->save();
+        return back()->with('Lab_Edited','Lab Has Been Edited Successfully');
     }
 
     /**
@@ -82,6 +91,7 @@ class LabsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Lab::destroy($id);
+        return back()->with('Lab_Deleted','Lab Has Been Deleted Successfully');
     }
 }
