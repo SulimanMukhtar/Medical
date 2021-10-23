@@ -35,7 +35,7 @@ Route::post('/AddDoctor', [DoctorsController::class, 'store']);
 // Route::get('/Admin/dashboard', function () {
 //     return view('admin.dashboard');
 // });
-Route::get('/Admin/lapsuser', function () {
+Route::get('/lapsuser', function () {
     return view('admin.lapsuser');
 });
 Route::get('/Pharmacies', function () {
