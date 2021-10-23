@@ -15,7 +15,6 @@ body{
     margin: 18% 20% 20% 20%;
 }
 .Appiontment-btn{
-    
     border: none;
     padding: 0.46rem 1.6rem;
     background-color: rgba(19, 221, 80, 0.432);
@@ -261,13 +260,18 @@ body, html {
 /*===========================================================================*/
 
 /* Style inputs, select elements and textareas */
-input[type=text], select, textarea{
+.Resulteadd input[type=text],[type=file], select, textarea{
   width: 100%;
-  padding: 12px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
+  padding: 20px; 
+  border: none;
   resize: vertical;
+  background:none;
+  outline: none;
+  border-bottom: 2px solid #000000;
+  font-size: 14pt;
+  color: white;
+  font-weight: bolder;
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 /* Style the label to display next to the inputs */
@@ -277,21 +281,26 @@ label {
 }
 
 /* Style the submit button */
-input[type=submit] {
-  background-color: #04AA6D;
-  color: white;
+.Resulteadd input[type=submit] {
+  
+  color: green;
   padding: 12px 20px;
-  border: none;
+  border: 2px solid #000;
   border-radius: 4px;
   cursor: pointer;
   float: right;
+  font-weight: bold;
+  background:none;
+  transition: .6s;
 }
-
+.Resulteadd input[type=submit]:hover{
+  background-color: #000000;
+  color: white;
+}
 /* Style the container */
 .Resulteadd {
   margin-top: 10px;
   border-radius: 5px;
-  background-color: rgba(0, 255, 106, 0.178);
   padding: 20px;
   border-left: 10px solid #2196F3 ;
   border-right: 10px solid #2196F3 ;
@@ -341,9 +350,43 @@ border-right: 3px solid #0376f8;
 font-size: 17pt;
 margin-right: 10px;
 }
-hr{
-  border: 1px solid #0376f8;
-}
+
 .modal-backdrop {
   z-index: -1;
+}
+.homevisit{
+  margin-top: 50px;
+}
+.testmenue{
+  margin-top: 50px;
+}
+h3{
+  font-weight: bold;
+ 
+  font-family:'Roboto',sans-serif;
+}
+td button{
+  margin-right: 5px;
+  
+}
+h3 span .btn{
+  color: green;
+  padding: 12px 20px;
+  border: 2px solid #000;
+  border-radius: 4px;
+  cursor: pointer;
+  float: right;
+  font-weight: bold;
+  background:none;
+  transition: .6s;
+}
+h3 span .btn:hover{
+  background-color: #000000;
+  padding: 30px;
+  border-bottom : 1px solid rgb(252, 252, 252);
+   text-align: center;
+   rotate:y(90deg);
+}
+body{
+  font-family:'Roboto',sans-serif;
 }

@@ -12,10 +12,10 @@
 <button id="defaultOpen" class="tablink" onclick="openPage('Adminstrator', this, 'rgba(0, 255, 234, 0.315)')" >Adminstrators</button>
 <button class="tablink" onclick="openPage('Laps', this, 'rgba(0, 195, 255, 0.356)')" >Laps</button>
 <button class="tablink" onclick="openPage('Doctors', this, 'rgba(0, 255, 106, 0.315)')">Doctors</button>
-<button class="tablink" onclick="openPage('Drugs', this, 'rgba(43, 255, 0, 0.315)')">Drogs</button>
+<button class="tablink" onclick="openPage('Drugs', this, 'rgba(43, 255, 0, 0.315)')">Drugs</button>
 
 <div id="Adminstrator" class="tabcontent">
-  <h3>Admnistrators</h3>
+  <h3>Admnistrators <span><button type="button" class="btn btn-info btn-md" data-toggle="modal" data-target="#addadmin">Add Admin</button></span></h3>
   <table class="table table-striped table-hover">
   <thead>
     <tr>
@@ -34,7 +34,6 @@
       <td>Laps</td>
        <td> 
          <button type="button" class="btn btn-info btn-md" data-toggle="modal" data-target="#editeadmin">Edit</button>
-         <button type="button" class="btn btn-info btn-md" data-toggle="modal" data-target="#addadmin">Add</button>
          <button type="button" class="btn btn-info btn-md" data-toggle="modal" data-target="#modall">Del</button>
       </td>
     </tr>
@@ -42,7 +41,7 @@
 </table>
 </div>
 <div id="Laps" class="tabcontent">
-  <h3>Laps</h3>
+  <h3>Laps<span><button type="button" class="btn btn-info btn-md" data-toggle="modal" data-target="#addlap">Add Lap</button></span></h3>
  <table class="table table-striped table-hover">
   <thead>
     <tr>
@@ -146,7 +145,7 @@
 </div>
 
 <div id="Doctors" class="tabcontent">
-  <h3>Doctors</h3>
+  <h3>Doctors<span><button type="button" class="btn btn-info btn-md" data-toggle="modal" data-target="#adddoctors">Add Doctor</button></span></h3>
   <table class="table table-striped table-hover">
   <thead>
     <tr>
@@ -261,38 +260,34 @@
 
 
 <div id="Drugs" class="tabcontent">
-  <h3>Drogs</h3>
+  <h3>Druge <span> <button type="button" class="btn btn-info btn-md" data-toggle="modal" data-target="#Adddruge">Add Druge</button></span></h3>
   <table class="table table-striped table-hover">
-       <thead>
-        <tr>
-          <th scope="col">ID</th>
-          <th scope="col">chemical Name</th>
-          <th scope="col">Generic Name</th>
-          <th scope="col">Pharma Name</th>
-          <th scope="col">Phamra Number</th>
-          <th scope="col">Pharma Location</th>
-          <th scope="col">Description</th>
-          <th scope="col">Modifiy</th>
-        </tr>
-        </thead>
-    <tr>  
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Druge Name</th>
+      <th scope="col">Pharmacy</th>
+      <th scope="col">Location</th>
+      <th scope="col">Phone Number</th>
+      <th scope="col">Modifiy</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
       <th scope="row">1</th>
-      <td>Fursmid</td>
-      <td>lasix</td>
-      <td>Elsmah</td>
-      <td>6564</td>
-      <td>atbra str</td>
-      <td>.........,</td>
-      <td>
-      <button type="button" class="btn btn-info btn-md" data-toggle="modal" data-target="#editdruge">Edit</      button>
-         <button type="button" class="btn btn-info btn-md" data-toggle="modal" data-target="#Adddruge">Add</button>
+      <td>Lazix</td>
+      <td>Elsamh</td>
+      <td>Atbra str</td>
+      <td>0907557112</td>
+       <td> 
+         <button type="button" class="btn btn-info btn-md" data-toggle="modal" data-target="#editdruge">Edit</button>
          <button type="button" class="btn btn-info btn-md" data-toggle="modal" data-target="#modall">Del</button>
       </td>
     </tr>
-    
-  </table>
+  </tbody>
+</table>
 </div>
-</div>
+
 <!----------------start----- Edit admin modal---------------------------->
 <div class="modal fade" id="editeadmin" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
@@ -459,29 +454,22 @@
       <div class="modal-body">  
       <form action="">
           <div class="form-group">
-            <label for="exampleInputPassword1">chemical Name</label>
+            <label for="exampleInputPassword1">Druge Name</label>
             <input type="text" class="form-control" id="exampleInputPassword1">
           </div>
           <div class="form-group">
-              <label for="exampleInputPassword1">Generic Name	</label>
+              <label for="exampleInputPassword1">Pharmacy	</label>
               <input type="text" class="form-control" id="exampleInputPassword1">
           </div>
           <div class="form-group">
-              <label for="exampleInputPassword1">Pharma Name</label>
+              <label for="exampleInputPassword1">Location</label>
               <input type="text" class="form-control" id="exampleInputPassword1">
           </div>
           <div class="form-group">
-              <label for="exampleInputPassword1">Phamra Number	</label>
+              <label for="exampleInputPassword1">Phone Number</label>
               <input type="text" class="form-control" id="exampleInputPassword1">
           </div>
-          <div class="form-group">
-              <label for="exampleInputPassword1">Pharma Location</label>
-              <input type="text" class="form-control" id="exampleInputPassword1">
-          </div>
-          <div class="form-group">
-              <label for="exampleInputPassword1">Description</label>
-              <input type="text" class="form-control" id="exampleInputPassword1">
-          </div>
+         
           <button type="submit" class="btn btn-primary">Save Change</button>
       </form>
       </div>
@@ -505,28 +493,20 @@
       </div>
       <div class="modal-body">  
       <form action="">
-          <div class="form-group">
-            <label for="exampleInputPassword1">chemical Name</label>
+      <div class="form-group">
+            <label for="exampleInputPassword1">Druge Name</label>
             <input type="text" class="form-control" id="exampleInputPassword1">
           </div>
           <div class="form-group">
-              <label for="exampleInputPassword1">Generic Name	</label>
+              <label for="exampleInputPassword1">Pharmacy	</label>
               <input type="text" class="form-control" id="exampleInputPassword1">
           </div>
           <div class="form-group">
-              <label for="exampleInputPassword1">Pharma Name</label>
+              <label for="exampleInputPassword1">Location</label>
               <input type="text" class="form-control" id="exampleInputPassword1">
           </div>
           <div class="form-group">
-              <label for="exampleInputPassword1">Phamra Number	</label>
-              <input type="text" class="form-control" id="exampleInputPassword1">
-          </div>
-          <div class="form-group">
-              <label for="exampleInputPassword1">Pharma Location</label>
-              <input type="text" class="form-control" id="exampleInputPassword1">
-          </div>
-          <div class="form-group">
-              <label for="exampleInputPassword1">Description</label>
+              <label for="exampleInputPassword1">Phone Number</label>
               <input type="text" class="form-control" id="exampleInputPassword1">
           </div>
           <button type="submit" class="btn btn-primary">Save Change</button>
