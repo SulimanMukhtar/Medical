@@ -1,61 +1,69 @@
 <html lang="en">
+
 <head>
-  @include('includes.header')
+    @include('includes.header')
 </head>
+
 <body>
-<section style="padding-top:60px;">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6 offset-md-3">
-                <div class="card">
-                    <div class="card-header">
-                        Add Doctor
-                    </div>
-                    <div class="card-body">
-                        @if(Session::has('Doctor_Added'))
-                        <div class="alert alert-success" role="alert">
-                            {{ Session::get('Doctor_Added') }}
+    <section style="padding-top:60px;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 offset-md-3">
+                    <div class="card">
+                        <div class="card-header">
+                            Add Doctor
                         </div>
-                        @endif
-                        <form method="POST" action="{{ route('addADoctor'); }}" enctype="multipart/form-data">
-                            @csrf
-                            <div class="form-group">
-                                <label for="name">Doctor Name</label>
-                                <input type="text" name="name" id="name" class="form-control" placeholder="Doctor Name">
-                            </div>
-                            <div class="form-group">
-                                <label for="specialist">Doctor Specialist</label>
-                                <input type="text" name="specialist" id="specialist" class="form-control" placeholder="Doctor Specialist">
-                            </div>
-                            <div class="form-group">
-                                <label for="university">University</label>
-                                <input type="text" name="university" id="university" class="form-control" placeholder="Doctor University">
-                            </div>
-                            <div class="form-group">
-                                <label for="phone">Phone</label>
-                                <input type="text" name="phone" id="phone" class="form-control" placeholder="Doctor phone">
-                            </div>
-                            <div class="form-group">
-                                <label for="description">Doctor Description</label>
-                                <input type="text" name="description" id="description" class="form-control" rows="3" placeholder="Doctor Description">
-                            </div>
-                            <div class="form-group">
-                                <label for="image">Doctor Image</label>
-                                <input type="file" name="image" id="image" class="form-control">
-                            </div>
-                            <button type="submit" class="btn btn-success">Add A Doctor</button>
-                        </form>
+                        <div class="card-body">
+                            @if (Session::has('Doctor_Added'))
+                                <div class="alert alert-success" role="alert">
+                                    {{ Session::get('Doctor_Added') }}
+                                </div>
+                            @endif
+                            <form method="POST" action="{{ route('addADoctor') }}" enctype="multipart/form-data">
+                                @csrf
+                                <div class="form-group">
+                                    <label for="name">Doctor Name</label>
+                                    <input type="text" name="name" id="name" class="form-control"
+                                        placeholder="Doctor Name">
+                                </div>
+                                <div class="form-group">
+                                    <label for="specialist">Doctor Specialist</label>
+                                    <input type="text" name="specialist" id="specialist" class="form-control"
+                                        placeholder="Doctor Specialist">
+                                </div>
+                                <div class="form-group">
+                                    <label for="university">University</label>
+                                    <input type="text" name="university" id="university" class="form-control"
+                                        placeholder="Doctor University">
+                                </div>
+                                <div class="form-group">
+                                    <label for="phone">Phone</label>
+                                    <input type="text" name="phone" id="phone" class="form-control"
+                                        placeholder="Doctor phone">
+                                </div>
+                                <div class="form-group">
+                                    <label for="description">Doctor Description</label>
+                                    <input type="text" name="description" id="description" class="form-control"
+                                        rows="3" placeholder="Doctor Description">
+                                </div>
+                                <div class="form-group">
+                                    <label for="image">Doctor Image</label>
+                                    <input type="file" name="image" id="image" class="form-control">
+                                </div>
+                                <button type="submit" class="btn btn-success">Add A Doctor</button>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 
-</section>
+    </section>
     @include('includes.footer')
     <script src="js/jquery-3.6.0.min.js"></script>
-     <script src="js//bootstrap.min.js"></script>
-     <script src="js//app.js"></script>
-     <script src="js//all.min.js"></script>    
+    <script src="js//bootstrap.min.js"></script>
+    <script src="js//app.js"></script>
+    <script src="js//all.min.js"></script>
 </body>
+
 </html>

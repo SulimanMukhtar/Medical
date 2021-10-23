@@ -18,11 +18,10 @@ class DoctorsController extends Controller
         $doctors = Doctor::all()->toArray();
         $labs = Lab::all()->toArray();
 
-        if (url()->current() === url('Admin'))
-        {
-            return view('admin.dashboard' , compact('doctors') , compact('labs'));
-        }else{
-            return view('pages.doctors' , compact('doctors'));
+        if (url()->current() === url('Admin')) {
+            return view('admin.dashboard', compact('doctors'), compact('labs'));
+        } else {
+            return view('pages.doctors', compact('doctors'));
         }
     }
 
@@ -48,12 +47,15 @@ class DoctorsController extends Controller
         $doctor->name = $request->name;
         $doctor->specialist = $request->specialist;
         $doctor->university = $request->university;
-        $doctor->phone = $request->phone; $nameW = basename($request->file('image')->getClientOriginalName(), '.'.$request->file('image')->getClientOriginalExtension());$extention = $request->file('image')->getClientOriginalExtension();$name = $nameW . rand(00000 , 9999) . time() .'.'. $extention;
-        $request->file('image')->move(public_path('/images/doctors/') , $name);
+        $doctor->phone = $request->phone;
+        $nameW = basename($request->file('image')->getClientOriginalName(), '.' . $request->file('image')->getClientOriginalExtension());
+        $extention = $request->file('image')->getClientOriginalExtension();
+        $name = $nameW . rand(00000, 9999) . time() . '.' . $extention;
+        $request->file('image')->move(public_path('/images/doctors/'), $name);
         $doctor->image = $name;
         $doctor->description = $request->description;
         $doctor->save();
-        return back()->with('Doctor_Added','Doctor Has Been Added Successfully');
+        return back()->with('Doctor_Added', 'Doctor Has Been Added Successfully');
     }
 
     /**
@@ -91,12 +93,15 @@ class DoctorsController extends Controller
         $doctor->name = $request->name;
         $doctor->specialist = $request->specialist;
         $doctor->university = $request->university;
-        $doctor->phone = $request->phone; $nameW = basename($request->file('image')->getClientOriginalName(), '.'.$request->file('image')->getClientOriginalExtension());$extention = $request->file('image')->getClientOriginalExtension();$name = $nameW . rand(00000 , 9999) . time() .'.'. $extention;
-        $request->file('image')->move(public_path('/images/doctors/') , $name);
+        $doctor->phone = $request->phone;
+        $nameW = basename($request->file('image')->getClientOriginalName(), '.' . $request->file('image')->getClientOriginalExtension());
+        $extention = $request->file('image')->getClientOriginalExtension();
+        $name = $nameW . rand(00000, 9999) . time() . '.' . $extention;
+        $request->file('image')->move(public_path('/images/doctors/'), $name);
         $doctor->image = $name;
         $doctor->description = $request->description;
         $doctor->save();
-        return back()->with('Doctor_Edited','Doctor Has Been Edited Successfully');
+        return back()->with('Doctor_Edited', 'Doctor Has Been Edited Successfully');
     }
 
     /**
@@ -108,6 +113,6 @@ class DoctorsController extends Controller
     public function destroy($id)
     {
         Doctor::destroy($id);
-        return back()->with('Doctor_Deleted','Doctor Has Been Deleted Successfully');
+        return back()->with('Doctor_Deleted', 'Doctor Has Been Deleted Successfully');
     }
 }

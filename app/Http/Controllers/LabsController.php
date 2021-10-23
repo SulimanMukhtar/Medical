@@ -16,7 +16,7 @@ class LabsController extends Controller
     public function index()
     {
         $labs = Lab::all()->toArray();
-        return view('pages.labs' , compact('labs'));
+        return view('pages.labs', compact('labs'));
     }
 
     /**
@@ -37,7 +37,18 @@ class LabsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $lab = new Lab();
+        $lab->name = $request->name;
+        $lab->location = $request->location;
+        $lab->phone = $request->phone;
+        $lab->description = $request->description;
+        $nameW = basename($request->file('image')->getClientOriginalName(), '.' . $request->file('image')->getClientOriginalExtension());
+        $extention = $request->file('image')->getClientOriginalExtension();
+        $name = $nameW . rand(00000, 9999) . time() . '.' . $extention;
+        $request->file('image')->move(public_path('/images/labs/'), $name);
+        $lab->image = $name;
+        $lab->save();
+        return back()->with('Lab_Added', 'Lab Has Been Added Successfully');
     }
 
     /**
@@ -76,11 +87,13 @@ class LabsController extends Controller
         $lab->location = $request->location;
         $lab->phone = $request->phone;
         $lab->description = $request->description;
-        $nameW = basename($request->file('image')->getClientOriginalName(), '.'.$request->file('image')->getClientOriginalExtension());$extention = $request->file('image')->getClientOriginalExtension();$name = $nameW . rand(00000 , 9999) . time() .'.'. $extention;
-        $request->file('image')->move(public_path('/images/labs/') , $name);
+        $nameW = basename($request->file('image')->getClientOriginalName(), '.' . $request->file('image')->getClientOriginalExtension());
+        $extention = $request->file('image')->getClientOriginalExtension();
+        $name = $nameW . rand(00000, 9999) . time() . '.' . $extention;
+        $request->file('image')->move(public_path('/images/labs/'), $name);
         $lab->image = $name;
         $lab->save();
-        return back()->with('Lab_Edited','Lab Has Been Edited Successfully');
+        return back()->with('Lab_Edited', 'Lab Has Been Edited Successfully');
     }
 
     /**
@@ -92,6 +105,6 @@ class LabsController extends Controller
     public function destroy($id)
     {
         Lab::destroy($id);
-        return back()->with('Lab_Deleted','Lab Has Been Deleted Successfully');
+        return back()->with('Lab_Deleted', 'Lab Has Been Deleted Successfully');
     }
 }
