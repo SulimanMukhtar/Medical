@@ -38,6 +38,15 @@ Route::post('/AddDoctor', [DoctorsController::class, 'store']);
 Route::get('/lapsuser', function () {
     return view('admin.lapsuser');
 });
+
+Route::get('/Panel/Doctor', function () {
+    return view('admin.doctorcp');
+});
+
+Route::get('/Panel/Drug', function () {
+    return view('admin.drugcp');
+});
+
 Route::get('/Pharmacies', function () {
     return view('pages.pharmacies');
 });
