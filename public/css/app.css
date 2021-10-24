@@ -19,6 +19,7 @@ body {
 
 .Appiontment-btn {
   border: none;
+  overflow: hidden;
   padding: 0.46rem 1.6rem;
   background-color: rgba(19, 221, 80, 0.432);
   border: none;
@@ -236,18 +237,22 @@ html {
 
 #Adminstrator {
   background-color: rgba(0, 255, 234, 0.315);
+  height: 100%;
 }
 
 #Laps {
   background-color: rgba(0, 195, 255, 0.356);
+  height: 100%;
 }
 
 #Doctors {
   background-color: rgba(0, 255, 106, 0.315);
+  height: 100%;
 }
 
 #Drugs {
   background-color: rgba(43, 255, 0, 0.315);
+  height: 100%;
 }
 
 /* stylying ADmins T----------------------------------------*/
@@ -366,10 +371,6 @@ label {
   margin-top: 10px;
   border-radius: 5px;
   padding: 20px;
-  border-left: 10px solid #2196F3;
-  border-right: 10px solid #2196F3;
-
-
 }
 
 /* Floating column for labels: 25% width */
@@ -433,7 +434,7 @@ label {
 
 h3 {
   font-weight: bold;
-
+   margin: 10px;
   font-family: 'Roboto', sans-serif;
 }
 
@@ -456,10 +457,7 @@ h3 span .btn {
 
 h3 span .btn:hover {
   background-color: #000000;
-  padding: 30px;
-  border-bottom: 1px solid rgb(252, 252, 252);
   text-align: center;
-  rotate: y(90deg);
 }
 
 body {

@@ -16,11 +16,11 @@
     <button class="tablink" onclick="openPage('Laps', this, 'rgba(0, 195, 255, 0.356)')">Laps</button>
     <button class="tablink" onclick="openPage('Doctors', this, 'rgba(0, 255, 106, 0.315)')">Doctors</button>
     <button class="tablink" onclick="openPage('Drugs', this, 'rgba(43, 255, 0, 0.315)')">Drugs</button>
-
+    
     <div id="Adminstrator" class="tabcontent">
         <h3>Admnistrators <span><button type="button" class="btn btn-info btn-md" data-toggle="modal"
                     data-target="#addadmin">Add Admin</button></span></h3>
-        <table class="table table-striped table-hover">
+        <table class="table table-striped table-hover table-responsive-xl">
             <thead>
                 <tr>
                     <th scope="col">#</th>
@@ -54,7 +54,7 @@
                         data-target="#AddLab">Add Lap</button></span></h3>
             {{-- <button type="button" class="btn btn-info btn-md" data-toggle="modal" data-target="#AddLab">Add Lab</button> --}}
         </div>
-        <table class="table table-striped table-hover">
+        <table class="table table-striped table-hover table-responsive-xl">
             <thead>
                 <tr>
                     <th scope="col"></th>
@@ -178,7 +178,7 @@
             {{-- <button type="button" class="btn btn-info btn-md" data-toggle="modal" data-target="#AddDoctor">Add
                 Doctor</button> --}}
         </div>
-        <table class="table table-striped table-hover">
+        <table class="table table-sm table-striped table-hover table-responsive-xl ">
             <thead>
                 <tr>
                     <th scope="col"></th>
@@ -306,22 +306,19 @@
             </tbody>
         </table>
     </div>
-
-
-
-
-
     <div id="Drugs" class="tabcontent">
+        <div class="container-xl">
+        
+    <div class="row">
+        <div class="col-lg-6">
         <h3>Drogs <span> <button type="button" class="btn btn-info btn-md" data-toggle="modal"
-                    data-target="#Adddruge">Add Druge</button></h3>
-        <table class="table table-striped table-hover">
+                    data-target="#Adddruge">Add Druge</button></h3> 
+        <table class="table table-striped table-hover table-responsive-xl">
             <thead>
                 <tr>
                     <th scope="col">#</th>
                     <th scope="col">Druge Name</th>
                     <th scope="col">Pharmacy</th>
-                    <th scope="col">Location</th>
-                    <th scope="col">Phone Number</th>
                     <th scope="col">Modifiy</th>
                 </tr>
             </thead>
@@ -330,8 +327,6 @@
                     <th scope="row">1</th>
                     <td>Lazix</td>
                     <td>Elsamh</td>
-                    <td>Atbra str</td>
-                    <td>0907557112</td>
                     <td>
                         <button type="button" class="btn btn-info btn-md" data-toggle="modal"
                             data-target="#editdruge">Edit</button>
@@ -343,6 +338,41 @@
 
             </tbody>
         </table>
+        </div>
+        <div class="col-lg-6">
+        <h3>Pharmaces <span> <button type="button" class="btn btn-info btn-md" data-toggle="modal"
+                    data-target="#Addpharma">Add Pharmacy</button></h3>
+        <table class="table table-striped table-hover table-responsive-xl">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Pharmacy Name</th>
+                    <th scope="col">Location</th>
+                    <th scope="col">Phone Number</th>
+                    <th scope="col">Modifiy</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">1</th>
+                    <td>Elsamh</td>
+                    <td>Atbra str</td>
+                    <td>0907557112</td>
+                    <td>
+                        <button type="button" class="btn btn-info btn-md" data-toggle="modal"
+                            data-target="#editpharma">Edit</button>
+
+                        <button type="button" class="btn btn-info btn-md" data-toggle="modal"
+                            data-target="#modall">Del</button>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table> 
+        </div>
+    </div>
+      
+        </div>
     </div>
     <!----------------start----- Edit admin modal---------------------------->
     <div class="modal fade" id="editeadmin" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -524,15 +554,11 @@
                 <div class="modal-body">
                     <form action="">
                         <div class="form-group">
-                            <label for="exampleInputPassword1">Pharmacy </label>
+                            <label for="exampleInputPassword1">Druge Name </label>
                             <input type="text" class="form-control" id="exampleInputPassword1">
                         </div>
                         <div class="form-group">
-                            <label for="exampleInputPassword1">Location</label>
-                            <input type="text" class="form-control" id="exampleInputPassword1">
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInputPassword1">Phone</label>
+                            <label for="exampleInputPassword1">Pharmacy</label>
                             <input type="text" class="form-control" id="exampleInputPassword1">
                         </div>
                         <button type="submit" class="btn btn-primary">Save Change</button>
@@ -566,14 +592,75 @@
                             <label for="exampleInputPassword1">Pharmacy </label>
                             <input type="text" class="form-control" id="exampleInputPassword1">
                         </div>
+                            <button type="submit" class="btn btn-primary">Save Change</button>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!----------------end----- add Druge modal---------------------------->
+     <!----------------Start----- edit pharma modal---------------------------->
+     <div class="modal fade" id="editpharma" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Edit Record</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form action="">
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Pharmacy Name </label>
+                            <input type="text" class="form-control" id="exampleInputPassword1">
+                        </div>
                         <div class="form-group">
                             <label for="exampleInputPassword1">Location</label>
                             <input type="text" class="form-control" id="exampleInputPassword1">
                         </div>
                         <div class="form-group">
-                            <label for="exampleInputPassword1">Phone </label>
+                            <label for="exampleInputPassword1">Phone Number</label>
                             <input type="text" class="form-control" id="exampleInputPassword1">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Save Change</button>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!----------------end----- edit  pharma modal---------------------------->
+    <!----------------start----- add  pharma modal---------------------------->
 
+    <div class="modal fade" id="Addpharma" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Add Record</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form action="">
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Pharmacy Name</label>
+                            <input type="text" class="form-control" id="exampleInputPassword1">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Location</label>
+                            <input type="text" class="form-control" id="exampleInputPassword1">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Phone Number</label>
+                            <input type="text" class="form-control" id="exampleInputPassword1">
+                        </div>
                             <button type="submit" class="btn btn-primary">Save Change</button>
                     </form>
                 </div>
@@ -584,7 +671,6 @@
         </div>
     </div>
 
-    <!----------------end----- add Druge modal---------------------------->
     @include('includes.footer')
 
 </body>
