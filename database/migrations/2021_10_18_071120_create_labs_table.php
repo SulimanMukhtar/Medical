@@ -14,13 +14,22 @@ class CreateLabsTable extends Migration
     public function up()
     {
         Schema::create('labs', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id')->unsigned();
             $table->string('name');
             $table->string('location');
             $table->char('phone');
             $table->string('description');
             $table->binary('image');
+            $table->boolean('approved')->default(false);
             $table->timestamps();
+        });
+
+        Schema::create('lab_tests', function (Blueprint $table) {
+            $table->increments('id')->unsigned();
+            $table->unsignedInteger('lab_id');
+            $table->string('test_name');
+            $table->timestamps();
+            $table->foreign('lab_id')->references('id')->on('labs')->onDelete('cascade');
         });
     }
 

@@ -5,18 +5,16 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Lab extends Model
+class LabTest extends Model
 {
     use HasFactory;
 
-    protected $table = 'labs';
+    protected $table = 'lab_tests';
 
     protected $primaryKey = 'id';
 
-    // protected $fillable = ['','',''];
-
-    public function labTests()
+    public function lab()
     {
-        return $this->hasMany(LabTest::class);
+        return $this->belongsTo(Lab::class);
     }
 }

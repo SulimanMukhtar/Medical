@@ -17,6 +17,22 @@ return [
         'guard' => 'web',
         'passwords' => 'users',
     ],
+    'admin' => [
+        'driver' => 'eloquent',
+        'model' => App\Models\Admin::class,
+    ],
+    'doctor' => [
+        'driver' => 'eloquent',
+        'model' => App\Models\Doctor::class,
+    ],
+    'lab_manager' => [
+        'driver' => 'eloquent',
+        'model' => App\Models\lab_manager::class,
+    ],
+    'pharma_manager' => [
+        'driver' => 'eloquent',
+        'model' => App\Models\pharma_manager::class,
+    ],
 
     /*
     |--------------------------------------------------------------------------
@@ -39,6 +55,27 @@ return [
         'web' => [
             'driver' => 'session',
             'provider' => 'users',
+        ],
+        'api' => [
+            'driver' => 'token',
+            'provider' => 'users',
+            'hash' => false,
+        ],
+        'admin' => [
+            'driver' => 'session',
+            'provider' => 'admins',
+        ],
+        'doctor' => [
+            'driver' => 'session',
+            'provider' => 'doctors',
+        ],
+        'lab_manager' => [
+            'driver' => 'session',
+            'provider' => 'lab_manager',
+        ],
+        'pharma_manager' => [
+            'driver' => 'session',
+            'provider' => 'pharma_manager',
         ],
     ],
 
@@ -69,6 +106,22 @@ return [
         //     'driver' => 'database',
         //     'table' => 'users',
         // ],
+        'admins' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Admin::class,
+        ],
+        'doctors' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Doctor::class,
+        ],
+        'lab_manager' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\lab_manager::class,
+        ],
+        'pharma_manager' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\pharma_manager::class,
+        ],
     ],
 
     /*
@@ -92,6 +145,22 @@ return [
             'table' => 'password_resets',
             'expire' => 60,
             'throttle' => 60,
+        ],
+        'admins' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Admin::class,
+        ],
+        'doctors' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Doctor::class,
+        ],
+        'lab_manager' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\lab_manager::class,
+        ],
+        'pharma_manager' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\pharma_manager::class,
         ],
     ],
 

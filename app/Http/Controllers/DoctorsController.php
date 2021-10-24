@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Doctor;
-use App\Models\Lab;
 
 class DoctorsController extends Controller
 {
@@ -16,13 +15,7 @@ class DoctorsController extends Controller
     public function index()
     {
         $doctors = Doctor::all()->toArray();
-        $labs = Lab::all()->toArray();
-
-        if (url()->current() === url('Admin')) {
-            return view('admin.dashboard', compact('doctors'), compact('labs'));
-        } else {
-            return view('pages.doctors', compact('doctors'));
-        }
+        return view('pages.doctors', compact('doctors'));
     }
 
     /**

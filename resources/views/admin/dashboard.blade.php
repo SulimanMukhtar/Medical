@@ -8,7 +8,11 @@
 
 <body>
     <div class="info admin">
-        <p><strong>Admin</strong> Qamer Ibrhim</p>
+        <p><strong>Admin </strong>{{ Auth::guard('admin')->user()->name }} <span><a
+                    href="{{ route('admin.logout') }}"
+                    onclick="event.preventDefault();document.getElementById('logout-form').submit();">Logout</a>
+                <form action="{{ route('admin.logout') }}" id="logout-form" method="post">@csrf</form>
+            </span></p>
     </div>
 
     <button id="defaultOpen" class="tablink"
@@ -16,7 +20,7 @@
     <button class="tablink" onclick="openPage('Laps', this, 'rgba(0, 195, 255, 0.356)')">Laps</button>
     <button class="tablink" onclick="openPage('Doctors', this, 'rgba(0, 255, 106, 0.315)')">Doctors</button>
     <button class="tablink" onclick="openPage('Drugs', this, 'rgba(43, 255, 0, 0.315)')">Drugs</button>
-    
+
     <div id="Adminstrator" class="tabcontent">
         <h3>Admnistrators <span><button type="button" class="btn btn-info btn-md" data-toggle="modal"
                     data-target="#addadmin">Add Admin</button></span></h3>
@@ -225,7 +229,7 @@
                                                     {{ Session::get('Doctor_Edited') }}
                                                 </div>
                                             @endif
-                                            <form action="{{ Route('Admin.update', $doctor['id']) }}" method="POST"
+                                            <form action="{{ Route('Doctors.update', $doctor['id']) }}" method="POST"
                                                 enctype="multipart/form-data">
                                                 @csrf
                                                 @method('PUT')
@@ -283,7 +287,8 @@
                                             </button>
                                         </div>
                                         <div class="modal-body text-center">
-                                            <form action="{{ Route('Admin.destroy', $doctor['id']) }}" method="POST">
+                                            <form action="{{ Route('Doctors.destroy', $doctor['id']) }}"
+                                                method="POST">
                                                 @csrf
                                                 @method('DELETE')
                                                 <h3>Are You Sure ?</h3>
@@ -308,70 +313,70 @@
     </div>
     <div id="Drugs" class="tabcontent">
         <div class="container-xl">
-        
-    <div class="row">
-        <div class="col-lg-6">
-        <h3>Drogs <span> <button type="button" class="btn btn-info btn-md" data-toggle="modal"
-                    data-target="#Adddruge">Add Druge</button></h3> 
-        <table class="table table-striped table-hover table-responsive-xl">
-            <thead>
-                <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Druge Name</th>
-                    <th scope="col">Pharmacy</th>
-                    <th scope="col">Modifiy</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>Lazix</td>
-                    <td>Elsamh</td>
-                    <td>
-                        <button type="button" class="btn btn-info btn-md" data-toggle="modal"
-                            data-target="#editdruge">Edit</button>
 
-                        <button type="button" class="btn btn-info btn-md" data-toggle="modal"
-                            data-target="#modall">Del</button>
-                    </td>
-                </tr>
+            <div class="row">
+                <div class="col-lg-6">
+                    <h3>Drogs <span> <button type="button" class="btn btn-info btn-md" data-toggle="modal"
+                                data-target="#Adddruge">Add Druge</button></h3>
+                    <table class="table table-striped table-hover table-responsive-xl">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Druge Name</th>
+                                <th scope="col">Pharmacy</th>
+                                <th scope="col">Modifiy</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">1</th>
+                                <td>Lazix</td>
+                                <td>Elsamh</td>
+                                <td>
+                                    <button type="button" class="btn btn-info btn-md" data-toggle="modal"
+                                        data-target="#editdruge">Edit</button>
 
-            </tbody>
-        </table>
-        </div>
-        <div class="col-lg-6">
-        <h3>Pharmaces <span> <button type="button" class="btn btn-info btn-md" data-toggle="modal"
-                    data-target="#Addpharma">Add Pharmacy</button></h3>
-        <table class="table table-striped table-hover table-responsive-xl">
-            <thead>
-                <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Pharmacy Name</th>
-                    <th scope="col">Location</th>
-                    <th scope="col">Phone Number</th>
-                    <th scope="col">Modifiy</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>Elsamh</td>
-                    <td>Atbra str</td>
-                    <td>0907557112</td>
-                    <td>
-                        <button type="button" class="btn btn-info btn-md" data-toggle="modal"
-                            data-target="#editpharma">Edit</button>
+                                    <button type="button" class="btn btn-info btn-md" data-toggle="modal"
+                                        data-target="#modall">Del</button>
+                                </td>
+                            </tr>
 
-                        <button type="button" class="btn btn-info btn-md" data-toggle="modal"
-                            data-target="#modall">Del</button>
-                    </td>
-                </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col-lg-6">
+                    <h3>Pharmaces <span> <button type="button" class="btn btn-info btn-md" data-toggle="modal"
+                                data-target="#Addpharma">Add Pharmacy</button></h3>
+                    <table class="table table-striped table-hover table-responsive-xl">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Pharmacy Name</th>
+                                <th scope="col">Location</th>
+                                <th scope="col">Phone Number</th>
+                                <th scope="col">Modifiy</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">1</th>
+                                <td>Elsamh</td>
+                                <td>Atbra str</td>
+                                <td>0907557112</td>
+                                <td>
+                                    <button type="button" class="btn btn-info btn-md" data-toggle="modal"
+                                        data-target="#editpharma">Edit</button>
 
-            </tbody>
-        </table> 
-        </div>
-    </div>
-      
+                                    <button type="button" class="btn btn-info btn-md" data-toggle="modal"
+                                        data-target="#modall">Del</button>
+                                </td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
         </div>
     </div>
     <!----------------start----- Edit admin modal---------------------------->
@@ -453,7 +458,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form action="{{ Route('Labs.store') }}" method="POST" enctype="multipart/form-data">
+                    <form action="{{ route('Labs.store') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="form-group">
                             <label for="name">Lap Name</label>
@@ -592,7 +597,7 @@
                             <label for="exampleInputPassword1">Pharmacy </label>
                             <input type="text" class="form-control" id="exampleInputPassword1">
                         </div>
-                            <button type="submit" class="btn btn-primary">Save Change</button>
+                        <button type="submit" class="btn btn-primary">Save Change</button>
                     </form>
                 </div>
                 <div class="modal-footer">
@@ -602,8 +607,8 @@
         </div>
     </div>
     <!----------------end----- add Druge modal---------------------------->
-     <!----------------Start----- edit pharma modal---------------------------->
-     <div class="modal fade" id="editpharma" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <!----------------Start----- edit pharma modal---------------------------->
+    <div class="modal fade" id="editpharma" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -661,7 +666,7 @@
                             <label for="exampleInputPassword1">Phone Number</label>
                             <input type="text" class="form-control" id="exampleInputPassword1">
                         </div>
-                            <button type="submit" class="btn btn-primary">Save Change</button>
+                        <button type="submit" class="btn btn-primary">Save Change</button>
                     </form>
                 </div>
                 <div class="modal-footer">

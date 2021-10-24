@@ -1,7 +1,11 @@
 <?php
 
+use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Doctor\DoctorController;
 use App\Http\Controllers\DoctorsController;
 use App\Http\Controllers\LabsController;
+use App\Http\Controllers\User\UserController;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,7 +28,7 @@ Route::get('/', function () {
 
 Route::resource('/Doctors', DoctorsController::class);
 Route::resource('/Labs', LabsController::class);
-Route::resource('/Admin', DoctorsController::class);
+// Route::resource('/Admin', DoctorsController::class);
 
 Route::get('/AddDoctor', [DoctorsController::class, 'addDoctor'])->name('addADoctor');
 Route::post('/AddDoctor', [DoctorsController::class, 'store']);
@@ -53,4 +57,37 @@ Route::get('/Pharmacies', function () {
 
 Route::get('/Search', function () {
     return view('pages.search');
+});
+
+Auth::routes();
+
+Route::prefix('user')->name('user.')->group(function () {
+
+    Route::middleware(['guest:web', 'PreventBackHistory'])->group(function () {
+        Route::view('/login', 'dashboard.user.login')->name('login');
+        Route::view('/register', 'dashboard.user.register')->name('register');
+        Route::post('/create', [UserController::class, 'create'])->name('create');
+        Route::post('/check', [UserController::class, 'check'])->name('check');
+    });
+
+    Route::middleware(['auth:web', 'PreventBackHistory'])->group(function () {
+        Route::view('/home', 'dashboard.user.home')->name('home');
+        Route::post('/logout', [UserController::class, 'logout'])->name('logout');
+        Route::get('/add-new', [UserController::class, 'add'])->name('add');
+    });
+});
+
+Route::prefix('admin')->name('admin.')->group(function () {
+
+    Route::middleware(['guest:admin', 'PreventBackHistory'])->group(function () {
+        Route::view('/login', 'dashboard.admin.login')->name('login');
+        Route::post('/check', [AdminController::class, 'check'])->name('check');
+    });
+
+    Route::middleware(['auth:admin', 'PreventBackHistory'])->group(function () {
+        Route::get('/home', [AdminController::class, 'index'])->name('home');
+        Route::post('/home', [DoctorController::class, 'store'])->name('add');
+        Route::post('/logout', [AdminController::class, 'logout'])->name('logout');
+        Route::post('/home', [LabsController::class, 'store'])->name('lab');
+    });
 });
