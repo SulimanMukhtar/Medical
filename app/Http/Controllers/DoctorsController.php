@@ -87,11 +87,13 @@ class DoctorsController extends Controller
         $doctor->specialist = $request->specialist;
         $doctor->university = $request->university;
         $doctor->phone = $request->phone;
-        $nameW = basename($request->file('image')->getClientOriginalName(), '.' . $request->file('image')->getClientOriginalExtension());
-        $extention = $request->file('image')->getClientOriginalExtension();
-        $name = $nameW . rand(00000, 9999) . time() . '.' . $extention;
-        $request->file('image')->move(public_path('/images/doctors/'), $name);
-        $doctor->image = $name;
+        if ($request->image) {
+            $nameW = basename($request->file('image')->getClientOriginalName(), '.' . $request->file('image')->getClientOriginalExtension());
+            $extention = $request->file('image')->getClientOriginalExtension();
+            $name = $nameW . rand(00000, 9999) . time() . '.' . $extention;
+            $request->file('image')->move(public_path('/images/doctors/'), $name);
+            $doctor->image = $name;
+        }
         $doctor->description = $request->description;
         $doctor->save();
         return back()->with('Doctor_Edited', 'Doctor Has Been Edited Successfully');
