@@ -53,7 +53,7 @@
                             </ul>
                             </p>
                             <button type="button" class="btn btn-info btn-md" data-toggle="modal"
-                                data-target="#myModal">Make An Appointment</button>
+                                data-target="#{{ $doctor['id'] }}">Make An Appointment</button>
                         </div>
                     </div>
                 </div>
@@ -61,7 +61,8 @@
         </div>
         <!----- Start Modal ----------------------------------------------------------->
 
-        <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade" id="{{ $doctor['id'] }}" tabindex="-1" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -71,24 +72,25 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        @csrf
+
                         <form method="POST" action="{{ route('makeAppoint') }}">
                             @csrf
+                            <input type="hidden" name="Doc_id" value="{{ $doctor['id'] }}">
                             <div class="form-group">
-                                <input name="Doc_id" type="hidden" value="{{ $doctor['id'] }}">
                                 <div class="row">
                                     <div class="col">
                                         <label for="fname">First Name</label>
                                         <input type="text " name="fname" class="form-control">
                                     </div>
                                     <div class="col">
-                                        <label for="lname">Last Name</label>
+                                        <label for="lname">last Name</label>
                                         <input type="text " name="lname" class="form-control">
                                     </div>
                                 </div>
 
                                 <label for="email">Email address</label>
-                                <input type="email" class="form-control" name="email" aria-describedby="emailHelp">
+                                <input type="email" class="form-control" name="email" id="email"
+                                    aria-describedby="emailHelp">
                                 <small id="emailHelp" class="form-text text-muted">We'll never share your email with
                                     anyone else.</small>
                             </div>

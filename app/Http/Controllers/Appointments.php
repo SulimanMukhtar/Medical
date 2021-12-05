@@ -57,7 +57,6 @@ class Appointments extends Controller
         $appointment->date = $request->date;
         $appointment->gender = $request->gender;
         $save = $appointment->save();
-
         if ($save) {
             return redirect()->back()->with('success', 'A');
         } else {

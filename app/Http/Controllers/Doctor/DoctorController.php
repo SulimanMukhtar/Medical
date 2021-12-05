@@ -14,7 +14,7 @@ class DoctorController extends Controller
     public function index()
     {
 
-        $appointments = Appointment::where('id', '=', Auth::guard('doctor')->user()->id)->get();
+        $appointments = Appointment::where('Doc_id', '=', Auth::guard('doctor')->user()->id)->get();
 
         if (Auth::guard('doctor')) {
             return view('admin.doctorcp', compact('appointments'));
