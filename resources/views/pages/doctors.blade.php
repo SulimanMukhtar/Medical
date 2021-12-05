@@ -71,41 +71,42 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <p class="lead">{{ $doctor['description'] }}</p>
-                        <form>
+                        @csrf
+                        <form method="POST" action="{{ route('makeAppoint') }}">
+                            @csrf
                             <div class="form-group">
+                                <input name="Doc_id" type="hidden" value="{{ $doctor['id'] }}">
                                 <div class="row">
                                     <div class="col">
-                                        <label for="exampleInputEmail1">First Name</label>
-                                        <input type="text " class="form-control">
+                                        <label for="fname">First Name</label>
+                                        <input type="text " name="fname" class="form-control">
                                     </div>
                                     <div class="col">
-                                        <label for="exampleInputEmail1">First Name</label>
-                                        <input type="text " class="form-control">
+                                        <label for="lname">Last Name</label>
+                                        <input type="text " name="lname" class="form-control">
                                     </div>
                                 </div>
 
-                                <label for="exampleInputEmail1">Email address</label>
-                                <input type="email" class="form-control" id="exampleInputEmail1"
-                                    aria-describedby="emailHelp">
+                                <label for="email">Email address</label>
+                                <input type="email" class="form-control" name="email" aria-describedby="emailHelp">
                                 <small id="emailHelp" class="form-text text-muted">We'll never share your email with
                                     anyone else.</small>
                             </div>
                             <div class="form-group">
-                                <label for="exampleInputPassword1">Phone Number</label>
-                                <input type="phone" class="form-control" id="exampleInputPassword1">
+                                <label for="phone">Phone Number</label>
+                                <input type="phone" class="form-control" name="phone">
                             </div>
                             <div class="form-group">
-                                <label for="exampleInputPassword1">Address</label>
-                                <input type="text" class="form-control" id="exampleInputPassword1">
+                                <label for="address">Address</label>
+                                <input type="text" class="form-control" name="address">
                             </div>
                             <div class="form-group">
-                                <label for="exampleInputPassword1">Date</label>
-                                <input type="date" class="form-control" id="exampleInputPassword1">
+                                <label for="date">Date</label>
+                                <input type="date" class="form-control" name="date">
                             </div>
                             <div class="form-group">
-                                <label for="exampleFormControlSelect1">Gender</label>
-                                <select class="form-control" id="exampleFormControlSelect1">
+                                <label for="gender">Gender</label>
+                                <select class="form-control" name="gender">
                                     <option>...</option>
                                     <option>Man</option>
                                     <option>Women</option>

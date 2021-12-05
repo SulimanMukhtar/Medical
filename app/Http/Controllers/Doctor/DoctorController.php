@@ -14,7 +14,7 @@ class DoctorController extends Controller
     public function index()
     {
 
-        $appointments = Appointment::all()->toArray();
+        $appointments = Appointment::where('id', '=', Auth::guard('doctor')->user()->id)->get();
 
         if (Auth::guard('doctor')) {
             return view('admin.doctorcp', compact('appointments'));
@@ -23,42 +23,42 @@ class DoctorController extends Controller
         }
     }
 
-    function create(Request $request)
-    {
-        //Validate inputs
-        $request->validate([
-            'fname' => 'required',
-            'lname' => 'required',
-            'email' => 'required|email|unique:Doc_users,email',
-            'username' => 'required|unique:Doc_users,username',
-            'phone' => 'required',
-            'address' => 'required',
-            'password' => 'required|min:5|max:30',
-            'cpassword' => 'required|min:5|max:30|same:password'
-        ]);
+    // function create(Request $request)
+    // {
+    //     //Validate inputs
+    //     $request->validate([
+    //         'fname' => 'required',
+    //         'lname' => 'required',
+    //         'email' => 'required|email|unique:Doc_users,email',
+    //         'username' => 'required|unique:Doc_users,username',
+    //         'phone' => 'required',
+    //         'address' => 'required',
+    //         'password' => 'required|min:5|max:30',
+    //         'cpassword' => 'required|min:5|max:30|same:password'
+    //     ]);
 
-        $Doc_user = new Doc_user();
-        $Doc_user->fname = $request->fname;
-        $Doc_user->lname = $request->lname;
-        $Doc_user->email = $request->email;
-        $Doc_user->username = $request->username;
-        $Doc_user->phone = $request->phone;
-        $Doc_user->address = $request->address;
-        $Doc_user->password = \Hash::make($request->password);
-        $save = $Doc_user->save();
+    //     $Doc_user = new Doc_user();
+    //     $Doc_user->fname = $request->fname;
+    //     $Doc_user->lname = $request->lname;
+    //     $Doc_user->email = $request->email;
+    //     $Doc_user->username = $request->username;
+    //     $Doc_user->phone = $request->phone;
+    //     $Doc_user->address = $request->address;
+    //     $Doc_user->password = \Hash::make($request->password);
+    //     $save = $Doc_user->save();
 
-        if ($save) {
-            return redirect()->back()->with('success', 'You are now registered successfully as Doctor');
-        } else {
-            return redirect()->back()->with('fail', 'Something went Wrong, failed to register');
-        }
-    }
+    //     if ($save) {
+    //         return redirect()->back()->with('success', 'You are now registered successfully as Doctor');
+    //     } else {
+    //         return redirect()->back()->with('fail', 'Something went Wrong, failed to register');
+    //     }
+    // }
 
     function check(Request $request)
     {
         //Validate Inputs
         $request->validate([
-            'username' => 'required|exists:Doc_users,username',
+            'username' => 'required|exists:doctors,username',
             'password' => 'required|min:5|max:30'
         ]);
 

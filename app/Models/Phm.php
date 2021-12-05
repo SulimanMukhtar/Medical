@@ -8,4 +8,6 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 class phm extends Authenticatable
 {
     use HasFactory;
+
+    protected $hidden = ['password'];
 }

@@ -9,5 +9,7 @@ class Doc_user extends Authenticatable
 {
     use HasFactory;
 
-    protected $table = 'Doc_users';
+    protected $table = 'doctors';
+
+    protected $hidden = ['password'];
 }

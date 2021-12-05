@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Appointments;
 use App\Http\Controllers\Doctor\DoctorController;
 use App\Http\Controllers\DoctorsController;
 use App\Http\Controllers\Drug\DrugController;
@@ -36,6 +37,8 @@ Route::resource('/Panel/Drug', DrugsController::class);
 
 Route::get('/AddDoctor', [DoctorsController::class, 'addDoctor'])->name('addADoctor');
 Route::post('/AddDoctor', [DoctorsController::class, 'store']);
+Route::post('/SubmitAppointment', [Appointments::class, 'store'])->name('makeAppoint');
+
 // Route::get('/Admin/dashboard',[ DoctorsController::class,'index'])->name('admin');
 // Route::post('/Admin/dashboard/{id}', [ DoctorsController::class , 'update']);
 // Route::put('/Admin/dashboard', [ DoctorsController::class , 'update']);

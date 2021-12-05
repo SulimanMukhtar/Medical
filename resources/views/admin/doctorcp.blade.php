@@ -32,16 +32,20 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>Gamer</td>
-                    <td>Ibrahim</td>
-                    <td>Gameribrahim9</td>
-                    <td>0907557112</td>
-                    <td>Khrtoum</td>
-                    <td>fri/24/10</td>
-                    <td>Male</td>
-                </tr>
+                @foreach ($appointments as $appointment)
+
+
+                    <tr>
+                        <th scope="row">{{ $appointment['id'] }}</th>
+                        <td>{{ $appointment['fname'] }}</td>
+                        <td>{{ $appointment['lname'] }}</td>
+                        <td>{{ $appointment['email'] }}</td>
+                        <td>{{ $appointment['phone'] }}</td>
+                        <td>{{ $appointment['address'] }}</td>
+                        <td>{{ $appointment['date'] }}</td>
+                        <td>{{ $appointment['gender'] }}</td>
+                    </tr>
+                @endforeach
 
             </tbody>
         </table>
