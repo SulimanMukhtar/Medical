@@ -1,14 +1,14 @@
 <?php
 
-namespace App\Http\Controllers\User;
+namespace App\Http\Controllers\Drug;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-use App\Models\User;
+use App\Models\Drug;
 use Illuminate\Support\Facades\Auth;
 
-class UserController extends Controller
+class DrugController extends Controller
 {
     function create(Request $request)
     {
@@ -21,7 +21,7 @@ class UserController extends Controller
             'cpassword' => 'required|min:5|max:30|same:password'
         ]);
 
-        $user = new User();
+        $user = new Drug();
         $user->name = $request->name;
         $user->username = $request->username;
         $user->email = $request->email;
@@ -45,7 +45,7 @@ class UserController extends Controller
 
         $creds = $request->only('username', 'password');
         if (Auth::guard('web')->attempt($creds)) {
-            return redirect()->route('user.home');
+            return redirect()->route('Drug.index');
         } else {
             return redirect()->route('user.login')->with('fail', 'Incorrect credentials');
         }

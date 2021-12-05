@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>User Login</title>
+    <title>Doctor Login</title>
     <link rel="stylesheet" href="{{ URL::asset('css/bootstrap.min.css') }}">
 
 </head>
@@ -15,9 +15,9 @@
     <div class="container">
         <div class="row">
             <div class="col-md-4 offset-md-4" style="margin-top: 45px;">
-                <h4>User Login</h4>
+                <h4>Doctor Login</h4>
                 <hr>
-                <form action="{{ route('user.check') }}" method="post" autocomplete="off">
+                <form action="{{ route('doctor.check') }}" method="post" autocomplete="off">
                     @if (Session::get('fail'))
                         <div class="alert alert-danger">
                             {{ Session::get('fail') }}
@@ -40,7 +40,7 @@
                                 <button type="submit" class="btn btn-primary">Login</button>
                             </div>
                             <br>
-                            <a href="{{ route('user.register') }}">Create new Account</a>
+                            <a href="{{ route('doctor.register') }}">Create new Account</a>
                         </form>
                     </div>
                 </div>

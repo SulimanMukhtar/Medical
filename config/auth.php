@@ -23,15 +23,15 @@ return [
     ],
     'doctor' => [
         'driver' => 'eloquent',
-        'model' => App\Models\Doctor::class,
+        'model' => App\Models\Doc_user::class,
     ],
-    'lab_manager' => [
+    'labm' => [
         'driver' => 'eloquent',
-        'model' => App\Models\lab_manager::class,
+        'model' => App\Models\labm::class,
     ],
-    'pharma_manager' => [
+    'phm' => [
         'driver' => 'eloquent',
-        'model' => App\Models\pharma_manager::class,
+        'model' => App\Models\phm::class,
     ],
 
     /*
@@ -69,13 +69,13 @@ return [
             'driver' => 'session',
             'provider' => 'doctors',
         ],
-        'lab_manager' => [
+        'labm' => [
             'driver' => 'session',
-            'provider' => 'lab_manager',
+            'provider' => 'labm',
         ],
-        'pharma_manager' => [
+        'phm' => [
             'driver' => 'session',
-            'provider' => 'pharma_manager',
+            'provider' => 'phm',
         ],
     ],
 
@@ -112,15 +112,15 @@ return [
         ],
         'doctors' => [
             'driver' => 'eloquent',
-            'model' => App\Models\Doctor::class,
+            'model' => App\Models\Doc_user::class,
         ],
-        'lab_manager' => [
+        'labm' => [
             'driver' => 'eloquent',
-            'model' => App\Models\lab_manager::class,
+            'model' => App\Models\Labm::class,
         ],
-        'pharma_manager' => [
+        'phm' => [
             'driver' => 'eloquent',
-            'model' => App\Models\pharma_manager::class,
+            'model' => App\Models\Phm::class,
         ],
     ],
 
@@ -152,15 +152,15 @@ return [
         ],
         'doctors' => [
             'driver' => 'eloquent',
-            'model' => App\Models\Doctor::class,
+            'model' => App\Models\Doc_user::class,
         ],
-        'lab_manager' => [
+        'labm' => [
             'driver' => 'eloquent',
-            'model' => App\Models\lab_manager::class,
+            'model' => App\Models\Labm::class,
         ],
-        'pharma_manager' => [
+        'phm' => [
             'driver' => 'eloquent',
-            'model' => App\Models\pharma_manager::class,
+            'model' => App\Models\Phm::class,
         ],
     ],
 

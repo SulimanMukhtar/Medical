@@ -1,25 +1,28 @@
 <?php
 
-namespace App\Http\Controllers\Doctor;
+namespace App\Http\Controllers\lab;
 
 use App\Http\Controllers\Controller;
-use App\Models\Appointment;
+use App\Models\HomeVisit;
+use App\Models\Labm;
+use App\Models\TestMenu;
+use App\Models\TestResult;
 use Illuminate\Http\Request;
-
-use App\Models\Doc_user;
 use Illuminate\Support\Facades\Auth;
 
-class DoctorController extends Controller
+class LabmController extends Controller
 {
     public function index()
     {
 
-        $appointments = Appointment::all()->toArray();
+        $HomeVisits = HomeVisit::all()->toArray();
+        $TestResults = TestResult::all()->toArray();
+        $TestMenus = TestMenu::all()->toArray();
 
-        if (Auth::guard('doctor')) {
-            return view('admin.doctorcp', compact('appointments'));
+        if (Auth::guard('labm')) {
+            return view('admin.lapsuser', compact('HomeVisits'), compact('TestResults'), compact('TestMenus'));
         } else {
-            return view('dashboard.doctor.login');
+            return view('dashboard.labm.login');
         }
     }
 
@@ -29,15 +32,15 @@ class DoctorController extends Controller
         $request->validate([
             'fname' => 'required',
             'lname' => 'required',
-            'email' => 'required|email|unique:Doc_users,email',
-            'username' => 'required|unique:Doc_users,username',
+            'email' => 'required|email|unique:labm,email',
+            'username' => 'required|unique:labm,username',
             'phone' => 'required',
             'address' => 'required',
             'password' => 'required|min:5|max:30',
             'cpassword' => 'required|min:5|max:30|same:password'
         ]);
 
-        $Doc_user = new Doc_user();
+        $Doc_user = new Labm();
         $Doc_user->fname = $request->fname;
         $Doc_user->lname = $request->lname;
         $Doc_user->email = $request->email;
@@ -48,7 +51,7 @@ class DoctorController extends Controller
         $save = $Doc_user->save();
 
         if ($save) {
-            return redirect()->back()->with('success', 'You are now registered successfully as Doctor');
+            return redirect()->back()->with('success', 'You are now registered successfully as A Lab Manager');
         } else {
             return redirect()->back()->with('fail', 'Something went Wrong, failed to register');
         }
@@ -58,22 +61,22 @@ class DoctorController extends Controller
     {
         //Validate Inputs
         $request->validate([
-            'username' => 'required|exists:Doc_users,username',
+            'username' => 'required|exists:labm,username',
             'password' => 'required|min:5|max:30'
         ]);
 
         $creds = $request->only('username', 'password');
 
-        if (Auth::guard('doctor')->attempt($creds)) {
-            return redirect()->route('doctor.home');
+        if (Auth::guard('labm')->attempt($creds)) {
+            return redirect()->route('labm.home');
         } else {
-            return redirect()->route('doctor.login')->with('fail', 'Incorrect Credentials');
+            return redirect()->route('labm.login')->with('fail', 'Incorrect Credentials');
         }
     }
 
     function logout()
     {
-        Auth::guard('doctor')->logout();
-        return redirect()->route('doctor.login');
+        Auth::guard('labm')->logout();
+        return redirect()->route('labm.login');
     }
 }

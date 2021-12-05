@@ -24,7 +24,7 @@
                     <a class="nav-link" href="/Doctors">Doctors</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/Pharmacies">Pharmacies</a>
+                    <a class="nav-link" href="/Drugs">Drugs</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/Labs">Labs</a>

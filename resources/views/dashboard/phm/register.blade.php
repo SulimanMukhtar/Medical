@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>User Register</title>
+    <title>Pharmacy Register</title>
     <link rel="stylesheet" href="{{ URL::asset('css/bootstrap.min.css') }}">
 
 </head>
@@ -15,9 +15,9 @@
     <div class="container">
         <div class="row">
             <div class="col-md-4 offset-md-4" style="margin-top: 45px;">
-                <h4>User Register</h4>
+                <h4>Pharmacy Manager Registeration</h4>
                 <hr>
-                <form action="{{ route('user.create') }}" method="post" autocomplete="off">
+                <form action="{{ route('phm.create') }}" method="post" autocomplete="off">
                     @if (Session::get('success'))
                         <div class="alert alert-success">
                             {{ Session::get('success') }}
@@ -64,7 +64,7 @@
                         <button type="submit" class="btn btn-primary">Register</button>
                     </div>
                     <br>
-                    <a href="{{ route('user.login') }}">I already have an account</a>
+                    <a href="{{ route('phm.login') }}">I already have an account</a>
                 </form>
             </div>
         </div>

@@ -24,6 +24,30 @@ class CreateDoctorsTable extends Migration
             $table->boolean('approved')->default(false);
             $table->timestamps();
         });
+
+        Schema::create('appointments', function (Blueprint $table) {
+            $table->id();
+            $table->string('fname');
+            $table->string('lname');
+            $table->string('email');
+            $table->char('phone');
+            $table->string('address');
+            $table->date('date');
+            $table->string('gender');
+            $table->timestamps();
+        });
+
+        Schema::create('Doc_users', function (Blueprint $table) {
+            $table->id();
+            $table->string('fname');
+            $table->string('lname');
+            $table->string('email');
+            $table->string('username');
+            $table->char('phone');
+            $table->string('address');
+            $table->string('password');
+            $table->timestamps();
+        });
     }
 
     /**

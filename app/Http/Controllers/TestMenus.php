@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Drug;
+use App\Models\TestMenu;
 use Illuminate\Http\Request;
 
-class DrugsController extends Controller
+class TestMenus extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,7 @@ class DrugsController extends Controller
      */
     public function index()
     {
-        $drugs = Drug::where('pharma_id', 'pharma_id')->get()->toArray();
-        return view('admin.drugcp', compact('drugs'));
+        //
     }
 
     /**
@@ -36,20 +35,16 @@ class DrugsController extends Controller
      */
     public function store(Request $request)
     {
-        $drug = new Drug();
-        $drug->pharma_id = $request->pharma;
-        $drug->name = $request->name;
-        $drug->save();
-        return back()->with('Drug_Added', 'Drug Has Been Added Successfully');
+        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\TestMenu  $testMenu
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(TestMenu $testMenu)
     {
         //
     }
@@ -57,10 +52,10 @@ class DrugsController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\TestMenu  $testMenu
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(TestMenu $testMenu)
     {
         //
     }
@@ -69,26 +64,22 @@ class DrugsController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Models\TestMenu  $testMenu
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, TestMenu $testMenu)
     {
-        $drug = Drug::find($id);
-        $drug->name = $request->name;
-        $drug->save();
-        return back()->with('Drug_Edited', 'Drug Has Been Edited Successfully');
+        //
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Models\TestMenu  $testMenu
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(TestMenu $testMenu)
     {
-        Drug::destroy($id);
-        return back()->with('Drug_Deleted', 'Drug Has Been Deleted Successfully');
+        //
     }
 }

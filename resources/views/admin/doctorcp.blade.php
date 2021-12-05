@@ -1,16 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     @include('includes.header')
     <title>Dashboard</title>
 </head>
+
 <body>
-  <div class=" lapsBrand">
-      <p><strong>Dr Suliman Moktar </strong><span class="badge bg-info">Qamer Ibrhim</span> </p>
-  </div>
-  <h3>Appointments</h3>
-  <div class="container-xl">
-  <table class="table table-striped table-hover">
+    <div class=" lapsBrand">
+        <p><strong>Dr Suliman Moktar </strong><span class="badge bg-info">
+                {{ Auth::guard('doctor')->user()->fname }}</span>
+            <span><a href="{{ route('doctor.logout') }}"
+                    onclick="event.preventDefault();document.getElementById('logout-form').submit();">Logout</a>
+                <form action="{{ route('doctor.logout') }}" id="logout-form" method="post">@csrf</form>
+            </span>
+        </p>
+    </div>
+    <h3>Appointments</h3>
+    <div class="container-xl">
+        <table class="table table-striped table-hover">
             <thead>
                 <tr>
                     <th scope="col">#</th>
@@ -37,7 +45,8 @@
 
             </tbody>
         </table>
-  </div>
-  @include('includes.footer')
+    </div>
+    @include('includes.footer')
 </body>
+
 </html>

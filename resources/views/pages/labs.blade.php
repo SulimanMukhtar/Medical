@@ -24,7 +24,7 @@
                     <a class="nav-link" href="/Doctors">Doctors</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/Pharmacies">Drogs</a>
+                    <a class="nav-link" href="/Drugs">Drugs</a>
                 </li>
                 <li class="nav-item active">
                     <a class="nav-link" href="/Labs">Labs <span class="sr-only">(current)</span></a>
@@ -41,8 +41,8 @@
             <div class="row">
                 <div class=" col-xl-3 col-md-4 col-sm-6 col-xs-12">
                     <div class="card card-box" style="width: 15rem;">
-                        <img class="card-img-top" src="{{ URL::asset('img/lap2.jpeg') }}" style="border-radius:10%;"
-                            alt="Card image cap">
+                        <img class="card-img-top" height="200" src="/images/labs/{{ $lab['image'] }}"
+                            style="border-radius:10%;" alt="Card image cap">
                         <div class="card-body">
                             <h5 class="card-title">{{ $lab['name'] }}</h5>
                             <p class="card-text">
@@ -52,7 +52,7 @@
                             </ul>
                             </p>
                             <button type="button" class="btn btn-info btn-md" data-toggle="modal"
-                                data-target="#lap">{{ $lab['name'] }} Patient Services</button><a />
+                                data-target="#lap">{{ $lab['name'] }} Patient Services</button>
                         </div>
                     </div>
                 </div>

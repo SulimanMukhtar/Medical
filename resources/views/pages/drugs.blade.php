@@ -1,7 +1,7 @@
 <html lang="en">
 
 <head>
-    @section('title') {{ ' - Pharmacies' }} @endsection
+    @section('title') {{ ' - Drugs' }} @endsection
     @include('includes.header')
 </head>
 
@@ -24,7 +24,7 @@
                     <a class="nav-link" href="/Doctors">Doctors</a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link" href="/Pharmacies">Drogs <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="/Drugs">Drugs <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/Labs">Labs</a>
@@ -38,7 +38,7 @@
     <!---------------------------------------------Navbar End------------------------------------------------>
     <div class="container">
         <form class="example" action="action_page.php">
-            <input type="text" placeholder="Please Inter Your Drog Name..." name="search">
+            <input type="text" placeholder="Please Inter Your Drug Name..." name="search">
             <button type="submit"><i class="fa fa-capsules"></i></button>
         </form>
     </div>

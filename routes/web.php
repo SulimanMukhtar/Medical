@@ -3,8 +3,11 @@
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Doctor\DoctorController;
 use App\Http\Controllers\DoctorsController;
+use App\Http\Controllers\Drug\DrugController;
+use App\Http\Controllers\DrugsController;
+use App\Http\Controllers\lab\LabmController;
 use App\Http\Controllers\LabsController;
-use App\Http\Controllers\User\UserController;
+use App\Http\Controllers\phm\PhmController;
 use Illuminate\Support\Facades\Auth;
 
 /*
@@ -29,6 +32,7 @@ Route::get('/', function () {
 Route::resource('/Doctors', DoctorsController::class);
 Route::resource('/Labs', LabsController::class);
 // Route::resource('/Admin', DoctorsController::class);
+Route::resource('/Panel/Drug', DrugsController::class);
 
 Route::get('/AddDoctor', [DoctorsController::class, 'addDoctor'])->name('addADoctor');
 Route::post('/AddDoctor', [DoctorsController::class, 'store']);
@@ -47,12 +51,8 @@ Route::get('/Panel/Doctor', function () {
     return view('admin.doctorcp');
 });
 
-Route::get('/Panel/Drug', function () {
-    return view('admin.drugcp');
-});
-
-Route::get('/Pharmacies', function () {
-    return view('pages.pharmacies');
+Route::get('/Drugs', function () {
+    return view('pages.drugs');
 });
 
 Route::get('/Search', function () {
@@ -61,19 +61,19 @@ Route::get('/Search', function () {
 
 Auth::routes();
 
-Route::prefix('user')->name('user.')->group(function () {
+Route::prefix('phm')->name('phm.')->group(function () {
 
-    Route::middleware(['guest:web', 'PreventBackHistory'])->group(function () {
-        Route::view('/login', 'dashboard.user.login')->name('login');
-        Route::view('/register', 'dashboard.user.register')->name('register');
-        Route::post('/create', [UserController::class, 'create'])->name('create');
-        Route::post('/check', [UserController::class, 'check'])->name('check');
+    Route::middleware(['guest:phm', 'PreventBackHistory'])->group(function () {
+        Route::view('/login', 'dashboard.phm.login')->name('login');
+        Route::view('/register', 'dashboard.phm.register')->name('register');
+        Route::post('/create', [PhmController::class, 'create'])->name('create');
+        Route::post('/check', [PhmController::class, 'check'])->name('check');
     });
 
-    Route::middleware(['auth:web', 'PreventBackHistory'])->group(function () {
-        Route::view('/home', 'dashboard.user.home')->name('home');
-        Route::post('/logout', [UserController::class, 'logout'])->name('logout');
-        Route::get('/add-new', [UserController::class, 'add'])->name('add');
+    Route::middleware(['auth:phm', 'PreventBackHistory'])->group(function () {
+        Route::get('/home', [PhmController::class, 'index'])->name('home');
+        Route::post('/logout', [PhmController::class, 'logout'])->name('logout');
+        Route::get('/add-new', [PhmController::class, 'add'])->name('add');
     });
 });
 
@@ -89,5 +89,35 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::post('/home', [DoctorController::class, 'store'])->name('add');
         Route::post('/logout', [AdminController::class, 'logout'])->name('logout');
         Route::post('/home', [LabsController::class, 'store'])->name('lab');
+    });
+});
+
+Route::prefix('labm')->name('labm.')->group(function () {
+
+    Route::middleware(['guest:labm', 'PreventBackHistory'])->group(function () {
+        Route::view('/login', 'dashboard.labm.login')->name('login');
+        Route::view('/register', 'dashboard.labm.register')->name('register');
+        Route::post('/create', [LabmController::class, 'create'])->name('create');
+        Route::post('/check', [LabmController::class, 'check'])->name('check');
+    });
+
+    Route::middleware(['auth:labm', 'PreventBackHistory'])->group(function () {
+        Route::get('/home', [LabmController::class, 'index'])->name('home');
+        Route::post('/logout', [LabmController::class, 'logout'])->name('logout');
+    });
+});
+
+Route::prefix('doctor')->name('doctor.')->group(function () {
+
+    Route::middleware(['guest:doctor', 'PreventBackHistory'])->group(function () {
+        Route::view('/login', 'dashboard.doctor.login')->name('login');
+        Route::view('/register', 'dashboard.doctor.register')->name('register');
+        Route::post('/create', [DoctorController::class, 'create'])->name('create');
+        Route::post('/check', [DoctorController::class, 'check'])->name('check');
+    });
+
+    Route::middleware(['auth:doctor', 'PreventBackHistory'])->group(function () {
+        Route::get('/home', [DoctorController::class, 'index'])->name('home');
+        Route::post('/logout', [DoctorController::class, 'logout'])->name('logout');
     });
 });

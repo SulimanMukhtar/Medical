@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Drug;
 use Illuminate\Http\Request;
 
-class DrugsController extends Controller
+class Appointments extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +13,7 @@ class DrugsController extends Controller
      */
     public function index()
     {
-        $drugs = Drug::where('pharma_id', 'pharma_id')->get()->toArray();
-        return view('admin.drugcp', compact('drugs'));
+        //
     }
 
     /**
@@ -36,11 +34,7 @@ class DrugsController extends Controller
      */
     public function store(Request $request)
     {
-        $drug = new Drug();
-        $drug->pharma_id = $request->pharma;
-        $drug->name = $request->name;
-        $drug->save();
-        return back()->with('Drug_Added', 'Drug Has Been Added Successfully');
+        //
     }
 
     /**
@@ -74,10 +68,7 @@ class DrugsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $drug = Drug::find($id);
-        $drug->name = $request->name;
-        $drug->save();
-        return back()->with('Drug_Edited', 'Drug Has Been Edited Successfully');
+        //
     }
 
     /**
@@ -88,7 +79,6 @@ class DrugsController extends Controller
      */
     public function destroy($id)
     {
-        Drug::destroy($id);
-        return back()->with('Drug_Deleted', 'Drug Has Been Deleted Successfully');
+        //
     }
 }

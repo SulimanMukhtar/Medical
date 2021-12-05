@@ -37,7 +37,7 @@ class AdminController extends Controller
             $labs = Lab::where('approved', '=', true)->get();
             return redirect()->route('admin.home')->with(compact('doctors'), compact('labs'));
         } else {
-            return redirect()->route('dashboard.admin.login')->with('fail', 'Incorrect credentials');
+            return redirect()->route('admin.login')->with('fail', 'Incorrect credentials');
         }
     }
 

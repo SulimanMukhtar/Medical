@@ -316,7 +316,7 @@
 
             <div class="row">
                 <div class="col-lg-6">
-                    <h3>Drogs <span> <button type="button" class="btn btn-info btn-md" data-toggle="modal"
+                    <h3>Drugs <span> <button type="button" class="btn btn-info btn-md" data-toggle="modal"
                                 data-target="#Adddruge">Add Druge</button></h3>
                     <table class="table table-striped table-hover table-responsive-xl">
                         <thead>
