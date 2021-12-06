@@ -4,7 +4,9 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Doctor;
+use App\Models\Drug;
 use App\Models\Lab;
+use App\Models\Pharmacy;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -13,11 +15,14 @@ class AdminController extends Controller
     public function index()
     {
 
-        $doctors = Doctor::where('approved', '=', true)->get();
-        $labs = Lab::where('approved', '=', true)->get();
+        // $doctors = Doctor::where('approved', '=', true)->get();
+        $doctors = Doctor::all()->toArray();
+        $labs = Lab::all()->toArray();
+        $pharmacies = Pharmacy::all()->toArray();
+        $drugs = Drug::all()->toArray();
 
         if (Auth::guard('admin')) {
-            return view('admin.dashboard', compact('doctors'), compact('labs'));
+            return view('admin.dashboard', compact('doctors'), compact('labs'), compact('pharmacies'), compact('drugs'));
         } else {
             return view('dashboard.admin.login');
         }
@@ -33,9 +38,11 @@ class AdminController extends Controller
         $creds = $request->only('username', 'password');
 
         if (Auth::guard('admin')->attempt($creds)) {
-            $doctors = Doctor::where('approved', '=', true)->get();
-            $labs = Lab::where('approved', '=', true)->get();
-            return redirect()->route('admin.home')->with(compact('doctors'), compact('labs'));
+            $doctors = Doctor::all()->toArray();
+            $labs = Lab::all()->toArray();
+            $pharmacies = Pharmacy::all()->toArray();
+            $drugs = Drug::all()->toArray();
+            return redirect()->route('admin.home')->with(compact('doctors'), compact('labs'), compact('pharmacies'), compact('drugs'));
         } else {
             return redirect()->route('admin.login')->with('fail', 'Incorrect credentials');
         }

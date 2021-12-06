@@ -65,7 +65,6 @@
                     <th scope="col">Name</th>
                     <th scope="col">Location</th>
                     <th scope="col">Phone</th>
-                    <th scope="col">Description</th>
                     <th scope="col">Logo</th>
                     <th scope="col"></th>
                 </tr>
@@ -75,9 +74,8 @@
                     @foreach ($labs as $lab)
                         <th scope="row">{{ $lab['id'] }}</th>
                         <td>{{ $lab['name'] }}</td>
-                        <td>{{ $lab['location'] }}</td>
+                        <td>{{ $lab['address'] }}</td>
                         <td>{{ $lab['phone'] }}</td>
-                        <td>{{ $lab['description'] }}</td>
                         <td><img width="100" height="100" src="{{ URL::asset('/images/labs/' . $lab['image']) }}"
                                 alt=""></td>
                         <td>
@@ -112,19 +110,14 @@
                                                         class="form-control">
                                                 </div>
                                                 <div class="form-group">
-                                                    <label for="location">Location</label>
-                                                    <input type="text" value="{{ $lab['location'] }}" name="location"
+                                                    <label for="address">Location</label>
+                                                    <input type="text" value="{{ $lab['address'] }}" name="address"
                                                         class="form-control">
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="phone">Phone Number</label>
                                                     <input type="text" value="{{ $lab['phone'] }}" name="phone"
                                                         class="form-control">
-                                                </div>
-                                                <div class="form-group">
-                                                    <label for="description">Description</label>
-                                                    <input type="text" value="{{ $lab['description'] }}"
-                                                        name="description" class="form-control">
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="image">Logo</label>
@@ -190,7 +183,6 @@
                     <th scope="col">Doctor Specialist</th>
                     <th scope="col">University</th>
                     <th scope="col">phone</th>
-                    <th scope="col">Doctor Description</th>
                     <th scope="col">Image</th>
                     <th scope="col">Modifiy</th>
                 </tr>
@@ -203,7 +195,6 @@
                         <td>{{ $doctor['specialist'] }}</td>
                         <td>{{ $doctor['university'] }}</td>
                         <td>{{ $doctor['phone'] }}</td>
-                        <td>{{ $doctor['description'] }}</td>
                         <td><img width="100" height="100"
                                 src="{{ URL::asset('/images/doctors/' . $doctor['image']) }}" alt=""></td>
                         </td>
@@ -254,12 +245,6 @@
                                                     <label for="Phone">phone</label>
                                                     <input type="text" name="phone" value="{{ $doctor['phone'] }}"
                                                         class="form-control" id="phone">
-                                                </div>
-                                                <div class="form-group">
-                                                    <label for="Description">Doctor Description </label>
-                                                    <input type="text" name="description"
-                                                        value="{{ $doctor['description'] }}" class="form-control"
-                                                        id="description">
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="file">Doctor Image </label>
@@ -350,7 +335,7 @@
                     <table class="table table-striped table-hover table-responsive-xl">
                         <thead>
                             <tr>
-                                <th scope="col">#</th>
+                                <th scope="col">id</th>
                                 <th scope="col">Pharmacy Name</th>
                                 <th scope="col">Location</th>
                                 <th scope="col">Phone Number</th>
@@ -358,6 +343,7 @@
                             </tr>
                         </thead>
                         <tbody>
+                            {{-- @foreach ($pharmacies as $pharmacy) --}}
                             <tr>
                                 <th scope="row">1</th>
                                 <td>Elsamh</td>
@@ -371,6 +357,7 @@
                                         data-target="#modall">Del</button>
                                 </td>
                             </tr>
+                            {{-- @endforeach --}}
 
                         </tbody>
                     </table>
@@ -532,66 +519,64 @@
                     <form method="POST" action="{{ route('Doctors.store') }}" enctype="multipart/form-data">
                         @csrf
                         <div class="form-group">
-                            <label for="name">Doctor Name</label>
-                            <input type="text" name="name" id="name" class="form-control" placeholder="Doctor Name">
+                            <label for="image">Doctor Image</label>
+                            <input type="file" name="image" id="image" class="form-control"
+                                value="{{ old('image') }}">
+                            <span class="text-danger">@error('image'){{ $message }} @enderror</span>
                         </div>
                         <div class="form-group">
-                            <label for="specialist">Doctor Specialist</label>
-                            <input type="text" name="specialist" id="specialist" class="form-control"
-                                placeholder="Doctor Specialist">
+                            <label for="name">Your Name</label>
+                            <input type="text" class="form-control" name="name" placeholder="Enter Your Name"
+                                value="{{ old('name') }}">
+                            <span class="text-danger">@error('name'){{ $message }} @enderror</span>
+                        </div>
+                        <div class="form-group">
+                            <label for="specialist">Specialist</label>
+                            <input type="text" class="form-control" name="specialist"
+                                placeholder="Enter Your Specialist" value="{{ old('specialist') }}">
+                            <span class="text-danger">@error('specialist'){{ $message }} @enderror</span>
                         </div>
                         <div class="form-group">
                             <label for="university">University</label>
                             <input type="text" name="university" id="university" class="form-control"
-                                placeholder="Doctor University">
+                                placeholder="Doctor University" value="{{ old('university') }}">
+                            <span class="text-danger">@error('university'){{ $message }} @enderror</span>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="text" class="form-control" name="email" placeholder="Enter Email Address"
+                                value="{{ old('email') }}">
+                            <span class="text-danger">@error('email'){{ $message }} @enderror</span>
+                        </div>
+                        <div class="form-group">
+                            <label for="username">Username</label>
+                            <input type="text" class="form-control" name="username"
+                                placeholder="Choose a Unique Username" value="{{ old('username') }}">
+                            <span class="text-danger">@error('username'){{ $message }} @enderror</span>
                         </div>
                         <div class="form-group">
                             <label for="phone">Phone</label>
-                            <input type="text" name="phone" id="phone" class="form-control"
-                                placeholder="Doctor phone">
+                            <input type="phone" class="form-control" name="phone" placeholder="Enter Your Phone"
+                                value="{{ old('phone') }}">
+                            <span class="text-danger">@error('phone'){{ $message }} @enderror</span>
                         </div>
                         <div class="form-group">
-                            <label for="description">Doctor Description</label>
-                            <input type="text" name="description" id="description" class="form-control" rows="3"
-                                placeholder="Doctor Description">
+                            <label for="address">Address</label>
+                            <input type="text" class="form-control" name="address" placeholder="Enter Your Address"
+                                value="{{ old('address') }}">
+                            <span class="text-danger">@error('address'){{ $message }} @enderror</span>
                         </div>
                         <div class="form-group">
-                            <label for="image">Doctor Image</label>
-                            <input type="file" name="image" id="image" class="form-control">
-                        </div>
-                        <button type="submit" class="btn btn-success">Add A Doctor</button>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!----------------end-----  Add  Doctors  modal---------------------------->
-
-
-
-
-    <!----------------Start----- edit Druge modal---------------------------->
-    <div class="modal fade" id="editdruge" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Edit Record</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <form action="">
-                        <div class="form-group">
-                            <label for="exampleInputPassword1">Druge Name </label>
-                            <input type="text" class="form-control" id="exampleInputPassword1">
+                            <label for="password">Password</label>
+                            <input type="password" class="form-control" name="password" placeholder="Enter Password"
+                                value="{{ old('password') }}">
+                            <span class="text-danger">@error('password'){{ $message }} @enderror</span>
                         </div>
                         <div class="form-group">
-                            <label for="exampleInputPassword1">Pharmacy</label>
-                            <input type="text" class="form-control" id="exampleInputPassword1">
+                            <label for="cpassword">Confirm Password</label>
+                            <input type="password" class="form-control" name="cpassword"
+                                placeholder="Confirm Your Password" value="{{ old('cpassword') }}">
+                            <span class="text-danger">@error('cpassword'){{ $message }} @enderror</span>
                         </div>
                         <button type="submit" class="btn btn-primary">Save Change</button>
                     </form>

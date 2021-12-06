@@ -10,6 +10,7 @@ use App\Http\Controllers\HomeVisits;
 use App\Http\Controllers\lab\LabmController;
 use App\Http\Controllers\LabsController;
 use App\Http\Controllers\LabTestsController;
+use App\Http\Controllers\PharmaciesController;
 use App\Http\Controllers\phm\PhmController;
 use App\Http\Controllers\TestMenus;
 use Illuminate\Support\Facades\Auth;
@@ -105,8 +106,10 @@ Route::prefix('admin')->name('admin.')->group(function () {
     Route::middleware(['auth:admin', 'PreventBackHistory'])->group(function () {
         Route::get('/home', [AdminController::class, 'index'])->name('home');
         Route::post('/home', [DoctorController::class, 'store'])->name('add');
-        Route::post('/logout', [AdminController::class, 'logout'])->name('logout');
+        Route::post('/home', [PharmaciesController::class, 'store'])->name('addPH');
+        Route::post('/home', [DrugsController::class, 'store'])->name('addDrug');
         Route::post('/home', [LabsController::class, 'store'])->name('lab');
+        Route::post('/logout', [AdminController::class, 'logout'])->name('logout');
     });
 });
 
