@@ -19,12 +19,8 @@ class LabmController extends Controller
         $HomeVisits = HomeVisit::where('lab_id', '=', Auth::guard('labm')->user()->id)->get();
         $TestResults = TestResult::all()->toArray();
         $TestMenus = TestMenu::where('lab_id', '=', Auth::guard('labm')->user()->id)->get();
-        $labs = Lab::all()->toArray();
-        $tests = TestMenu::where('lab_id', Lab::TestMenu());
-        // dd(Auth::guard('labm')->user()->id);
-        dd($tests);
         if (Auth::guard('labm')) {
-            return view('admin.lapsuser', compact('HomeVisits'), compact('TestMenus'), compact('TestResults'), compact('tests'));
+            return view('admin.lapsuser', compact('HomeVisits'), compact('TestMenus'), compact('TestResults'));
         } else {
             return view('dashboard.labm.login');
         }
