@@ -44,6 +44,12 @@ Route::post('/SubmitAppointment', [Appointments::class, 'store'])->name('makeApp
 Route::post('/SubmitVisit', [HomeVisits::class, 'store'])->name('submitVisit');
 Route::post('/checklogin', [LabsController::class, 'check'])->name('labcheck');
 Route::post('/addtest', [TestMenus::class, 'store'])->name('AddTest');
+Route::post('/drugUpdate', [DrugsController::class, 'update'])->name('drugUpdate');
+Route::put('/drugUpdate/{id}', [DrugsController::class, 'update'])->name('drugUpdate');
+Route::delete('/drugDel/{id}', [DrugsController::class, 'destroy'])->name('drugDel');
+
+
+
 
 
 

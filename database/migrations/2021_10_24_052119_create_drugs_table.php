@@ -16,7 +16,10 @@ class CreateDrugsTable extends Migration
         Schema::create('pharmacies', function (Blueprint $table) {
             $table->increments('id')->unsigned();
             $table->string('name');
-            $table->string('location');
+            $table->string('username')->unique();
+            $table->string('email')->unique();
+            $table->string('password');
+            $table->string('address');
             $table->char('phone');
             $table->boolean('approved')->default(false);
             $table->timestamps();
@@ -26,20 +29,9 @@ class CreateDrugsTable extends Migration
             $table->increments('id')->unsigned();
             $table->integer('pharma_id')->unsigned();
             $table->string('name');
+            $table->integer('quantity')->unsigned();
             $table->timestamps();
             $table->foreign('pharma_id')->references('id')->on('pharmacies')->onDelete('cascade');
-        });
-
-        Schema::create('phms', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->string('username')->unique();
-            $table->string('email')->unique();
-            $table->string('password');
-            $table->integer('pharma_id')->unsigned()->nullable();
-            $table->foreign('pharma_id')->references('id')->on('pharmacies')->onDelete('cascade');
-            $table->rememberToken();
-            $table->timestamps();
         });
     }
 

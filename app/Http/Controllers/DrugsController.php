@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Drug;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class DrugsController extends Controller
 {
@@ -14,7 +15,7 @@ class DrugsController extends Controller
      */
     public function index()
     {
-        $drugs = Drug::where('pharma_id', 'pharma_id')->get()->toArray();
+        $drugs = Drug::where('pharma_id', '=', Auth::guard('phm')->user()->id)->get();
         return view('admin.drugcp', compact('drugs'));
     }
 
@@ -37,8 +38,9 @@ class DrugsController extends Controller
     public function store(Request $request)
     {
         $drug = new Drug();
-        $drug->pharma_id = $request->pharma;
+        $drug->pharma_id = $request->pharma_id;
         $drug->name = $request->name;
+        $drug->quantity = $request->quantity;
         $drug->save();
         return back()->with('Drug_Added', 'Drug Has Been Added Successfully');
     }
@@ -76,6 +78,7 @@ class DrugsController extends Controller
     {
         $drug = Drug::find($id);
         $drug->name = $request->name;
+        $drug->quantity = $request->quantity;
         $drug->save();
         return back()->with('Drug_Edited', 'Drug Has Been Edited Successfully');
     }

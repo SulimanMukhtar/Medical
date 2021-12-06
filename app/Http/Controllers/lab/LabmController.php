@@ -4,7 +4,6 @@ namespace App\Http\Controllers\lab;
 
 use App\Http\Controllers\Controller;
 use App\Models\HomeVisit;
-use App\Models\Lab;
 use App\Models\Labm;
 use App\Models\TestMenu;
 use App\Models\TestResult;

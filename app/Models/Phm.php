@@ -10,4 +10,5 @@ class phm extends Authenticatable
     use HasFactory;
 
     protected $hidden = ['password'];
+    protected $table = 'pharmacies';
 }

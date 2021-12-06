@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Pharmacy;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PharmaciesController extends Controller
 {
@@ -13,7 +15,9 @@ class PharmaciesController extends Controller
      */
     public function index()
     {
-        //
+        $pharmacies = Pharmacy::where('pharma_id', '=', Auth::guard('phm')->user()->id)->get();
+
+        return view('admin.drugcp', compact('pharmacies'));
     }
 
     /**

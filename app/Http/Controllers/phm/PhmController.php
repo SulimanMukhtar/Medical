@@ -4,7 +4,7 @@ namespace App\Http\Controllers\phm;
 
 use App\Http\Controllers\Controller;
 use App\Models\Drug;
-use App\Models\phm;
+use App\Models\Pharmacy;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -13,7 +13,7 @@ class PhmController extends Controller
     public function index()
     {
 
-        $drugs = Drug::all()->toArray();
+        $drugs = Drug::where('pharma_id', '=', Auth::guard('phm')->user()->id)->get();
 
         if (Auth::guard('phm')) {
             return view('admin.drugcp', compact('drugs'));
@@ -27,21 +27,26 @@ class PhmController extends Controller
         //Validate inputs
         $request->validate([
             'name' => 'required',
-            'email' => 'required|email|unique:phms,email',
-            'username' => 'required|unique:phms,username',
+            'address' => 'required',
+            'phone' => 'required',
+            'email' => 'required|email|unique:pharmacies,email',
+            'username' => 'required|unique:pharmacies,username',
             'password' => 'required|min:5|max:30',
             'cpassword' => 'required|min:5|max:30|same:password'
         ]);
 
-        $phm = new Phm();
+        $phm = new Pharmacy();
         $phm->name = $request->name;
-        $phm->email = $request->email;
         $phm->username = $request->username;
+        $phm->address = $request->address;
+        $phm->phone = $request->phone;
+        $phm->approved = false;
+        $phm->email = $request->email;
         $phm->password = \Hash::make($request->password);
         $save = $phm->save();
 
         if ($save) {
-            return redirect()->back()->with('success', 'You are now registered successfully as Pharmacy Manager , Login And Add A Pharmacy');
+            return redirect()->back()->with('success', 'Your Pharmacy Account Has Been Registered Successfully');
         } else {
             return redirect()->back()->with('fail', 'Something went Wrong, failed to register');
         }

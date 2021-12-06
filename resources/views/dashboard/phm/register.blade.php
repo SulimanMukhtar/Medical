@@ -15,7 +15,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-4 offset-md-4" style="margin-top: 45px;">
-                <h4>Pharmacy Manager Registeration</h4>
+                <h4>Pharmacy Registeration</h4>
                 <hr>
                 <form action="{{ route('phm.create') }}" method="post" autocomplete="off">
                     @if (Session::get('success'))
@@ -47,6 +47,18 @@
                         <input type="text" class="form-control" name="email" placeholder="Enter Email Address"
                             value="{{ old('email') }}">
                         <span class="text-danger">@error('email'){{ $message }} @enderror</span>
+                    </div>
+                    <div class="form-group">
+                        <label for="address">Address</label>
+                        <input type="text" class="form-control" name="address" placeholder="Enter Your Address"
+                            value="{{ old('address') }}">
+                        <span class="text-danger">@error('address'){{ $message }} @enderror</span>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone</label>
+                        <input type="text" class="form-control" name="phone" placeholder="Enter Phone Number"
+                            value="{{ old('phone') }}">
+                        <span class="text-danger">@error('phone'){{ $message }} @enderror</span>
                     </div>
                     <div class="form-group">
                         <label for="password">Password</label>
