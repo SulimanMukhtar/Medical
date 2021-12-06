@@ -145,10 +145,10 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($TestMenus as $TestMenu)
+                                @foreach ($lab->TestMenu as $TestMenu)
                                     <tr>
-                                        <th scope="row"></th>
-                                        <td>Covid 19</td>
+                                        <th scope="row">{{ $TestMenu['id'] }}</th>
+                                        <td>{{ $TestMenu['test_name'] }}</td>
                                     </tr>
                                 @endforeach
                             </tbody>
