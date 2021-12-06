@@ -1,7 +1,17 @@
 
 $(document).ready(function() {
     document.getElementById("defaultOpen").click();
+    
   });
+  function showresult() {
+    var x = document.getElementById("drugresult");
+    if (x.style.display === "none") {
+      x.style.display = "block";
+    } else {
+      x.style.display = "none";
+    }
+    
+  }
     function openPage(pageName, elmnt, color) {
     // Hide all elements with class="tabcontent" by default */
     var i, tabcontent, tablinks;

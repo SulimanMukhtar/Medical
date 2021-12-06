@@ -142,7 +142,7 @@ a.btn.btn-primary {
 }
 
 /* Style the search field */
-form.example input[type=text] {
+.example input[type=text] {
   padding: 10px;
   font-size: 17px;
   border: 1px solid grey;
@@ -155,7 +155,7 @@ form.example input[type=text] {
 }
 
 /* Style the submit button */
-form.example button {
+.example button {
   float: left;
   width: 20%;
   padding: 14.5px 10px 14.5px;
@@ -170,7 +170,7 @@ form.example button {
   transition: 1.2s;
 }
 
-form.example button:hover {
+.example button:hover {
   background: rgb(56, 240, 10);
 }
 
@@ -462,4 +462,22 @@ h3 span .btn:hover {
 
 body {
   font-family: 'Roboto', sans-serif;
+}
+.reultbox{
+
+ display: none;
+ text-align: center;
+ width: 100%;
+ padding: 20px;
+ clear: both;
+ 
+ background-color: rgba(18, 223, 223, 0.295);
+}
+.reultbox span{
+  color: #f80000;
+  font-weight: bold;
+}
+.reultbox  .fa-clinic-medical, .fa-map-marker-alt, .fa-phone-square {
+   margin-right: 20px;
+   font-size: 20pt;
 }

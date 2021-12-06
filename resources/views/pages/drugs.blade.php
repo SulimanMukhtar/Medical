@@ -37,10 +37,25 @@
     </nav>
     <!---------------------------------------------Navbar End------------------------------------------------>
     <div class="container">
-        <form class="example" action="action_page.php">
+        <div class="example" >
             <input type="text" placeholder="Please Inter Your Drug Name..." name="search">
-            <button type="submit"><i class="fa fa-capsules"></i></button>
-        </form>
+            <button onclick="showresult()" class="serchdr"><i class="fa fa-capsules"></i></button>
+    </div>
+      <div id="drugresult" class = "reultbox">
+        <p class="lead">Did You Mean <span>Asprine?</span></p>
+      <h4><span>10</span>  results found on <span>Asprine</span></h4>
+      <table class="table">
+  <caption>List of Results</caption>
+  <tbody>
+    <tr>
+      <td><i class="fas fa-clinic-medical"></i><span>Carepoint</span></td>
+      <td><i class="fas fa-map-marker-alt"></i>Atbra str </td>
+      <td><i class="fas fa-phone-square"></i><a href="tel:0907557112">0907557112</a></td>
+    </tr>
+    
+  </tbody>
+</table>
+       </div>
     </div>
     @include('includes.footer')
     <script src="js/jquery-3.6.0.min.js"></script>
@@ -49,4 +64,5 @@
     <script src="js//all.min.js"></script>
 </body>
 
+        
 </html>
