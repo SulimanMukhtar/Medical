@@ -16,10 +16,12 @@ class LabsController extends Controller
      */
     public function index()
     {
-        $labs = Lab::all()->toArray();
+        $labs = Lab::with('TestMenu')->get();
         $TestMenus = TestMenu::all()->toArray();
-        // dd($TestMenus);
+        // dd($labs);
         return view('pages.labs', compact('labs'), compact('TestMenus'));
+
+        // return Lab::find(1)->TestMenu()->get();
     }
 
     /**

@@ -191,7 +191,7 @@
                             <div class="form-group">
                                 <label for="test">Select A Test</label>
                                 <select class="form-control" name="test">
-                                    @foreach ($TestMenus as $TestMenu)
+                                    @foreach ($lab->TestMenu as $TestMenu)
                                         <option>{{ $TestMenu['test_name'] }}</option>
                                     @endforeach
                                 </select>

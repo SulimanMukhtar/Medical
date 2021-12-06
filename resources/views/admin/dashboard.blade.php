@@ -302,7 +302,7 @@
             <div class="row">
                 <div class="col-lg-6">
                     <h3>Drugs <span> <button type="button" class="btn btn-info btn-md" data-toggle="modal"
-                                data-target="#Adddruge">Add Druge</button></h3>
+                                data-target="#Adddruge">Add Drug</button></h3>
                     <table class="table table-striped table-hover table-responsive-xl">
                         <thead>
                             <tr>
@@ -666,17 +666,48 @@
                 </div>
                 <div class="modal-body">
                     <form action="">
+
                         <div class="form-group">
-                            <label for="exampleInputPassword1">Pharmacy Name</label>
-                            <input type="text" class="form-control" id="exampleInputPassword1">
+                            <label for="name">Name</label>
+                            <input type="text" class="form-control" name="name" placeholder="Enter full name"
+                                value="{{ old('name') }}">
+                            <span class="text-danger">@error('name'){{ $message }} @enderror</span>
                         </div>
                         <div class="form-group">
-                            <label for="exampleInputPassword1">Location</label>
-                            <input type="text" class="form-control" id="exampleInputPassword1">
+                            <label for="username">Username</label>
+                            <input type="text" class="form-control" name="username"
+                                placeholder="Choose a Unique Username" value="{{ old('username') }}">
+                            <span class="text-danger">@error('username'){{ $message }} @enderror</span>
                         </div>
                         <div class="form-group">
-                            <label for="exampleInputPassword1">Phone Number</label>
-                            <input type="text" class="form-control" id="exampleInputPassword1">
+                            <label for="email">Email</label>
+                            <input type="text" class="form-control" name="email" placeholder="Enter Email Address"
+                                value="{{ old('email') }}">
+                            <span class="text-danger">@error('email'){{ $message }} @enderror</span>
+                        </div>
+                        <div class="form-group">
+                            <label for="address">Address</label>
+                            <input type="text" class="form-control" name="address" placeholder="Enter Your Address"
+                                value="{{ old('address') }}">
+                            <span class="text-danger">@error('address'){{ $message }} @enderror</span>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone</label>
+                            <input type="text" class="form-control" name="phone" placeholder="Enter Phone Number"
+                                value="{{ old('phone') }}">
+                            <span class="text-danger">@error('phone'){{ $message }} @enderror</span>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="password" class="form-control" name="password" placeholder="Enter Password"
+                                value="{{ old('password') }}">
+                            <span class="text-danger">@error('password'){{ $message }} @enderror</span>
+                        </div>
+                        <div class="form-group">
+                            <label for="cpassword">Confirm Password</label>
+                            <input type="password" class="form-control" name="cpassword"
+                                placeholder="Confirm Your Password" value="{{ old('cpassword') }}">
+                            <span class="text-danger">@error('cpassword'){{ $message }} @enderror</span>
                         </div>
                         <button type="submit" class="btn btn-primary">Save Change</button>
                     </form>
