@@ -39,6 +39,7 @@ class HomeVisits extends Controller
             'name' => 'required',
             'address' => 'required',
             'phone' => 'required',
+            'test' => 'required',
             'date' => 'required',
         ]);
 
@@ -46,6 +47,7 @@ class HomeVisits extends Controller
         $homevisit->lab_id = $request->lab_id;
         $homevisit->name = $request->name;
         $homevisit->phone = $request->phone;
+        $homevisit->test_name = $request->test;
         $homevisit->address = $request->address;
         $homevisit->date = $request->date;
         $save = $homevisit->save();

@@ -80,7 +80,7 @@
                             <th scope="row">{{ $HomeVisit['id'] }}</th>
                             <td>{{ $HomeVisit['name'] }}</td>
                             <td>{{ $HomeVisit['address'] }}</td>
-                            <td>{{ $HomeVisit['id'] }}</td>
+                            <td>{{ $HomeVisit['test_name'] }}</td>
                             <td>{{ $HomeVisit['date'] }}</td>
                         </tr>
                     @endforeach
