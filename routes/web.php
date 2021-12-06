@@ -6,9 +6,12 @@ use App\Http\Controllers\Doctor\DoctorController;
 use App\Http\Controllers\DoctorsController;
 use App\Http\Controllers\Drug\DrugController;
 use App\Http\Controllers\DrugsController;
+use App\Http\Controllers\HomeVisits;
 use App\Http\Controllers\lab\LabmController;
 use App\Http\Controllers\LabsController;
+use App\Http\Controllers\LabTestsController;
 use App\Http\Controllers\phm\PhmController;
+use App\Http\Controllers\TestMenus;
 use Illuminate\Support\Facades\Auth;
 
 /*
@@ -38,6 +41,12 @@ Route::resource('/Panel/Drug', DrugsController::class);
 Route::get('/AddDoctor', [DoctorsController::class, 'addDoctor'])->name('addADoctor');
 Route::post('/AddDoctor', [DoctorsController::class, 'store']);
 Route::post('/SubmitAppointment', [Appointments::class, 'store'])->name('makeAppoint');
+Route::post('/SubmitVisit', [HomeVisits::class, 'store'])->name('submitVisit');
+Route::post('/checklogin', [LabsController::class, 'check'])->name('labcheck');
+Route::post('/addtest', [TestMenus::class, 'store'])->name('AddTest');
+
+
+
 
 // Route::get('/Admin/dashboard',[ DoctorsController::class,'index'])->name('admin');
 // Route::post('/Admin/dashboard/{id}', [ DoctorsController::class , 'update']);

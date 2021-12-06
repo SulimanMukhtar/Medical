@@ -9,7 +9,7 @@
 <body>
     <div class=" lapsBrand">
         <p><strong>Altra Laps </strong><span class="badge bg-info">
-                {{ Auth::guard('labm')->user()->lname }}</span>
+                {{ Auth::guard('labm')->user()->name }}</span>
             <span><a href="{{ route('labm.logout') }}"
                     onclick="event.preventDefault();document.getElementById('logout-form').submit();">Logout</a>
                 <form action="{{ route('labm.logout') }}" id="logout-form" method="post">@csrf</form>
@@ -74,13 +74,16 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Omdurman</td>
-                        <td>Covid 19</td>
-                        <td>14/ 10/</td>
-                    </tr>
+                    @foreach ($HomeVisits as $HomeVisit)
+
+                        <tr>
+                            <th scope="row">{{ $HomeVisit['id'] }}</th>
+                            <td>{{ $HomeVisit['name'] }}</td>
+                            <td>{{ $HomeVisit['address'] }}</td>
+                            <td>{{ $HomeVisit['id'] }}</td>
+                            <td>{{ $HomeVisit['date'] }}</td>
+                        </tr>
+                    @endforeach
                 </tbody>
             </table>
         </div>
@@ -97,46 +100,52 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>Calcium in Urine</td>
-                    <td>
-                        <button type="button" class="btn btn-info btn-md" data-toggle="modal"
-                            data-target="#edittest">Edit</ button>
+                @foreach ($TestMenus as $TestMenu)
+                    <tr>
+                        <th scope="row">{{ $TestMenu['id'] }}</th>
+                        <td>{{ $TestMenu['test_name'] }}</td>
+                        <td>
                             <button type="button" class="btn btn-info btn-md" data-toggle="modal"
-                                data-target="#del">Del</button>
-                    </td>
-                </tr>
+                                data-target="#edittest">Edit</ button>
+                                <button type="button" class="btn btn-info btn-md" data-toggle="modal"
+                                    data-target="#del">Del</button>
+                        </td>
+                        <!----------------start----- edite test modal---------------------------->
+                        <div class="modal fade" id="edittest" tabindex="-1" aria-labelledby="exampleModalLabel"
+                            aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Edit Record</h5>
+                                        <button type="button" class="close" data-dismiss="modal"
+                                            aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form action="">
+                                            <div class="form-group">
+                                                <label for="exampleInputPassword1">Test Name</label>
+                                                <input type="text" class="form-control" id="exampleInputPassword1">
+                                            </div>
+
+                                            <button type="submit" class="btn btn-primary">Save Change</button>
+                                        </form>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary"
+                                            data-dismiss="modal">Close</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!----------------end----- edite test modal---------------------------->
+                    </tr>
+                @endforeach
             </tbody>
         </table>
     </section>
-    <!----------------start----- edite test modal---------------------------->
-    <div class="modal fade" id="edittest" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Edit Record</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <form action="">
-                        <div class="form-group">
-                            <label for="exampleInputPassword1">Test Name</label>
-                            <input type="text" class="form-control" id="exampleInputPassword1">
-                        </div>
 
-                        <button type="submit" class="btn btn-primary">Save Change</button>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!----------------end----- edite test modal---------------------------->
     <!----------------start----- add test modal---------------------------->
 
     <div class="modal fade" id="addtest" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -149,10 +158,12 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form action="">
+                    <form method="POST" action="{{ route('AddTest') }}">
+                        @csrf
+                        <input type="hidden" name="lab_id" value="{{ Auth::guard('labm')->user()->id }}">
                         <div class="form-group">
-                            <label for="exampleInputPassword1">Test Name</label>
-                            <input type="text" class="form-control" id="exampleInputPassword1">
+                            <label for="name">Test Name</label>
+                            <input type="text" class="form-control" name="name">
                         </div>
 
                         <button type="submit" class="btn btn-primary">Save Change</button>

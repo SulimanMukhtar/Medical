@@ -9,7 +9,6 @@ class labm extends Authenticatable
 {
     use HasFactory;
 
-    protected $table = 'labm';
+    protected $table = 'labs';
     protected $hidden = ['password'];
-
 }

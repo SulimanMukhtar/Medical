@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Lab;
-
+use App\Models\TestMenu;
+use Illuminate\Support\Facades\Auth;
 
 class LabsController extends Controller
 {
@@ -16,7 +17,9 @@ class LabsController extends Controller
     public function index()
     {
         $labs = Lab::all()->toArray();
-        return view('pages.labs', compact('labs'));
+        $TestMenus = TestMenu::all()->toArray();
+        // dd($TestMenus);
+        return view('pages.labs', compact('labs'), compact('TestMenus'));
     }
 
     /**
@@ -39,9 +42,11 @@ class LabsController extends Controller
     {
         $lab = new Lab();
         $lab->name = $request->name;
-        $lab->location = $request->location;
+        $lab->address = $request->address;
         $lab->phone = $request->phone;
-        $lab->description = $request->description;
+        $lab->email = $request->email;
+        $lab->username = $request->username;
+        $lab->password = \Hash::make($request->password);
         $nameW = basename($request->file('image')->getClientOriginalName(), '.' . $request->file('image')->getClientOriginalExtension());
         $extention = $request->file('image')->getClientOriginalExtension();
         $name = $nameW . rand(00000, 9999) . time() . '.' . $extention;
@@ -84,9 +89,11 @@ class LabsController extends Controller
     {
         $lab = Lab::find($id);
         $lab->name = $request->name;
-        $lab->location = $request->location;
+        $lab->address = $request->address;
         $lab->phone = $request->phone;
-        $lab->description = $request->description;
+        $lab->email = $request->email;
+        $lab->username = $request->username;
+        $lab->password = \Hash::make($request->password);
         if ($request->image) {
             $nameW = basename($request->file('image')->getClientOriginalName(), '.' . $request->file('image')->getClientOriginalExtension());
             $extention = $request->file('image')->getClientOriginalExtension();
@@ -108,5 +115,27 @@ class LabsController extends Controller
     {
         Lab::destroy($id);
         return back()->with('Lab_Deleted', 'Lab Has Been Deleted Successfully');
+    }
+    function check(Request $request)
+    {
+        //Validate Inputs
+        $request->validate([
+            'username' => 'required|exists:labs,username',
+            'password' => 'required|min:5|max:30'
+        ]);
+
+        $creds = $request->only('username', 'password');
+
+        if (Auth::guard('labm')->attempt($creds)) {
+            return redirect()->route('labm.home');
+        } else {
+            return redirect()->route('labm.login')->with('fail', 'Incorrect Credentials');
+        }
+    }
+
+    function logout()
+    {
+        Auth::guard('labm')->logout();
+        return redirect()->route('labm.login');
     }
 }

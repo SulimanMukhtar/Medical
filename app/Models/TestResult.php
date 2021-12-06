@@ -9,4 +9,9 @@ class TestResult extends Model
 {
     use HasFactory;
     protected $table = 'TestResults';
+
+    public function lab()
+    {
+        return $this->belongsTo(Lab::class);
+    }
 }

@@ -17,7 +17,8 @@
             <div class="col-md-4 offset-md-4" style="margin-top: 45px;">
                 <h4>Lab Manager Registeration</h4>
                 <hr>
-                <form action="{{ route('labm.create') }}" method="post" autocomplete="off">
+                <form action="{{ route('Labs.store') }}" method="post" autocomplete="off"
+                    enctype="multipart/form-data">
                     @if (Session::get('success'))
                         <div class="alert alert-success">
                             {{ Session::get('success') }}
@@ -31,16 +32,15 @@
 
                     @csrf
                     <div class="form-group">
-                        <label for="Fname">First Name</label>
-                        <input type="text" class="form-control" name="fname" placeholder="Enter Your First name"
-                            value="{{ old('fname') }}">
-                        <span class="text-danger">@error('fname'){{ $message }} @enderror</span>
+                        <label for="image">Lap Image</label>
+                        <input type="file" class="form-control" name="image" value="{{ old('image') }}">
+                        <span class="text-danger">@error('image'){{ $message }} @enderror</span>
                     </div>
                     <div class="form-group">
-                        <label for="Lname">Last Name</label>
-                        <input type="text" class="form-control" name="lname" placeholder="Enter Your Last name"
-                            value="{{ old('lname') }}">
-                        <span class="text-danger">@error('lname'){{ $message }} @enderror</span>
+                        <label for="name">Name</label>
+                        <input type="text" class="form-control" name="name" placeholder="Enter Your Lap name"
+                            value="{{ old('name') }}">
+                        <span class="text-danger">@error('name'){{ $message }} @enderror</span>
                     </div>
                     <div class="form-group">
                         <label for="email">Email</label>

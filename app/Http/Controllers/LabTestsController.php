@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\TestMenu;
 use Illuminate\Http\Request;
 
 class LabTestsController extends Controller
@@ -34,7 +35,6 @@ class LabTestsController extends Controller
      */
     public function store(Request $request)
     {
-        //
     }
 
     /**

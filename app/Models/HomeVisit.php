@@ -9,4 +9,9 @@ class HomeVisit extends Model
 {
     use HasFactory;
     protected $table = 'HomeVisits';
+
+    public function lab()
+    {
+        return $this->belongsTo(Lab::class);
+    }
 }

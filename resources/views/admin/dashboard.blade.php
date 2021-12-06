@@ -461,24 +461,51 @@
                     <form action="{{ route('Labs.store') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="form-group">
-                            <label for="name">Lap Name</label>
-                            <input type="text" name="name" class="form-control">
+                            <label for="image">Lap Image</label>
+                            <input type="file" class="form-control" name="image" value="{{ old('image') }}">
+                            <span class="text-danger">@error('image'){{ $message }} @enderror</span>
                         </div>
                         <div class="form-group">
-                            <label for="location">Location</label>
-                            <input type="text" name="location" class="form-control">
+                            <label for="name">Name</label>
+                            <input type="text" class="form-control" name="name" placeholder="Enter Your Lap name"
+                                value="{{ old('name') }}">
+                            <span class="text-danger">@error('name'){{ $message }} @enderror</span>
                         </div>
                         <div class="form-group">
-                            <label for="phone">Phones</label>
-                            <input type="text" name="phone" class="form-control">
+                            <label for="email">Email</label>
+                            <input type="text" class="form-control" name="email" placeholder="Enter Email Address"
+                                value="{{ old('email') }}">
+                            <span class="text-danger">@error('email'){{ $message }} @enderror</span>
                         </div>
                         <div class="form-group">
-                            <label for="description">Description</label>
-                            <input type="text" name="description" class="form-control">
+                            <label for="username">Username</label>
+                            <input type="text" class="form-control" name="username"
+                                placeholder="Choose a Unique Username" value="{{ old('username') }}">
+                            <span class="text-danger">@error('username'){{ $message }} @enderror</span>
                         </div>
                         <div class="form-group">
-                            <label for="image">Logo</label>
-                            <input type="file" name="image" class="form-control">
+                            <label for="phone">Phone</label>
+                            <input type="phone" class="form-control" name="phone" placeholder="Enter Your Phone"
+                                value="{{ old('phone') }}">
+                            <span class="text-danger">@error('phone'){{ $message }} @enderror</span>
+                        </div>
+                        <div class="form-group">
+                            <label for="address">Address</label>
+                            <input type="text" class="form-control" name="address" placeholder="Enter Your Address"
+                                value="{{ old('address') }}">
+                            <span class="text-danger">@error('address'){{ $message }} @enderror</span>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="password" class="form-control" name="password" placeholder="Enter Password"
+                                value="{{ old('password') }}">
+                            <span class="text-danger">@error('password'){{ $message }} @enderror</span>
+                        </div>
+                        <div class="form-group">
+                            <label for="cpassword">Confirm Password</label>
+                            <input type="password" class="form-control" name="cpassword"
+                                placeholder="Confirm Your Password" value="{{ old('cpassword') }}">
+                            <span class="text-danger">@error('cpassword'){{ $message }} @enderror</span>
                         </div>
                         <button type="submit" class="btn btn-primary">Save Change</button>
                     </form>

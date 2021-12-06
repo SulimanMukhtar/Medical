@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\HomeVisit;
 use Illuminate\Http\Request;
 
 class HomeVisits extends Controller
@@ -34,7 +35,25 @@ class HomeVisits extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'address' => 'required',
+            'phone' => 'required',
+            'date' => 'required',
+        ]);
+
+        $homevisit = new HomeVisit();
+        $homevisit->lab_id = $request->lab_id;
+        $homevisit->name = $request->name;
+        $homevisit->phone = $request->phone;
+        $homevisit->address = $request->address;
+        $homevisit->date = $request->date;
+        $save = $homevisit->save();
+        if ($save) {
+            return redirect()->back()->with('success', 'A');
+        } else {
+            return redirect()->back()->with('fail', 'Something went wrong');
+        }
     }
 
     /**

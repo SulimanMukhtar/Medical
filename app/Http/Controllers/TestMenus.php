@@ -35,7 +35,19 @@ class TestMenus extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+        ]);
+
+        $labTest = new TestMenu();
+        $labTest->lab_id = $request->lab_id;
+        $labTest->test_name = $request->name;
+        $save = $labTest->save();
+        if ($save) {
+            return redirect()->back()->with('success', 'A');
+        } else {
+            return redirect()->back()->with('fail', 'Something went wrong');
+        }
     }
 
     /**

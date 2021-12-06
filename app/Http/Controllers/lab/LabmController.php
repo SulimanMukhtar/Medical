@@ -4,6 +4,7 @@ namespace App\Http\Controllers\lab;
 
 use App\Http\Controllers\Controller;
 use App\Models\HomeVisit;
+use App\Models\Lab;
 use App\Models\Labm;
 use App\Models\TestMenu;
 use App\Models\TestResult;
@@ -15,12 +16,15 @@ class LabmController extends Controller
     public function index()
     {
 
-        $HomeVisits = HomeVisit::all()->toArray();
+        $HomeVisits = HomeVisit::where('lab_id', '=', Auth::guard('labm')->user()->id)->get();
         $TestResults = TestResult::all()->toArray();
-        $TestMenus = TestMenu::all()->toArray();
-
+        $TestMenus = TestMenu::where('lab_id', '=', Auth::guard('labm')->user()->id)->get();
+        $labs = Lab::all()->toArray();
+        $tests = TestMenu::where('lab_id', Lab::TestMenu());
+        // dd(Auth::guard('labm')->user()->id);
+        dd($tests);
         if (Auth::guard('labm')) {
-            return view('admin.lapsuser', compact('HomeVisits'), compact('TestResults'), compact('TestMenus'));
+            return view('admin.lapsuser', compact('HomeVisits'), compact('TestMenus'), compact('TestResults'), compact('tests'));
         } else {
             return view('dashboard.labm.login');
         }

@@ -33,8 +33,6 @@
             </thead>
             <tbody>
                 @foreach ($appointments as $appointment)
-
-
                     <tr>
                         <th scope="row">{{ $appointment['id'] }}</th>
                         <td>{{ $appointment['fname'] }}</td>
@@ -46,7 +44,6 @@
                         <td>{{ $appointment['gender'] }}</td>
                     </tr>
                 @endforeach
-
             </tbody>
         </table>
     </div>

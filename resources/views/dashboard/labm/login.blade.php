@@ -17,7 +17,7 @@
             <div class="col-md-4 offset-md-4" style="margin-top: 45px;">
                 <h4>Lab Manager Login</h4>
                 <hr>
-                <form action="{{ route('labm.check') }}" method="post" autocomplete="off">
+                <form action="{{ route('labcheck') }}" method="post" autocomplete="off">
                     @if (Session::get('fail'))
                         <div class="alert alert-danger">
                             {{ Session::get('fail') }}

@@ -9,4 +9,9 @@ class TestMenu extends Model
 {
     use HasFactory;
     protected $table = 'TestMenus';
+
+    public function lab()
+    {
+        return $this->belongsTo(Lab::class);
+    }
 }

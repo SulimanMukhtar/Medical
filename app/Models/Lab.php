@@ -13,10 +13,13 @@ class Lab extends Model
 
     protected $primaryKey = 'id';
 
+    protected $hidden = ['password'];
+
+
     // protected $fillable = ['','',''];
 
-    public function labTests()
+    public function TestMenu()
     {
-        return $this->hasMany(LabTest::class);
+        return $this->hasMany(TestMenu::class);
     }
 }

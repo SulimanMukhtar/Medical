@@ -47,12 +47,11 @@
                             <h5 class="card-title">{{ $lab['name'] }}</h5>
                             <p class="card-text">
                             <ul>
-                                <li>{{ $lab['description'] }}</li>
-                                <li>{{ $lab['location'] }}</li>
+                                <li>{{ $lab['address'] }}</li>
                             </ul>
                             </p>
                             <button type="button" class="btn btn-info btn-md" data-toggle="modal"
-                                data-target="#lap">{{ $lab['name'] }} Patient Services</button>
+                                data-target="#lap_{{ $lab['id'] }}">{{ $lab['name'] }} Patient Services</button>
                         </div>
                     </div>
                 </div>
@@ -60,7 +59,8 @@
         </div>
         <!----- Modal Start ----------------------------------------------------------->
 
-        <div class="modal fade" id="lap" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade" id="lap_{{ $lab['id'] }}" tabindex="-1" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -74,15 +74,15 @@
                             <div class="row">
                                 <div class="col-4">
                                     <button type="button" class="btn btn-info btn-md" data-toggle="modal"
-                                        data-target="#result"> Test Result</button><a /><a />
+                                        data-target="#Result_{{ $lab['id'] }}"> Test Result</button>
                                 </div>
                                 <div class="col-4">
                                     <button type="button" class="btn btn-info btn-md" data-toggle="modal"
-                                        data-target="#test-menue"> Test Menu </button><a /><a />
+                                        data-target="#Test_{{ $lab['id'] }}"> Test Menu </button>
                                 </div>
                                 <div class="col-4">
                                     <button type="button" class="btn btn-info btn-md" data-toggle="modal"
-                                        data-target="#vist-1"> Home Visit </button><a /><a />
+                                        data-target="#Visit_{{ $lab['id'] }}"> Home Visit </button>
                                 </div>
                             </div>
                         </div>
@@ -96,7 +96,8 @@
         <!----- Modal End ----------------------------------------------------------->
 
         <!------------- Lap Modal Start------------------------------------------------->
-        <div class="modal fade" id="result" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade" id="Result_{{ $lab['id'] }}" tabindex="-1" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -125,7 +126,7 @@
             </div>
         </div>
         <!-------------Tests Menu Start------------------------------------------------------------>
-        <div class="modal fade" id="test-menue" tabindex="-1" aria-labelledby="exampleModalLabel"
+        <div class="modal fade" id="Test_{{ $lab['id'] }}" tabindex="-1" aria-labelledby="exampleModalLabel"
             aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -144,47 +145,12 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <th scope="row">1</th>
-                                    <td>Covid 19</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">2</th>
-                                    <td>liver test</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">3</th>
-                                    <td>Calcium in Urine </td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">4</th>
-                                    <td>Calcium/Creatinine Ratio</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">5</th>
-                                    <td>CASA</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">6</th>
-                                    <td>Mercury (Urine)</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">7</th>
-                                    <td>Drug of Abuse (Whole Profile)</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">8</th>
-                                    <td>Duffy Blood Group</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">9</th>
-                                    <td>Frozen Section</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">10</th>
-                                    <td>Melatonin (Blood)</td>
-                                </tr>
-
+                                @foreach ($TestMenus as $TestMenu)
+                                    <tr>
+                                        <th scope="row"></th>
+                                        <td>Covid 19</td>
+                                    </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>
@@ -196,37 +162,46 @@
         </div>
         <!-------------Tests Menu End------------------------------------------------------------>
         <!-------------Visit Menu Start------------------------------------------------------------>
-        <div class="modal fade" id="vist-1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade" id="Visit_{{ $lab['id'] }}" tabindex="-1" aria-labelledby="" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Home visit</h5>
+                        <h5 class="modal-title" id="">Home visit</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
                     <div class="modal-body">
-                        <form action="">
-                            <form action="">
-                                <div class="form-group">
-                                    <label for="exampleInputPassword1">Name</label>
-                                    <input type="text" class="form-control" id="exampleInputPassword1">
-                                </div>
-                                <div class="form-group">
-                                    <label for="exampleInputPassword1">Address</label>
-                                    <input type="text" class="form-control" id="exampleInputPassword1">
-                                </div>
-                                <div class="form-group">
-                                    <label for="exampleInputPassword1">Phone Number</label>
-                                    <input type="text" class="form-control" id="exampleInputPassword1">
-                                </div>
+                        <form method="POST" action="{{ route('submitVisit') }}">
+                            @csrf
+                            <input type="hidden" name="lab_id" value="{{ $lab['id'] }}">
+                            <div class="form-group">
+                                <label for="name">Name</label>
+                                <input type="text" class="form-control" name="name">
+                            </div>
+                            <div class="form-group">
+                                <label for="address">Address</label>
+                                <input type="text" class="form-control" name="address">
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Phone Number</label>
+                                <input type="text" class="form-control" name="phone">
+                            </div>
 
-                                <div class="form-group">
-                                    <label for="exampleInputPassword1">Fav Date</label>
-                                    <input type="date" class="form-control" id="exampleInputPassword1">
-                                </div>
-                                <button type="submit" class="btn btn-primary">Submit</button>
-                            </form>
+                            <div class="form-group">
+                                <label for="test">Select A Test</label>
+                                <select class="form-control" name="test">
+                                    @foreach ($TestMenus as $TestMenu)
+                                        <option>{{ $TestMenu['test_name'] }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="date">Fav Date</label>
+                                <input type="date" class="form-control" name="date">
+                            </div>
+                            <button type="submit" class="btn btn-primary">Submit</button>
                         </form>
                     </div>
                     <div class="modal-footer">

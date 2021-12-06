@@ -16,9 +16,11 @@ class CreateLabsTable extends Migration
         Schema::create('labs', function (Blueprint $table) {
             $table->increments('id')->unsigned();
             $table->string('name');
-            $table->string('location');
+            $table->string('address');
             $table->char('phone');
-            $table->string('description');
+            $table->string('email');
+            $table->string('password');
+            $table->string('username');
             $table->binary('image');
             $table->boolean('approved')->default(false);
             $table->timestamps();
@@ -37,6 +39,7 @@ class CreateLabsTable extends Migration
             $table->string('name');
             $table->string('address');
             $table->char('phone');
+            $table->string('test_name');
             $table->date('date');
             $table->timestamps();
             $table->foreign('lab_id')->references('id')->on('labs')->onDelete('cascade');
@@ -51,17 +54,6 @@ class CreateLabsTable extends Migration
             $table->foreign('test_id')->references('id')->on('TestMenus')->onDelete('cascade');
             $table->foreign('requester')->references('id')->on('HomeVisits')->onDelete('cascade');
             $table->foreign('lab_id')->references('id')->on('labs')->onDelete('cascade');
-        });
-        Schema::create('labm', function (Blueprint $table) {
-            $table->id();
-            $table->string('fname');
-            $table->string('lname');
-            $table->string('email');
-            $table->string('username');
-            $table->char('phone');
-            $table->string('address');
-            $table->string('password');
-            $table->timestamps();
         });
     }
 
