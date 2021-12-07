@@ -16,6 +16,7 @@ class PharmaciesController extends Controller
     public function index()
     {
         $pharmacies = Pharmacy::where('pharmacy_id', '=', Auth::guard('phm')->user()->id)->get();
+        dd($pharmacies);
         if (Auth::guard('admin')) {
             return view('admin.dashboard', compact('pharmacies'));
         }

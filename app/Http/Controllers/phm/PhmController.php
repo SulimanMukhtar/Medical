@@ -14,9 +14,12 @@ class PhmController extends Controller
     {
 
         $drugs = Drug::where('pharmacy_id', '=', Auth::guard('phm')->user()->id)->get();
+        $pharmacies = Pharmacy::with('drugs')->get();
 
         if (Auth::guard('phm')) {
             return view('admin.drugcp', compact('drugs'));
+        } else if (Auth::guard('admin')) {
+            return view('admin.dashboard', compact('drugs', 'pharmacies'));
         } else {
             return view('dashboard.phm.login');
         }

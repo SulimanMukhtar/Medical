@@ -22,7 +22,7 @@ class AdminController extends Controller
         $drugs = Drug::all()->toArray();
 
         if (Auth::guard('admin')) {
-            return view('admin.dashboard', compact('doctors'), compact('labs'), compact('pharmacies'), compact('drugs'));
+            return view('admin.dashboard', compact('doctors', 'labs', 'pharmacies', 'drugs'));
         } else {
             return view('dashboard.admin.login');
         }

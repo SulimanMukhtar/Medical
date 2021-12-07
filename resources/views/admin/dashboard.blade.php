@@ -323,18 +323,22 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <th scope="row">1</th>
-                                <td>Lazix</td>
-                                <td>Elsamh</td>
-                                <td>
-                                    <button type="button" class="btn btn-info btn-md" data-toggle="modal"
-                                        data-target="#editdruge">Edit</button>
+                            @foreach ($drugs as $drug)
 
-                                    <button type="button" class="btn btn-info btn-md" data-toggle="modal"
-                                        data-target="#modall">Del</button>
-                                </td>
-                            </tr>
+
+                                <tr>
+                                    <th scope="row">{{ $drug['id'] }}</th>
+                                    <td>{{ $drug['name'] }}</td>
+                                    <td></td>
+                                    <td>
+                                        <button type="button" class="btn btn-info btn-md" data-toggle="modal"
+                                            data-target="#editdruge">Edit</button>
+
+                                        <button type="button" class="btn btn-info btn-md" data-toggle="modal"
+                                            data-target="#modall">Del</button>
+                                    </td>
+                                </tr>
+                            @endforeach
 
                         </tbody>
                     </table>
@@ -353,21 +357,72 @@
                             </tr>
                         </thead>
                         <tbody>
-                            {{-- @foreach ($pharmacies as $pharmacy) --}}
-                            <tr>
-                                <th scope="row">1</th>
-                                <td>Elsamh</td>
-                                <td>Atbra str</td>
-                                <td>0907557112</td>
-                                <td>
-                                    <button type="button" class="btn btn-info btn-md" data-toggle="modal"
-                                        data-target="#editpharma">Edit</button>
+                            @foreach ($pharmacies as $pharmacy)
+                                <tr>
+                                    <th scope="row">{{ $pharmacy['id'] }}</th>
+                                    <td>{{ $pharmacy['name'] }}</td>
+                                    <td>{{ $pharmacy['address'] }}</td>
+                                    <td>{{ $pharmacy['phone'] }}</td>
+                                    <td>
+                                        <button type="button" class="btn btn-info btn-md" data-toggle="modal"
+                                            data-target="#editpharma_{{ $pharmacy['id'] }}">Edit</button>
 
-                                    <button type="button" class="btn btn-info btn-md" data-toggle="modal"
-                                        data-target="#modall">Del</button>
-                                </td>
-                            </tr>
-                            {{-- @endforeach --}}
+                                        <button type="button" class="btn btn-info btn-md" data-toggle="modal"
+                                            data-target="#modall">Del</button>
+                                    </td>
+                                </tr>
+                                <div class="modal fade" id="editpharma_{{ $pharmacy['id'] }}" tabindex="-1"
+                                    aria-labelledby="" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="">Edit Record</h5>
+                                                <button type="button" class="close" data-dismiss="modal"
+                                                    aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <form method="POST" action="">
+                                                    @csrf
+                                                    @method('PUT')
+                                                    <div class="form-group">
+                                                        <label for="name">Pharmacy Name </label>
+                                                        <input type="text" class="form-control" name="name"
+                                                            value="{{ $pharmacy['name'] }}">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="username">Username</label>
+                                                        <input type="text" class="form-control" name="username"
+                                                            value="{{ $pharmacy['username'] }}">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="email">Email</label>
+                                                        <input type="text" class="form-control" name="email"
+                                                            value="{{ $pharmacy['email'] }}">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="address">Address</label>
+                                                        <input type="text" class="form-control" name="address"
+                                                            value="{{ $pharmacy['address'] }}">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="phone">Phone</label>
+                                                        <input type="text" class="form-control" name="phone"
+                                                            value="{{ $pharmacy['phone'] }}">
+                                                    </div>
+
+                                                    <button type="submit" class="btn btn-primary">Save Change</button>
+                                                </form>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary"
+                                                    data-dismiss="modal">Close</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            @endforeach
 
                         </tbody>
                     </table>
@@ -630,38 +685,7 @@
     </div>
     <!----------------end----- add Druge modal---------------------------->
     <!----------------Start----- edit pharma modal---------------------------->
-    <div class="modal fade" id="editpharma" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Edit Record</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <form action="">
-                        <div class="form-group">
-                            <label for="exampleInputPassword1">Pharmacy Name </label>
-                            <input type="text" class="form-control" id="exampleInputPassword1">
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInputPassword1">Location</label>
-                            <input type="text" class="form-control" id="exampleInputPassword1">
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInputPassword1">Phone Number</label>
-                            <input type="text" class="form-control" id="exampleInputPassword1">
-                        </div>
-                        <button type="submit" class="btn btn-primary">Save Change</button>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                </div>
-            </div>
-        </div>
-    </div>
+
     <!----------------end----- edit  pharma modal---------------------------->
     <!----------------start----- add  pharma modal---------------------------->
 
@@ -675,8 +699,8 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form action="">
-
+                    <form method="POST" action="{{ route('phm.create') }}">
+                        @csrf
                         <div class="form-group">
                             <label for="name">Name</label>
                             <input type="text" class="form-control" name="name" placeholder="Enter full name"
