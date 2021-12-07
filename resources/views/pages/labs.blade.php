@@ -36,9 +36,10 @@
         </div>
     </nav>
     <!---------------------------------------------Navbar End------------------------------------------------>
-    @foreach ($labs as $lab)
+   
         <div class="container cards">
             <div class="row">
+            @foreach ($labs as $lab)
                 <div class=" col-xl-3 col-md-4 col-sm-6 col-xs-12">
                     <div class="card card-box" style="width: 15rem;">
                         <img class="card-img-top" height="200" src="/images/labs/{{ $lab['image'] }}"
@@ -55,10 +56,11 @@
                         </div>
                     </div>
                 </div>
+            @endforeach
             </div>
         </div>
         <!----- Modal Start ----------------------------------------------------------->
-
+        @foreach ($labs as $lab)
         <div class="modal fade" id="lap_{{ $lab['id'] }}" tabindex="-1" aria-labelledby="exampleModalLabel"
             aria-hidden="true">
             <div class="modal-dialog">
