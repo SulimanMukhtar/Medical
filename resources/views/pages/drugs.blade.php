@@ -54,11 +54,13 @@
                         @foreach ($attempts as $attempt)
                             @if ($attempts->count() < 2)
                                 <span>
-                                    {{ $attempt->name }}
+                                    <a
+                                        href="{{ url('/Drugs/Search?query=' . $attempt->name) }}">{{ $attempt->name }}</a>
                                 </span>
                             @else
                                 <span>
-                                    {{ $attempt->name }}
+                                    <a
+                                        href="{{ url('/Drugs/Search?query=' . $attempt->name) }}">{{ $attempt->name }}</a>
                                 </span>
                             @endif
                         @endforeach
