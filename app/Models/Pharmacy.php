@@ -10,8 +10,13 @@ class Pharmacy extends Model
     use HasFactory;
 
 
-    public function Drug()
+    public function Drugs()
     {
         return $this->hasMany(Drug::class);
+    }
+
+    public function Drugss()
+    {
+        return $this->hasMany(Drug::class, 'pharmacy_id', 'id');
     }
 }

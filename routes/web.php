@@ -48,6 +48,7 @@ Route::post('/addtest', [TestMenus::class, 'store'])->name('AddTest');
 Route::post('/drugUpdate', [DrugsController::class, 'update'])->name('drugUpdate');
 Route::put('/drugUpdate/{id}', [DrugsController::class, 'update'])->name('drugUpdate');
 Route::delete('/drugDel/{id}', [DrugsController::class, 'destroy'])->name('drugDel');
+Route::get('/Drugs/Search', [DrugsController::class, 'find'])->name('drug.find');
 
 
 

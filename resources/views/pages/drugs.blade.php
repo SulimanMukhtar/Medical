@@ -37,25 +37,69 @@
     </nav>
     <!---------------------------------------------Navbar End------------------------------------------------>
     <div class="container">
-        <div class="example" >
-            <input type="text" placeholder="Please Inter Your Drug Name..." name="search">
-            <button onclick="showresult()" class="serchdr"><i class="fa fa-capsules"></i></button>
-    </div>
-      <div id="drugresult" class = "reultbox">
-        <p class="lead">Did You Mean <span>Asprine?</span></p>
-      <h4><span>10</span>  results found on <span>Asprine</span></h4>
-      <table class="table">
-  <caption>List of Results</caption>
-  <tbody>
-    <tr>
-      <td><i class="fas fa-clinic-medical"></i><span>Carepoint</span></td>
-      <td><i class="fas fa-map-marker-alt"></i>Atbra str </td>
-      <td><i class="fas fa-phone-square"></i><a href="tel:0907557112">0907557112</a></td>
-    </tr>
-    
-  </tbody>
-</table>
-       </div>
+        <form method="GET" action="{{ url('/Drugs/Search') }}">
+            <div class="example">
+                <input type="text" placeholder="Please Inter Your Drug Name..." name="query"
+                    value="{{ request()->input('query') }}">
+                <span class="text-danger">@error('query'){{ $message }} @enderror</span>
+                <button><i class="fa fa-capsules"></i></button>
+            </div>
+        </form>
+
+
+        <div id="" class="reultbox">
+            @if ($attempts->count() >= 1 && $drugs->count() == 0)
+                <p class="lead">Did You Mean
+                    @foreach ($attempts as $attempt)
+                        @if ($attempts->count() < 2)
+                            <span>
+                                {{ $attempt->name }}
+                            </span>
+                        @else
+                            <span>
+                                {{ $attempt->name }}
+                            </span>
+                        @endif
+                    @endforeach
+                </p>
+            @endif
+            @if (isset($pharmacies))
+
+                @if ($pharmacies->count() >= 1 && $drugs->count() > 0)
+                    {{-- no exact drugs found --}}
+                    <h4><span>{{ count($pharmacies) }}</span> results found on <span></span></h4>
+                    <table class="table">
+                        <caption>List of Results</caption>
+                        <tbody>
+                            {{-- @if ($pharmacies->count() > 0) --}}
+                            @foreach ($pharmacies as $pharmacy)
+                                <tr>
+                                    <td><i class="fas fa-clinic-medical"></i><span>{{ $pharmacy['name'] }}</span>
+                                    </td>
+                                    <td><i class="fas fa-map-marker-alt"></i>{{ $pharmacy['address'] }}</td>
+                                    <td><i class="fas fa-phone-square"></i><a
+                                            href="tel:{{ $pharmacy['phone'] }}">{{ $pharmacy['phone'] }}</a>
+                                    </td>
+                                </tr>
+                            @endforeach
+                        @else
+
+
+
+                            <tr>
+                                <td>No result found!</td>
+                            </tr>
+                            {{-- @endif --}}
+                @endif
+        </div>
+        </tbody>
+        </table>
+
+        <div class="pagination-block">
+            {{-- {{ $pharmacies->appends(request()->input())->links('layouts.pagination') }} --}}
+        </div>
+
+        @endif
     </div>
     @include('includes.footer')
     <script src="js/jquery-3.6.0.min.js"></script>
@@ -64,5 +108,5 @@
     <script src="js//all.min.js"></script>
 </body>
 
-        
+
 </html>

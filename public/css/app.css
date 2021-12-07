@@ -434,7 +434,7 @@ label {
 
 h3 {
   font-weight: bold;
-   margin: 10px;
+  margin: 10px;
   font-family: 'Roboto', sans-serif;
 }
 
@@ -463,21 +463,26 @@ h3 span .btn:hover {
 body {
   font-family: 'Roboto', sans-serif;
 }
-.reultbox{
 
- display: none;
- text-align: center;
- width: 100%;
- padding: 20px;
- clear: both;
- 
- background-color: rgba(18, 223, 223, 0.295);
+.reultbox {
+
+  display: block;
+  text-align: center;
+  width: 100%;
+  padding: 20px;
+  clear: both;
+
+  background-color: rgba(18, 223, 223, 0.295);
 }
-.reultbox span{
+
+.reultbox span {
   color: #f80000;
   font-weight: bold;
 }
-.reultbox  .fa-clinic-medical, .fa-map-marker-alt, .fa-phone-square {
-   margin-right: 20px;
-   font-size: 20pt;
+
+.reultbox .fa-clinic-medical,
+.fa-map-marker-alt,
+.fa-phone-square {
+  margin-right: 20px;
+  font-size: 20pt;
 }

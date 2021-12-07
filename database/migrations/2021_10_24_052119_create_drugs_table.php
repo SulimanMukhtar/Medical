@@ -27,11 +27,11 @@ class CreateDrugsTable extends Migration
 
         Schema::create('drugs', function (Blueprint $table) {
             $table->increments('id')->unsigned();
-            $table->integer('pharma_id')->unsigned();
+            $table->integer('pharmacy_id')->unsigned();
             $table->string('name');
             $table->integer('quantity')->unsigned();
             $table->timestamps();
-            $table->foreign('pharma_id')->references('id')->on('pharmacies')->onDelete('cascade');
+            $table->foreign('pharmacy_id')->references('id')->on('pharmacies')->onDelete('cascade');
         });
     }
 
