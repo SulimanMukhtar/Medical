@@ -17,7 +17,7 @@ class DrugsController extends Controller
      */
     public function index()
     {
-        $drugs = Drug::where('pharma_id', '=', Auth::guard('phm')->user()->id)->get();
+        $drugs = Drug::where('pharmacy_id', '=', Auth::guard('phm')->user()->id)->get();
         return view('admin.drugcp', compact('drugs'));
     }
 
@@ -40,7 +40,7 @@ class DrugsController extends Controller
     public function store(Request $request)
     {
         $drug = new Drug();
-        $drug->pharma_id = $request->pharma_id;
+        $drug->pharmacy_id = $request->pharma_id;
         $drug->name = $request->name;
         $drug->quantity = $request->quantity;
         $drug->save();

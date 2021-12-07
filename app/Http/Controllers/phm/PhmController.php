@@ -13,7 +13,7 @@ class PhmController extends Controller
     public function index()
     {
 
-        $drugs = Drug::where('pharma_id', '=', Auth::guard('phm')->user()->id)->get();
+        $drugs = Drug::where('pharmacy_id', '=', Auth::guard('phm')->user()->id)->get();
 
         if (Auth::guard('phm')) {
             return view('admin.drugcp', compact('drugs'));
