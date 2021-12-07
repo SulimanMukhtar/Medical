@@ -48,7 +48,8 @@
 
 
         <div id="" class="reultbox">
-            @if ($attempts->count() >= 1 && $drugs->count() == 0)
+            @if (isset($attempts) && $attempts->count() >= 1 && $drugs->count() == 0)
+
                 <p class="lead">Did You Mean
                     @foreach ($attempts as $attempt)
                         @if ($attempts->count() < 2)
