@@ -46,60 +46,61 @@
             </div>
         </form>
 
+        @if (isset($attempts))
+            <div id="" class="reultbox">
+                @if ($attempts->count() >= 1 && $drugs->count() == 0)
 
-        <div id="" class="reultbox">
-            @if (isset($attempts) && $attempts->count() >= 1 && $drugs->count() == 0)
-
-                <p class="lead">Did You Mean
-                    @foreach ($attempts as $attempt)
-                        @if ($attempts->count() < 2)
-                            <span>
-                                {{ $attempt->name }}
-                            </span>
-                        @else
-                            <span>
-                                {{ $attempt->name }}
-                            </span>
-                        @endif
-                    @endforeach
-                </p>
-            @endif
-            @if (isset($pharmacies))
-
-                @if ($pharmacies->count() >= 1 && $drugs->count() > 0)
-                    {{-- no exact drugs found --}}
-                    <h4><span>{{ count($pharmacies) }}</span> results found on <span></span></h4>
-                    <table class="table">
-                        <caption>List of Results</caption>
-                        <tbody>
-                            {{-- @if ($pharmacies->count() > 0) --}}
-                            @foreach ($pharmacies as $pharmacy)
-                                <tr>
-                                    <td><i class="fas fa-clinic-medical"></i><span>{{ $pharmacy['name'] }}</span>
-                                    </td>
-                                    <td><i class="fas fa-map-marker-alt"></i>{{ $pharmacy['address'] }}</td>
-                                    <td><i class="fas fa-phone-square"></i><a
-                                            href="tel:{{ $pharmacy['phone'] }}">{{ $pharmacy['phone'] }}</a>
-                                    </td>
-                                </tr>
-                            @endforeach
-                        @else
-
-
-
-                            <tr>
-                                <td>No result found!</td>
-                            </tr>
-                            {{-- @endif --}}
+                    <p class="lead">Did You Mean
+                        @foreach ($attempts as $attempt)
+                            @if ($attempts->count() < 2)
+                                <span>
+                                    {{ $attempt->name }}
+                                </span>
+                            @else
+                                <span>
+                                    {{ $attempt->name }}
+                                </span>
+                            @endif
+                        @endforeach
+                    </p>
                 @endif
-        </div>
-        </tbody>
-        </table>
+                @if (isset($pharmacies))
 
-        <div class="pagination-block">
-            {{-- {{ $pharmacies->appends(request()->input())->links('layouts.pagination') }} --}}
-        </div>
+                    @if ($pharmacies->count() >= 1 && $drugs->count() > 0)
+                        {{-- no exact drugs found --}}
+                        <h4><span>{{ count($pharmacies) }}</span> results found on <span></span></h4>
+                        <table class="table">
+                            <caption>List of Results</caption>
+                            <tbody>
+                                {{-- @if ($pharmacies->count() > 0) --}}
+                                @foreach ($pharmacies as $pharmacy)
+                                    <tr>
+                                        <td><i class="fas fa-clinic-medical"></i><span>{{ $pharmacy['name'] }}</span>
+                                        </td>
+                                        <td><i class="fas fa-map-marker-alt"></i>{{ $pharmacy['address'] }}</td>
+                                        <td><i class="fas fa-phone-square"></i><a
+                                                href="tel:{{ $pharmacy['phone'] }}">{{ $pharmacy['phone'] }}</a>
+                                        </td>
+                                    </tr>
+                                @endforeach
+                            @else
 
+
+
+                                <tr>
+                                    <td>No result found!</td>
+                                </tr>
+                                {{-- @endif --}}
+                    @endif
+            </div>
+            </tbody>
+            </table>
+
+            <div class="pagination-block">
+                {{-- {{ $pharmacies->appends(request()->input())->links('layouts.pagination') }} --}}
+            </div>
+
+        @endif
         @endif
     </div>
     @include('includes.footer')

@@ -56,21 +56,24 @@ class DrugsController extends Controller
     function find(Request $request)
     {
         $search_text = $request->input('query');
-
-        $drugs = DB::table('drugs')
-            ->where('name', '=', $search_text)->get();
-        // dd($drugs);
-        $attempt = DB::table('drugs')
-            ->where('name', 'LIKE', '%' . $search_text . '%')->get();
-        $attempts = $attempt->unique('name');
-        // dd($attempts);
-        $pharmacies = Pharmacy::with('drugs')->whereHas('drugs', function ($query) use ($search_text) {
-            $query->where('name', 'LIKE', '%' . $search_text . '%');
-        })->get();
-        // dd($pharmacies);
-        // ->where('id', '=', $drugs['pharma_id']);
-        // return $pharmacies;
-        return view('pages.drugs', compact('pharmacies', 'attempts', 'drugs'));
+        if ($search_text) {
+            $drugs = DB::table('drugs')
+                ->where('name', '=', $search_text)->get();
+            // dd($drugs);
+            $attempt = DB::table('drugs')
+                ->where('name', 'LIKE', '%' . $search_text . '%')->get();
+            $attempts = $attempt->unique('name');
+            // dd($attempts);
+            $pharmacies = Pharmacy::with('drugs')->whereHas('drugs', function ($query) use ($search_text) {
+                $query->where('name', 'LIKE', '%' . $search_text . '%');
+            })->get();
+            // dd($pharmacies);
+            // ->where('id', '=', $drugs['pharma_id']);
+            // return $pharmacies;
+            return view('pages.drugs', compact('pharmacies', 'attempts', 'drugs'));
+        } else {
+            return view('pages.drugs');
+        }
     }
 
     /**
