@@ -36,6 +36,18 @@ class DoctorsController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'image' => 'required',
+            'name' => 'required',
+            'specialist' => 'required',
+            'university' => 'required',
+            'address' => 'required',
+            'phone' => 'required|digits:10',
+            'email' => 'required|email|unique:doctors,email',
+            'username' => 'required|unique:doctors,username',
+            'password' => 'required|min:5|max:30',
+            'cpassword' => 'required|min:5|max:30|same:password'
+        ]);
         $doctor = new Doctor();
         $doctor->name = $request->name;
         $doctor->specialist = $request->specialist;
@@ -50,8 +62,12 @@ class DoctorsController extends Controller
         $name = $nameW . rand(00000, 9999) . time() . '.' . $extention;
         $request->file('image')->move(public_path('/images/doctors/'), $name);
         $doctor->image = $name;
-        $doctor->save();
-        return back()->with('Doctor_Added', 'Doctor Has Been Added Successfully');
+        $save = $doctor->save();
+        if ($save) {
+            return redirect()->back()->with('success', 'Your Doctor Account Has Been Registered Successfully');
+        } else {
+            return redirect()->back()->with('fail', 'Something went Wrong, failed to register');
+        }
     }
 
     /**
@@ -99,7 +115,7 @@ class DoctorsController extends Controller
         }
         $doctor->description = $request->description;
         $doctor->save();
-        return back()->with('Doctor_Edited', 'Doctor Has Been Edited Successfully');
+        return redirect()->back()->with('Doctor_Edited', 'Doctor Has Been Edited Successfully');
     }
 
     /**

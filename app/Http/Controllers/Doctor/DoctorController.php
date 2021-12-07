@@ -58,8 +58,8 @@ class DoctorController extends Controller
     {
         //Validate Inputs
         $request->validate([
-            'username' => 'required|exists:doctors,username',
-            'password' => 'required|min:5|max:30'
+            'username' => 'required',
+            'password' => 'required'
         ]);
 
         $creds = $request->only('username', 'password');

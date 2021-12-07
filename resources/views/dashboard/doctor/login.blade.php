@@ -23,6 +23,7 @@
                             {{ Session::get('fail') }}
                         </div>
                     @endif
+
                     @csrf
                     <div class="form-group">
                         <label for="username">Username</label>

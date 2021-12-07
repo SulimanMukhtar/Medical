@@ -32,7 +32,7 @@ class AdminController extends Controller
         //Validate Inputs
         $request->validate([
             'username' => 'required',
-            'password' => 'required|min:5|max:30'
+            'password' => 'required'
         ]);
 
         $creds = $request->only('username', 'password');

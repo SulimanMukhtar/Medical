@@ -70,9 +70,11 @@
 
                     @if ($pharmacies->count() >= 1 && $drugs->count() > 0)
                         {{-- no exact drugs found --}}
-                        <h4><span>{{ count($pharmacies) }}</span> results found on <span></span></h4>
+                        <h4><span>{{ count($pharmacies) }}</span> results found for
+                            <span></span>
+                        </h4>
                         <table class="table">
-                            <caption>List of Results</caption>
+                            {{-- <caption>List of Results</caption> --}}
                             <tbody>
                                 {{-- @if ($pharmacies->count() > 0) --}}
                                 @foreach ($pharmacies as $pharmacy)

@@ -22,6 +22,16 @@
     <button class="tablink" onclick="openPage('Drugs', this, 'rgba(43, 255, 0, 0.315)')">Drugs</button>
 
     <div id="Adminstrator" class="tabcontent">
+        @if (Session::get('success'))
+            <div class="alert alert-success">
+                {{ Session::get('success') }}
+            </div>
+        @endif
+        @if (Session::get('fail'))
+            <div class="alert alert-danger">
+                {{ Session::get('fail') }}
+            </div>
+        @endif
         <h3>Admnistrators <span><button type="button" class="btn btn-info btn-md" data-toggle="modal"
                     data-target="#addadmin">Add Admin</button></span></h3>
         <table class="table table-striped table-hover table-responsive-xl">

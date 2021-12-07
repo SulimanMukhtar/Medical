@@ -42,6 +42,17 @@ class LabsController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'image' => 'required',
+            'name' => 'required',
+            'address' => 'required',
+            'phone' => 'required|digits:10',
+            'email' => 'required|email|unique:doctors,email',
+            'username' => 'required|unique:doctors,username',
+            'password' => 'required|min:5|max:30',
+            'cpassword' => 'required|min:5|max:30|same:password'
+        ]);
+
         $lab = new Lab();
         $lab->name = $request->name;
         $lab->address = $request->address;
@@ -54,8 +65,12 @@ class LabsController extends Controller
         $name = $nameW . rand(00000, 9999) . time() . '.' . $extention;
         $request->file('image')->move(public_path('/images/labs/'), $name);
         $lab->image = $name;
-        $lab->save();
-        return back()->with('Lab_Added', 'Lab Has Been Added Successfully');
+        $save = $lab->save();
+        if ($save) {
+            return redirect()->back()->with('success', 'Your Lab Account Has Been Registered Successfully');
+        } else {
+            return redirect()->back()->with('fail', 'Something went Wrong, failed to register');
+        }
     }
 
     /**
@@ -122,8 +137,8 @@ class LabsController extends Controller
     {
         //Validate Inputs
         $request->validate([
-            'username' => 'required|exists:labs,username',
-            'password' => 'required|min:5|max:30'
+            'username' => 'required',
+            'password' => 'required'
         ]);
 
         $creds = $request->only('username', 'password');

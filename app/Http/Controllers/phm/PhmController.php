@@ -28,7 +28,7 @@ class PhmController extends Controller
         $request->validate([
             'name' => 'required',
             'address' => 'required',
-            'phone' => 'required',
+            'phone' => 'required|digits:10',
             'email' => 'required|email|unique:pharmacies,email',
             'username' => 'required|unique:pharmacies,username',
             'password' => 'required|min:5|max:30',
@@ -57,7 +57,7 @@ class PhmController extends Controller
         //Validate Inputs
         $request->validate([
             'username' => 'required',
-            'password' => 'required|min:5|max:30'
+            'password' => 'required'
         ]);
 
         $creds = $request->only('username', 'password');

@@ -33,7 +33,7 @@ class LabmController extends Controller
             'lname' => 'required',
             'email' => 'required|email|unique:labm,email',
             'username' => 'required|unique:labm,username',
-            'phone' => 'required',
+            'phone' => 'required|digits:10',
             'address' => 'required',
             'password' => 'required|min:5|max:30',
             'cpassword' => 'required|min:5|max:30|same:password'
@@ -60,8 +60,8 @@ class LabmController extends Controller
     {
         //Validate Inputs
         $request->validate([
-            'username' => 'required|exists:labm,username',
-            'password' => 'required|min:5|max:30'
+            'username' => 'required',
+            'password' => 'required'
         ]);
 
         $creds = $request->only('username', 'password');
