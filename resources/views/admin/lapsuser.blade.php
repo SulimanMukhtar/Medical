@@ -8,7 +8,7 @@
 
 <body>
     <div class=" lapsBrand">
-        <p><strong>Altra Laps </strong><span class="badge bg-info">
+        <p><strong>Altra Labs </strong><span class="badge bg-info">
                 {{ Auth::guard('labm')->user()->name }}</span>
             <span><a href="{{ route('labm.logout') }}"
                     onclick="event.preventDefault();document.getElementById('logout-form').submit();">Logout</a>
