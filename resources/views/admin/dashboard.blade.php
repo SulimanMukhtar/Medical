@@ -323,13 +323,13 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($drugs as $drug)
+                            @foreach ($pharmacies as $pharmacy)
 
 
                                 <tr>
-                                    <th scope="row">{{ $drug['id'] }}</th>
-                                    <td>{{ $drug['name'] }}</td>
-                                    <td></td>
+                                    <th scope="row">{{ $pharmacy['id'] }}</th>
+                                    <td>{{ $pharmacy['name'] }}</td>
+                                    <td>{{ $pharmacy['pharmacy_id'] }}</td>
                                     <td>
                                         <button type="button" class="btn btn-info btn-md" data-toggle="modal"
                                             data-target="#editdruge">Edit</button>
@@ -357,21 +357,21 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($pharmacies as $pharmacy)
+                            @foreach ($pharms as $pharm)
                                 <tr>
-                                    <th scope="row">{{ $pharmacy['id'] }}</th>
-                                    <td>{{ $pharmacy['name'] }}</td>
-                                    <td>{{ $pharmacy['address'] }}</td>
-                                    <td>{{ $pharmacy['phone'] }}</td>
+                                    <th scope="row">{{ $pharm['id'] }}</th>
+                                    <td>{{ $pharm['name'] }}</td>
+                                    <td>{{ $pharm['address'] }}</td>
+                                    <td>{{ $pharm['phone'] }}</td>
                                     <td>
                                         <button type="button" class="btn btn-info btn-md" data-toggle="modal"
-                                            data-target="#editpharma_{{ $pharmacy['id'] }}">Edit</button>
+                                            data-target="#editpharma_{{ $pharm['id'] }}">Edit</button>
 
                                         <button type="button" class="btn btn-info btn-md" data-toggle="modal"
                                             data-target="#modall">Del</button>
                                     </td>
                                 </tr>
-                                <div class="modal fade" id="editpharma_{{ $pharmacy['id'] }}" tabindex="-1"
+                                <div class="modal fade" id="editpharma_{{ $pharm['id'] }}" tabindex="-1"
                                     aria-labelledby="" aria-hidden="true">
                                     <div class="modal-dialog">
                                         <div class="modal-content">
@@ -389,27 +389,27 @@
                                                     <div class="form-group">
                                                         <label for="name">Pharmacy Name </label>
                                                         <input type="text" class="form-control" name="name"
-                                                            value="{{ $pharmacy['name'] }}">
+                                                            value="{{ $pharm['name'] }}">
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="username">Username</label>
                                                         <input type="text" class="form-control" name="username"
-                                                            value="{{ $pharmacy['username'] }}">
+                                                            value="{{ $pharm['username'] }}">
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="email">Email</label>
                                                         <input type="text" class="form-control" name="email"
-                                                            value="{{ $pharmacy['email'] }}">
+                                                            value="{{ $pharm['email'] }}">
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="address">Address</label>
                                                         <input type="text" class="form-control" name="address"
-                                                            value="{{ $pharmacy['address'] }}">
+                                                            value="{{ $pharm['address'] }}">
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="phone">Phone</label>
                                                         <input type="text" class="form-control" name="phone"
-                                                            value="{{ $pharmacy['phone'] }}">
+                                                            value="{{ $pharm['phone'] }}">
                                                     </div>
 
                                                     <button type="submit" class="btn btn-primary">Save Change</button>
