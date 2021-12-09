@@ -85,13 +85,13 @@
 
     <section class="homevisit">
         <div class="container">
-            <h3>Paitint <span> <button type="button" class="btn btn-info btn-md" data-toggle="modal"
+            <h3>Patient <span> <button type="button" class="btn btn-info btn-md" data-toggle="modal"
                         data-target="#addpatient">Add Patient</button></span> </h3>
             <table class="table table-striped table-hover">
                 <thead>
                     <tr>
                         <th scope="col">#</th>
-                        <th scope="col">Patint Name</th>
+                        <th scope="col">Patient Name</th>
                         <th scope="col">Address</th>
                         <th scope="col">Test Name</th>
                         <th scope="col">Phone</th>
