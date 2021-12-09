@@ -50,7 +50,7 @@
                         <div class="col-75">
                             <select class="custom-select" name="requester">
                                 @foreach ($patients as $patient)
-                                    <option value="{{ $patient['name'] }}">{{ $patient['name'] }}</option>
+                                    <option value="{{ $patient['pid'] }}">{{ $patient['name'] }}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -74,22 +74,24 @@
             </form>
         </div>
     </div>
-     <section class="restabla container">
-         <table class ="table table-striped table-hover">
+    <section class="restabla container">
+        <table class="table table-striped table-hover">
             <thead>
                 <th scope="col">Patient id</th>
-                <th  scope="col">Patient Name</th>
-                <th  scope="col">Result</th>
+                <th scope="col">Result</th>
             </thead>
             <tbody>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
+
+                @foreach ($TestResults as $TestResult)
+                    <tr>
+                        <td>{{ $TestResult['requester'] }}</td>
+                        <td>{{ $TestResult['test_result'] }}</td>
+                     </tr>
+                @endforeach
+
             </tbody>
-         </table>
-     </section>
+        </table>
+    </section>
     <section class="homevisit">
         <div class="container">
             <h3>Patients <span> <button type="button" class="btn btn-info btn-md" data-toggle="modal"

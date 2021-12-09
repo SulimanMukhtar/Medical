@@ -16,10 +16,10 @@ class LabmController extends Controller
     {
 
         $patients = Patient::where('lab_id', '=', Auth::guard('labm')->user()->id)->get();
-        $TestResults = TestResult::all()->toArray();
+        $TestResults = TestResult::where('lab_id', '=', Auth::guard('labm')->user()->id)->get();
         $TestMenus = TestMenu::where('lab_id', '=', Auth::guard('labm')->user()->id)->get();
         if (Auth::guard('labm')) {
-            return view('admin.lapsuser', compact('patients'), compact('TestMenus'), compact('TestResults'));
+            return view('admin.lapsuser', compact('patients', 'TestMenus', 'TestResults'));
         } else {
             return view('dashboard.labm.login');
         }

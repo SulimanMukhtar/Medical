@@ -49,6 +49,7 @@ Route::post('/SubmitAppointment', [Appointments::class, 'store'])->name('makeApp
 Route::PUT('/Update/{id}', [Appointments::class, 'update'])->name('updateStatus');
 
 Route::post('/AddResult', [TestResults::class, 'store'])->name('AddResult');
+Route::post('/DowResult', [TestResults::class, 'download'])->name('downloadResult');
 
 
 Route::post('/SubmitVisit', [Patients::class, 'store'])->name('submitVisit');

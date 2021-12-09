@@ -34,13 +34,13 @@ class CreateLabsTable extends Migration
             $table->foreign('lab_id')->references('id')->on('labs')->onDelete('cascade');
         });
         Schema::create('patients', function (Blueprint $table) {
-            $table->increments('id')->unsigned();
+            $table->integer('id')->autoIncrement();
             $table->unsignedInteger('lab_id');
             $table->string('name');
             $table->string('address');
             $table->char('phone');
             $table->string('test_name');
-            $table->string('pid')->nullable();
+            $table->string('pid')->nullable()->unique();
             $table->date('date')->nullable();
             $table->timestamps();
             $table->foreign('lab_id')->references('id')->on('labs')->onDelete('cascade');
@@ -51,6 +51,7 @@ class CreateLabsTable extends Migration
             $table->string('requester');
             $table->string('test_result');
             $table->timestamps();
+            $table->foreign('requester')->references('pid')->on('patients')->onDelete('cascade');
             $table->foreign('lab_id')->references('id')->on('labs')->onDelete('cascade');
         });
     }

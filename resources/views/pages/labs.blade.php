@@ -34,21 +34,21 @@
         </div>
     </nav>
 
-     
-        
-    
+
+
+
 
     <!---------------------------------------------Navbar End------------------------------------------------>
 
     <div class="container cards">
-    <div class="alerter">
-     <span class="text-danger">@error('name'){{ $message }} @enderror</span>
-    <span class="text-danger">@error('address'){{ $message }} @enderror</span>
-    <span class="text-danger">@error('phone'){{ $message }} @enderror</span>
-    <span class="text-danger">@error('test'){{ $message }} @enderror</span>
-    <span class="text-danger">@error('date'){{ $message }} @enderror</span>
-     </div>    
-   
+        <div class="alerter">
+            <span class="text-danger">@error('name'){{ $message }} @enderror</span>
+            <span class="text-danger">@error('address'){{ $message }} @enderror</span>
+            <span class="text-danger">@error('phone'){{ $message }} @enderror</span>
+            <span class="text-danger">@error('test'){{ $message }} @enderror</span>
+            <span class="text-danger">@error('date'){{ $message }} @enderror</span>
+        </div>
+
         <div class="row">
             @foreach ($labs as $lab)
                 <div class=" col-xl-3 col-md-4 col-sm-6 col-xs-12">
@@ -124,14 +124,12 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <form action="">
+                        <form method="POST" action="{{ route('downloadResult') }}">
+                            @csrf
                             <div class="form-group">
-                                <label for="exampleInputPassword1">Patint ID</label>
-                                <input type="text" class="form-control" id="exampleInputPassword1">
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleInputPassword1">Name</label>
-                                <input type="text" class="form-control" id="exampleInputPassword1">
+                                <label for="Patient">Patient ID</label>
+                                <input type="text" class="form-control" name="pid"
+                                    placeholder="Please Submit Your Patient ID">
                             </div>
                             <button type="submit" class="btn btn-primary">Get Result</button>
                         </form>
@@ -232,18 +230,18 @@
 
     <!--------------Visit Menu End-------------------------------------------->
     <!--------------Lab Modal End-------------------------------------------->
-    
-      @if (Session::get('success'))
-            <div class="alert alert-success submit">
-                {{ Session::get('success') }}
-            </div>
-        @endif
-        @if (Session::get('fail'))
-            <div class="alert alert-danger submit">
-                {{ Session::get('fail') }}
-            </div>
-        @endif
-      
+
+    @if (Session::get('success'))
+        <div class="alert alert-success submit">
+            {{ Session::get('success') }}
+        </div>
+    @endif
+    @if (Session::get('fail'))
+        <div class="alert alert-danger submit">
+            {{ Session::get('fail') }}
+        </div>
+    @endif
+
     @include('includes.footer')
     <script src="js/jquery-3.6.0.min.js"></script>
     <script src="js//bootstrap.min.js"></script>

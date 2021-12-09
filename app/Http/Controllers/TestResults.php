@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\TestMenu;
 use App\Models\TestResult;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class TestResults extends Controller
@@ -41,22 +41,17 @@ class TestResults extends Controller
 
         $request->validate([
             'requester' => 'required',
-            'result' => 'required',
+            'result' => 'required'
         ], [
-            'requester' => 'Please Select A Patient',
-            'result' => 'Please Upload a Result File',
+            'requester', 'Please Select A Patient',
+            'result', 'Please Upload a Result File'
         ]);
-
-        $result = new TestResult();
-        $result->lab_id = $request->lab_id;
-        $result->requester = $request->requester;
-        $nameW = basename($request->file('result')->getClientOriginalName(), '.' . $request->file('result')->getClientOriginalExtension());
-        $extention = $request->file('result')->getClientOriginalExtension();
-        $name = $nameW . rand(00000, 9999) . time() . '.' . $extention;
+        $name = 'R-' . rand(00000, 9999) . time() . 'M.' . 'pdf';
         $request->file('result')->move(public_path('/results/'), $name);
-        $result->test_result = $name;
-        $save = $result->save();
-        if ($save) {
+
+        $result = TestResult::updateOrCreate(['requester' => $request->requester], ['test_result' => $name, 'lab_id' => $request->lab_id]);
+
+        if ($result) {
             return redirect()->back()->with('success', 'Result Has Been Submitted Successfully');
         } else {
             return redirect()->back()->with('fail', 'Something went wrong');
@@ -106,5 +101,12 @@ class TestResults extends Controller
     public function destroy(TestResult $testResult)
     {
         //
+    }
+
+
+    public function download(Request $request)
+    {
+        $file = DB::table('TestResults')->select('test_result')->where('requester', '=', $request->pid)->pluck('test_result')->first();
+        return response()->download(public_path('results/' . $file));
     }
 }
