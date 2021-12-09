@@ -74,7 +74,22 @@
             </form>
         </div>
     </div>
-
+     <section class="restabla container">
+         <table class ="table table-striped table-hover">
+            <thead>
+                <th scope="col">Patient id</th>
+                <th  scope="col">Patient Name</th>
+                <th  scope="col">Result</th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
+         </table>
+     </section>
     <section class="homevisit">
         <div class="container">
             <h3>Patients <span> <button type="button" class="btn btn-info btn-md" data-toggle="modal"
@@ -286,6 +301,7 @@
                 @endforeach
             </tbody>
         </table>
+
     </section>
 
     <div class="modal fade" id="addpatient" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
