@@ -9,7 +9,7 @@
     <!-----------------------------  Navbar---------------------------------------------------------------->
     <nav class="navbar navbar-expand-md navbar-light fixed-top">
         <a class="navbar-brand" href="#">
-            MEDICA
+        <i class="fas fa-microscope"></i>  MEDICA
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
             aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -29,9 +29,6 @@
                 <li class="nav-item active">
                     <a class="nav-link" href="/Labs">Labs <span class="sr-only">(current)</span></a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/Search">Search</a>
-                </li>
             </ul>
         </div>
     </nav>
@@ -48,11 +45,13 @@
                             <h5 class="card-title">{{ $lab['name'] }}</h5>
                             <p class="card-text">
                             <ul>
-                                <li>{{ $lab['address'] }}</li>
+                                <li><i class="fas fa-map-marker-alt"></i>{{ $lab['address'] }}</li>
+                                <li><i class="fas fa-headset"></i>0907557112</li>
+                                <li><i class="fas fa-business-time"></i>24 Hour</li>
                             </ul>
                             </p>
                             <button type="button" class="btn btn-info btn-md" data-toggle="modal"
-                                data-target="#lap_{{ $lab['id'] }}">{{ $lab['name'] }} Patient Services</button>
+                                data-target="#lap_{{ $lab['id'] }}">Patient Services</button>
                         </div>
                     </div>
                 </div>

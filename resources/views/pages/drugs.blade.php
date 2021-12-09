@@ -9,7 +9,7 @@
     <!-----------------------------  Navbar---------------------------------------------------------------->
     <nav class="navbar navbar-expand-md navbar-light fixed-top">
         <a class="navbar-brand" href="#">
-            MEDICA
+        <i class="fas fa-capsules"></i>   MEDICA
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
             aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -29,9 +29,7 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/Labs">Labs</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/Search">Search</a>
-                </li>
+                
             </ul>
         </div>
     </nav>
