@@ -113,9 +113,8 @@ class DoctorsController extends Controller
             $request->file('image')->move(public_path('/images/doctors/'), $name);
             $doctor->image = $name;
         }
-        $doctor->description = $request->description;
         $doctor->save();
-        return redirect()->back()->with('Doctor_Edited', 'Doctor Has Been Edited Successfully');
+        return redirect()->back()->with('success', 'Doctor Has Been Edited Successfully');
     }
 
     /**
@@ -127,6 +126,6 @@ class DoctorsController extends Controller
     public function destroy($id)
     {
         Doctor::destroy($id);
-        return back()->with('Doctor_Deleted', 'Doctor Has Been Deleted Successfully');
+        return back()->with('success', 'Doctor Has Been Deleted Successfully');
     }
 }

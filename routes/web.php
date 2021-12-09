@@ -44,6 +44,7 @@ Route::resource('/Panel/Drug', DrugsController::class);
 Route::get('/AddDoctor', [DoctorsController::class, 'addDoctor'])->name('addADoctor');
 Route::post('/AddDoctor', [DoctorsController::class, 'store']);
 Route::post('/SubmitAppointment', [Appointments::class, 'store'])->name('makeAppoint');
+Route::PUT('/Update/{id}', [Appointments::class, 'update'])->name('updateStatus');
 Route::post('/SubmitVisit', [HomeVisits::class, 'store'])->name('submitVisit');
 Route::post('/checklogin', [LabsController::class, 'check'])->name('labcheck');
 Route::post('/addtest', [TestMenus::class, 'store'])->name('AddTest');

@@ -3,7 +3,7 @@
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <title>{{ config('app.name', 'laravel') }}@yield('title')</title>
 <link rel="icon" href="../../img/canvas.ico" type="image/icon type">
-<script src="https://kit.fontawesome.com/3793a5412d.js" crossorigin="anonymous"></script>
+<script src="{{ URL::asset('js/fontawesome.js') }}" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="{{ URL::asset('css/all.min.css') }}">
 <link rel="stylesheet" href="{{ URL::asset('css/bootstrap.min.css') }}">
 <link rel="stylesheet" href="{{ URL::asset('css/app.css') }}">

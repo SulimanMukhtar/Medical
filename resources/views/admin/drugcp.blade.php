@@ -42,7 +42,7 @@
 
         <table class="table table-sm table-striped table-hover table-responsive-xl">
             <h3>Drug List <span> <button type="button" class="btn btn-info btn-md" data-toggle="modal"
-                        data-target="#adddrug">Add Druge</button></h3>
+                        data-target="#adddrug">Add Drug</button></h3>
             <thead>
                 <tr>
                     <th scope="col">#</th>
@@ -132,7 +132,7 @@
         </table>
     </div>
 
-    <!----------------Start----- edit Druge modal---------------------------->
+    <!----------------Start----- edit Drug modal---------------------------->
     <div class="modal fade" id="adddrug" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -202,7 +202,7 @@
             </div>
         </div>
     </div> --}}
-    <!----------------end----- add Druge modal---------------------------->
+    <!----------------end----- add Drug modal---------------------------->
     <!----------------Start----- edit pharma modal---------------------------->
 
     @include('includes.footer')

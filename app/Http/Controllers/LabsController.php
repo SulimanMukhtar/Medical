@@ -108,9 +108,9 @@ class LabsController extends Controller
         $lab->name = $request->name;
         $lab->address = $request->address;
         $lab->phone = $request->phone;
-        $lab->email = $request->email;
-        $lab->username = $request->username;
-        $lab->password = \Hash::make($request->password);
+        // $lab->email = $request->email;
+        // $lab->username = $request->username;
+        // $lab->password = \Hash::make($request->password);
         if ($request->image) {
             $nameW = basename($request->file('image')->getClientOriginalName(), '.' . $request->file('image')->getClientOriginalExtension());
             $extention = $request->file('image')->getClientOriginalExtension();
@@ -119,7 +119,7 @@ class LabsController extends Controller
             $lab->image = $name;
         }
         $lab->save();
-        return back()->with('Lab_Edited', 'Lab Has Been Edited Successfully');
+        return back()->with('success', 'Lab Has Been Edited Successfully');
     }
 
     /**
@@ -131,7 +131,7 @@ class LabsController extends Controller
     public function destroy($id)
     {
         Lab::destroy($id);
-        return back()->with('Lab_Deleted', 'Lab Has Been Deleted Successfully');
+        return back()->with('success', 'Lab Has Been Deleted Successfully');
     }
     function check(Request $request)
     {

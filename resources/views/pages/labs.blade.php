@@ -29,13 +29,33 @@
                 <li class="nav-item active">
                     <a class="nav-link" href="/Labs">Labs <span class="sr-only">(current)</span></a>
                 </li>
+
             </ul>
         </div>
     </nav>
+
+    <div>
+        @if (Session::get('success'))
+            <div class="alert alert-success">
+                {{ Session::get('success') }}
+            </div>
+        @endif
+        @if (Session::get('fail'))
+            <div class="alert alert-danger">
+                {{ Session::get('fail') }}
+            </div>
+        @endif
+    </div>
+    <span class="text-danger">@error('name'){{ $message }} @enderror</span>
+    <span class="text-danger">@error('address'){{ $message }} @enderror</span>
+    <span class="text-danger">@error('phone'){{ $message }} @enderror</span>
+    <span class="text-danger">@error('test'){{ $message }} @enderror</span>
+    <span class="text-danger">@error('date'){{ $message }} @enderror</span>
+
     <!---------------------------------------------Navbar End------------------------------------------------>
-   
-        <div class="container cards">
-            <div class="row">
+
+    <div class="container cards">
+        <div class="row">
             @foreach ($labs as $lab)
                 <div class=" col-xl-3 col-md-4 col-sm-6 col-xs-12">
                     <div class="card card-box" style="width: 15rem;">
@@ -56,10 +76,12 @@
                     </div>
                 </div>
             @endforeach
-            </div>
         </div>
-        <!----- Modal Start ----------------------------------------------------------->
-        @foreach ($labs as $lab)
+    </div>
+
+
+    <!----- Modal Start ----------------------------------------------------------->
+    @foreach ($labs as $lab)
         <div class="modal fade" id="lap_{{ $lab['id'] }}" tabindex="-1" aria-labelledby="exampleModalLabel"
             aria-hidden="true">
             <div class="modal-dialog">
@@ -132,7 +154,7 @@
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Test Menue</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">Test Menu</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -178,20 +200,21 @@
                             <input type="hidden" name="lab_id" value="{{ $lab['id'] }}">
                             <div class="form-group">
                                 <label for="name">Name</label>
-                                <input type="text" class="form-control" name="name">
+                                <input type="text" class="form-control" name="name" value="{{ old('name') }}">
                             </div>
                             <div class="form-group">
                                 <label for="address">Address</label>
-                                <input type="text" class="form-control" name="address">
+                                <input type="text" class="form-control" name="address"
+                                    value="{{ old('address') }}">
                             </div>
                             <div class="form-group">
                                 <label for="phone">Phone Number</label>
-                                <input type="text" class="form-control" name="phone">
+                                <input type="text" class="form-control" name="phone" value="{{ old('phone') }}">
                             </div>
 
                             <div class="form-group">
                                 <label for="test">Select A Test</label>
-                                <select class="form-control" name="test">
+                                <select class="form-control" name="test" value="{{ old('test') }}">
                                     @foreach ($lab->TestMenu as $TestMenu)
                                         <option>{{ $TestMenu['test_name'] }}</option>
                                     @endforeach
@@ -200,7 +223,7 @@
 
                             <div class="form-group">
                                 <label for="date">Fav Date</label>
-                                <input type="date" class="form-control" name="date">
+                                <input type="date" class="form-control" name="date" value="{{ old('date') }}">
                             </div>
                             <button type="submit" class="btn btn-primary">Submit</button>
                         </form>

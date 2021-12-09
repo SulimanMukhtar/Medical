@@ -39,12 +39,13 @@ class Appointments extends Controller
             'fname' => 'required',
             'lname' => 'required',
             'email' => 'required|email|unique:appointments,email',
-            'phone' => 'required',
+            'phone' => 'required|digits:10',
             'address' => 'required',
-            'date' => 'required',
+            'date' => 'required|after:tomorrow',
             'gender' => 'required'
         ], [
-            'email' => 'Already Submitted An Appointment , Please Wait for An Email For Confirmation'
+            'email' => 'Already Submitted An Appointment , Please Wait for An Email For Confirmation',
+            'date' => 'The Selected Date Must Not Be Tomorrow'
         ]);
 
         $appointment = new Appointment();
@@ -58,7 +59,7 @@ class Appointments extends Controller
         $appointment->gender = $request->gender;
         $save = $appointment->save();
         if ($save) {
-            return redirect()->back()->with('success', 'A');
+            return redirect()->back()->with('success', 'Your Data Has Been Submitted Successfully');
         } else {
             return redirect()->back()->with('fail', 'Something went wrong');
         }
@@ -95,7 +96,10 @@ class Appointments extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $appointment = Appointment::find($id);
+        $appointment->status = 'Completed';
+        $appointment->save();
+        return redirect()->back()->with('success', 'Appointment Marked As Complete');
     }
 
     /**

@@ -38,6 +38,7 @@ class CreateDoctorsTable extends Migration
             $table->string('address');
             $table->date('date');
             $table->string('gender');
+            $table->string('status')->default('NotCompleted');
             $table->timestamps();
             $table->foreign('Doc_id')->references('id')->on('doctors')->onDelete('cascade');
         });

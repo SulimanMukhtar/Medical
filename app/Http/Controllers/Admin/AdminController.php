@@ -18,11 +18,15 @@ class AdminController extends Controller
         // $doctors = Doctor::where('approved', '=', true)->get();
         $doctors = Doctor::all()->toArray();
         $labs = Lab::all()->toArray();
-        $pharmacies = Pharmacy::all()->toArray();
+        $pharms = Pharmacy::all()->toArray();
         $drugs = Drug::all()->toArray();
+        $pharmacies = Drug::addSelect([
+            'pharmacy_id' => Pharmacy::select('name')
+                ->whereColumn('id', 'Drugs.pharmacy_id')
+        ])->get();
 
         if (Auth::guard('admin')) {
-            return view('admin.dashboard', compact('doctors', 'labs', 'pharmacies', 'drugs'));
+            return view('admin.dashboard', compact('doctors', 'labs', 'pharmacies', 'pharms', 'drugs'));
         } else {
             return view('dashboard.admin.login');
         }
@@ -32,17 +36,15 @@ class AdminController extends Controller
         //Validate Inputs
         $request->validate([
             'username' => 'required',
-            'password' => 'required'
+            'password' => 'required|min:5|max:30'
         ]);
 
         $creds = $request->only('username', 'password');
 
         if (Auth::guard('admin')->attempt($creds)) {
-            $doctors = Doctor::all()->toArray();
-            $labs = Lab::all()->toArray();
-            $pharmacies = Pharmacy::all()->toArray();
-            $drugs = Drug::all()->toArray();
-            return redirect()->route('admin.home')->with(compact('doctors'), compact('labs'), compact('pharmacies'), compact('drugs'));
+            $doctors = Doctor::where('approved', '=', true)->get();
+            $labs = Lab::where('approved', '=', true)->get();
+            return redirect()->route('admin.home')->with(compact('doctors'), compact('labs'));
         } else {
             return redirect()->route('admin.login')->with('fail', 'Incorrect credentials');
         }

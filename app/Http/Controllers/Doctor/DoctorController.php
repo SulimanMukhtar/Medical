@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Doctor;
 
+use App\Http\Controllers\Appointments;
 use App\Http\Controllers\Controller;
 use App\Models\Appointment;
 use Illuminate\Http\Request;
@@ -14,7 +15,9 @@ class DoctorController extends Controller
     public function index()
     {
 
-        $appointments = Appointment::where('Doc_id', '=', Auth::guard('doctor')->user()->id)->get();
+        $NotCompleted = Appointment::where('Doc_id', '=', Auth::guard('doctor')->user()->id)->where('status', '!=', 'Completed')->get()->sortBy('date');
+        $Completed = Appointment::where('Doc_id', '=', Auth::guard('doctor')->user()->id)->where('status', '=', 'Completed')->get()->sortBy('date');
+        $appointments = $NotCompleted->merge($Completed);
 
         if (Auth::guard('doctor')) {
             return view('admin.doctorcp', compact('appointments'));
