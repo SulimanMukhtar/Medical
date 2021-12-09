@@ -9,7 +9,7 @@
     <!-----------------------------  Navbar---------------------------------------------------------------->
     <nav class="navbar navbar-expand-md navbar-light fixed-top">
         <a class="navbar-brand" href="#">
-        <i class="fas fa-microscope"></i>  MEDICA
+            <i class="fas fa-microscope"></i> MEDICA
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
             aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -66,7 +66,7 @@
                             <p class="card-text">
                             <ul>
                                 <li><i class="fas fa-map-marker-alt"></i>{{ $lab['address'] }}</li>
-                                <li><i class="fas fa-headset"></i>0907557112</li>
+                                <li><i class="fas fa-headset"></i>{{ $lab['phone'] }}</li>
                                 <li><i class="fas fa-business-time"></i>24 Hour</li>
                             </ul>
                             </p>
