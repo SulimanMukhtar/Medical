@@ -2,12 +2,9 @@
 
 namespace App\Http\Controllers\Doctor;
 
-use App\Http\Controllers\Appointments;
 use App\Http\Controllers\Controller;
 use App\Models\Appointment;
 use Illuminate\Http\Request;
-
-use App\Models\Doc_user;
 use Illuminate\Support\Facades\Auth;
 
 class DoctorController extends Controller

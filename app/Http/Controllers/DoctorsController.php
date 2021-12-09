@@ -37,7 +37,7 @@ class DoctorsController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'image' => 'required',
+            'image' => 'required|image',
             'name' => 'required',
             'specialist' => 'required',
             'university' => 'required',

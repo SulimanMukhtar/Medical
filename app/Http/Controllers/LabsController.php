@@ -43,7 +43,7 @@ class LabsController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'image' => 'required',
+            'image' => 'required|image',
             'name' => 'required',
             'address' => 'required',
             'phone' => 'required|digits:10',
