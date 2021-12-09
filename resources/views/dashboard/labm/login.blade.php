@@ -11,7 +11,6 @@
 </head>
 
 <body>
-
     <div class="container">
         <div class="row">
             <div class="col-md-4 offset-md-4" style="margin-top: 45px;">
@@ -28,9 +27,9 @@
                         <label for="username">Username</label>
                         <input type="text" class="form-control" name="username" placeholder="Enter Your Username"
                             value="{{ old('username') }}">
-                        <span class="text-danger">@error('username'){{ $message }}@enderror</span>
-                        </div>
-                        <div class="form-group">
+                            <span class="text-danger">@error('username'){{ $message }}@enderror</span>
+                            </div>
+                            <div class="form-group">
                             <label for="password">Password</label>
                             <input type="password" class="form-control" name="password" placeholder="Enter password"
                                 value="{{ old('password') }}">

@@ -27,7 +27,12 @@
                                 <label for="fname">Patint Name</label>
                             </div>
                             <div class="col-75">
-                                <input type="text" id="fname" name="firstname" placeholder="Patint Name..">
+                            <select class="custom-select" id="inputGroupSelect01">
+                                <option selected>Choose...</option>
+                                <option value="1">One</option>
+                                <option value="2">Two</option>
+                                <option value="3">Three</option>
+                            </select>
                             </div>
                         </div>
                         <div class="row">
@@ -62,7 +67,7 @@
 
     <section class="homevisit">
         <div class="container">
-            <h3>Home Visit</h3>
+            <h3>Paitint</h3>
             <table class="table table-striped table-hover">
                 <thead>
                     <tr>
@@ -71,6 +76,7 @@
                         <th scope="col">Address</th>
                         <th scope="col">Test Name</th>
                         <th scope="col">Fav Date</th>
+                        <th scope="col">status</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -82,7 +88,9 @@
                             <td>{{ $HomeVisit['address'] }}</td>
                             <td>{{ $HomeVisit['test_name'] }}</td>
                             <td>{{ $HomeVisit['date'] }}</td>
+                            <td><button class ="btn-info">Aprove</button></td>
                         </tr>
+
                     @endforeach
                 </tbody>
             </table>
@@ -96,7 +104,9 @@
                 <tr>
                     <th scope="col">#</th>
                     <th scope="col">Test Name</th>
-                    <th scope="col">Modifiy</th>
+                    <th scope="col">
+                  
+                    </th>
                 </tr>
             </thead>
             <tbody>
@@ -145,7 +155,31 @@
             </tbody>
         </table>
     </section>
-
+    <section class="container">
+    <form>
+            <div class="form-group">
+                <label for="exampleInputEmail1">Patint Name</label>
+                <input type="text" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">Address</label>
+                <input type="text" class="form-control" >
+            </div>
+            <div class="form-group">
+                <label for="exampleInputEmail1">Phone</label>
+                <input type="text" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">Test Name</label>
+                <input type="text" class="form-control" >
+            </div>
+            <div class="form-group">
+                <label for="exampleInputEmail1">Date</label>
+                <input type="date" class="form-control">
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+    </section>
     <!----------------start----- add test modal---------------------------->
 
     <div class="modal fade" id="addtest" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

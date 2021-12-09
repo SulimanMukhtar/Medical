@@ -29,8 +29,6 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/Labs">Labs</a>
                 </li>
-                
-
             </ul>
         </div>
     </nav>
