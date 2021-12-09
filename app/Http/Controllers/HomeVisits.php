@@ -38,9 +38,11 @@ class HomeVisits extends Controller
         $request->validate([
             'name' => 'required',
             'address' => 'required',
-            'phone' => 'required',
+            'phone' => 'required|digits:10',
             'test' => 'required',
-            'date' => 'required',
+            'date' => 'required|after:tomorrow',
+        ], [
+            'date' => 'The Selected Date Must Not Be Tomorrow'
         ]);
 
         $homevisit = new HomeVisit();
@@ -52,7 +54,7 @@ class HomeVisits extends Controller
         $homevisit->date = $request->date;
         $save = $homevisit->save();
         if ($save) {
-            return redirect()->back()->with('success', 'A');
+            return redirect()->back()->with('success', 'Your Data Has Been Submitted Successfully ');
         } else {
             return redirect()->back()->with('fail', 'Something went wrong');
         }

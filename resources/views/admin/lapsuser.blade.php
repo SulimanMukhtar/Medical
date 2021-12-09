@@ -89,7 +89,7 @@
         </div>
     </section>
     <section class="testmenue container">
-        <h3>Test Menue <span> <button type="button" class="btn btn-info btn-md" data-toggle="modal"
+        <h3>Test Menu <span> <button type="button" class="btn btn-info btn-md" data-toggle="modal"
                     data-target="#addtest">Add Test</button></span> </h3>
         <table class="table table-striped table-hover">
             <thead>
