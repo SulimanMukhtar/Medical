@@ -33,51 +33,43 @@
     <span class="text-danger">@error('address'){{ $message }} @enderror</span>
     <span class="text-danger">@error('phone'){{ $message }} @enderror</span>
     <span class="text-danger">@error('test'){{ $message }} @enderror</span>
+    <span class="text-danger">@error('requester'){{ $message }} @enderror</span>
+    <span class="text-danger">@error('result'){{ $message }} @enderror</span>
 
     <div class="container">
         <h3>Add Paitint Result</h3>
         <div class="Resulteadd">
-            <form action="action_page.php">
+            <form action="{{ route('AddResult') }}" method="POST" enctype="multipart/form-data">
+                @csrf
                 <div class="container">
-                    <form action="action_page.php">
-                        <div class="row">
-                            <div class="col-25">
-                                <label for="fname">Patint Name</label>
-                            </div>
-                            <div class="col-75">
-                                <select class="custom-select" id="inputGroupSelect01">
-                                    <option selected>Select a Patient</option>
-                                    @foreach ($patients as $patient)
-                                        <option value="{{ $patient['pid'] }}">{{ $patient['name'] }}</option>
-                                    @endforeach
-                                </select>
+                    <input type="hidden" name="lab_id" value="{{ Auth::guard('labm')->user()->id }}">
+                    <div class="row">
+                        <div class="col-25">
+                            <label for="fname">Patint Name</label>
+                        </div>
+                        <div class="col-75">
+                            <select class="custom-select" name="requester">
+                                @foreach ($patients as $patient)
+                                    <option value="{{ $patient['name'] }}">{{ $patient['name'] }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-25">
+                            <label for="country">Upload Result</label>
+                        </div>
+                        <div class="col-75">
+                            <div class="input-group">
+                                <input type="file" class="form-control" id="inputGroupFile04"
+                                    aria-describedby="inputGroupFileAddon04" aria-label="Upload"
+                                    accept="application/pdf" name="result">
+                                <button class="btn btn-outline-secondary " type="submit"
+                                    id="inputGroupFileAddon04">Upload</button>
+
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col-25">
-                                <label for="lname">Patint ID</label>
-                            </div>
-                            <div class="col-75">
-                                <input type="text" id="lname" name="lastname" placeholder="Patint Id..">
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-25">
-                                <label for="country">Upload Result</label>
-                            </div>
-                            <div class="col-75">
-                                <div class="input-group">
-                                    <input type="file" class="form-control" id="inputGroupFile04"
-                                        aria-describedby="inputGroupFileAddon04" aria-label="Upload">
-                                    <button class="btn btn-outline-secondary" type="button"
-                                        id="inputGroupFileAddon04">Upload</button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <input type="submit" value="Submit">
-                        </div>
-                    </form>
+                    </div>
                 </div>
             </form>
         </div>

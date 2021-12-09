@@ -14,6 +14,7 @@ use App\Http\Controllers\Patients;
 use App\Http\Controllers\PharmaciesController;
 use App\Http\Controllers\phm\PhmController;
 use App\Http\Controllers\TestMenus;
+use App\Http\Controllers\TestResults;
 use Illuminate\Support\Facades\Auth;
 
 /*
@@ -46,6 +47,10 @@ Route::get('/AddDoctor', [DoctorsController::class, 'addDoctor'])->name('addADoc
 Route::post('/AddDoctor', [DoctorsController::class, 'store']);
 Route::post('/SubmitAppointment', [Appointments::class, 'store'])->name('makeAppoint');
 Route::PUT('/Update/{id}', [Appointments::class, 'update'])->name('updateStatus');
+
+Route::post('/AddResult', [TestResults::class, 'store'])->name('AddResult');
+
+
 Route::post('/SubmitVisit', [Patients::class, 'store'])->name('submitVisit');
 Route::post('/addPatient', [Patients::class, 'addPatient'])->name('addPatient');
 Route::PUT('/givePID/{id}', [Patients::class, 'givePID'])->name('GivePID');

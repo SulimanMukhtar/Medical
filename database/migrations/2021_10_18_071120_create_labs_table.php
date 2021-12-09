@@ -48,12 +48,9 @@ class CreateLabsTable extends Migration
         Schema::create('TestResults', function (Blueprint $table) {
             $table->increments('id')->unsigned();
             $table->unsignedInteger('lab_id');
-            $table->unsignedInteger('test_id');
-            $table->unsignedInteger('requester');
+            $table->string('requester');
             $table->string('test_result');
             $table->timestamps();
-            $table->foreign('test_id')->references('id')->on('TestMenus')->onDelete('cascade');
-            $table->foreign('requester')->references('id')->on('patients')->onDelete('cascade');
             $table->foreign('lab_id')->references('id')->on('labs')->onDelete('cascade');
         });
     }
