@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\TestResult;
+use GrahamCampbell\ResultType\Result;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -106,7 +107,12 @@ class TestResults extends Controller
 
     public function download(Request $request)
     {
-        $file = DB::table('TestResults')->select('test_result')->where('requester', '=', $request->pid)->pluck('test_result')->first();
-        return response()->download(public_path('results/' . $file));
+        $result = TestResult::where('requester', '=', $request->pid)->get();
+        if ($result->isNotEmpty()) {
+            $file = DB::table('TestResults')->select('test_result')->where('requester', '=', $request->pid)->pluck('test_result')->first();
+            return response()->download(public_path('results/' . $file));
+        } else {
+            return redirect()->back()->with('fail', 'Please Check Your Patient ID');
+        }
     }
 }
