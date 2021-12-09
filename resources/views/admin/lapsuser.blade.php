@@ -218,30 +218,60 @@
                         <td>{{ $TestMenu['test_name'] }}</td>
                         <td>
                             <button type="button" class="btn btn-info btn-md" data-toggle="modal"
-                                data-target="#edittest">Edit</ button>
-                                <button type="button" class="btn btn-info btn-md" data-toggle="modal"
-                                    data-target="#del">Del</button>
+                                data-target="#editTest{{ $TestMenu['id'] }}">Edit</button>
+                            <button type="button" class="btn btn-danger btn-md" data-toggle="modal"
+                                data-target="#delTest{{ $TestMenu['id'] }}">Del</button>
+                            <div class="modal fade" id="delTest{{ $TestMenu['id'] }}" tabindex="-1"
+                                aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">Confirm Deletion</h5>
+                                            <button type="button" class="close" data-dismiss="modal"
+                                                aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body text-center">
+                                            <form action="{{ Route('DelTest', $TestMenu['id']) }}" method="POST">
+                                                @csrf
+                                                @method('DELETE')
+                                                <h3>Are You Sure ?</h3>
+                                                <p>You Won't Be Able To Revert This !</p>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="submit" class="btn btn-danger">Delete</button>
+                                            <button type="button" class="btn btn-secondary"
+                                                data-dismiss="modal">Close</button>
+                                        </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
                         </td>
                         <!----------------start----- edite test modal---------------------------->
-                        <div class="modal fade" id="edittest" tabindex="-1" aria-labelledby="exampleModalLabel"
-                            aria-hidden="true">
+                        <div class="modal fade" id="editTest{{ $TestMenu['id'] }}" tabindex="-1"
+                            aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h5 class="modal-title" id="exampleModalLabel">Edit Record</h5>
+                                        <h5 class="modal-title" id="">Edit Test</h5>
                                         <button type="button" class="close" data-dismiss="modal"
                                             aria-label="Close">
                                             <span aria-hidden="true">&times;</span>
                                         </button>
                                     </div>
                                     <div class="modal-body">
-                                        <form action="">
+                                        <form action="{{ route('updateTest', $TestMenu['id']) }}" method="POST">
+                                            @csrf
+                                            @method('PUT')
                                             <div class="form-group">
-                                                <label for="exampleInputPassword1">Test Name</label>
-                                                <input type="text" class="form-control" id="exampleInputPassword1">
+                                                <label for="name">Test Name</label>
+                                                <input type="text" class="form-control" name="test"
+                                                    value="{{ $TestMenu['test_name'] }}">
                                             </div>
 
-                                            <button type="submit" class="btn btn-primary">Save Change</button>
+                                            <button type=" submit" class="btn btn-primary">Save Change</button>
                                         </form>
                                     </div>
                                     <div class="modal-footer">

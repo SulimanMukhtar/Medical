@@ -79,9 +79,12 @@ class TestMenus extends Controller
      * @param  \App\Models\TestMenu  $testMenu
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, TestMenu $testMenu)
+    public function update(Request $request, $id)
     {
-        //
+        $test = TestMenu::find($id);
+        $test->test_name = $request->test;
+        $test->save();
+        return redirect()->back()->with('success', 'Test Updated');
     }
 
     /**
@@ -90,8 +93,9 @@ class TestMenus extends Controller
      * @param  \App\Models\TestMenu  $testMenu
      * @return \Illuminate\Http\Response
      */
-    public function destroy(TestMenu $testMenu)
+    public function destroy($id)
     {
-        //
+        TestMenu::destroy($id);
+        return back()->with('success', 'Test Has Been Deleted Successfully');
     }
 }

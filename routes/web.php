@@ -60,6 +60,10 @@ Route::PUT('/UpdatePatient/{id}', [patients::class, 'update'])->name('updatePati
 
 Route::post('/checklogin', [LabsController::class, 'check'])->name('labcheck');
 Route::post('/addtest', [TestMenus::class, 'store'])->name('AddTest');
+Route::delete('/DelTest/{id}', [TestMenus::class, 'destroy'])->name('DelTest');
+Route::put('/uodateTest/{id}', [TestMenus::class, 'update'])->name('updateTest');
+
+
 Route::post('/drugUpdate', [DrugsController::class, 'update'])->name('drugUpdate');
 Route::put('/drugUpdate/{id}', [DrugsController::class, 'update'])->name('drugUpdate');
 Route::delete('/drugDel/{id}', [DrugsController::class, 'destroy'])->name('drugDel');
