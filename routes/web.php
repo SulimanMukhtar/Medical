@@ -10,6 +10,7 @@ use App\Http\Controllers\HomeVisits;
 use App\Http\Controllers\lab\LabmController;
 use App\Http\Controllers\LabsController;
 use App\Http\Controllers\LabTestsController;
+use App\Http\Controllers\Patients;
 use App\Http\Controllers\PharmaciesController;
 use App\Http\Controllers\phm\PhmController;
 use App\Http\Controllers\TestMenus;
@@ -45,7 +46,13 @@ Route::get('/AddDoctor', [DoctorsController::class, 'addDoctor'])->name('addADoc
 Route::post('/AddDoctor', [DoctorsController::class, 'store']);
 Route::post('/SubmitAppointment', [Appointments::class, 'store'])->name('makeAppoint');
 Route::PUT('/Update/{id}', [Appointments::class, 'update'])->name('updateStatus');
-Route::post('/SubmitVisit', [HomeVisits::class, 'store'])->name('submitVisit');
+Route::post('/SubmitVisit', [Patients::class, 'store'])->name('submitVisit');
+Route::post('/addPatient', [Patients::class, 'addPatient'])->name('addPatient');
+Route::PUT('/givePID/{id}', [Patients::class, 'givePID'])->name('GivePID');
+Route::delete('/PatientDel/{id}', [Patients::class, 'destroy'])->name('PatientDel');
+Route::PUT('/UpdatePatient/{id}', [patients::class, 'update'])->name('updatePatient');
+
+
 Route::post('/checklogin', [LabsController::class, 'check'])->name('labcheck');
 Route::post('/addtest', [TestMenus::class, 'store'])->name('AddTest');
 Route::post('/drugUpdate', [DrugsController::class, 'update'])->name('drugUpdate');

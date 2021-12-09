@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\lab;
 
 use App\Http\Controllers\Controller;
-use App\Models\HomeVisit;
 use App\Models\Labm;
+use App\Models\Patient;
 use App\Models\TestMenu;
 use App\Models\TestResult;
 use Illuminate\Http\Request;
@@ -15,11 +15,11 @@ class LabmController extends Controller
     public function index()
     {
 
-        $HomeVisits = HomeVisit::where('lab_id', '=', Auth::guard('labm')->user()->id)->get();
+        $patients = Patient::where('lab_id', '=', Auth::guard('labm')->user()->id)->get();
         $TestResults = TestResult::all()->toArray();
         $TestMenus = TestMenu::where('lab_id', '=', Auth::guard('labm')->user()->id)->get();
         if (Auth::guard('labm')) {
-            return view('admin.lapsuser', compact('HomeVisits'), compact('TestMenus'), compact('TestResults'));
+            return view('admin.lapsuser', compact('patients'), compact('TestMenus'), compact('TestResults'));
         } else {
             return view('dashboard.labm.login');
         }

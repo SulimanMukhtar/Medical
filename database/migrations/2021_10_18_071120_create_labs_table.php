@@ -33,14 +33,15 @@ class CreateLabsTable extends Migration
             $table->timestamps();
             $table->foreign('lab_id')->references('id')->on('labs')->onDelete('cascade');
         });
-        Schema::create('HomeVisits', function (Blueprint $table) {
+        Schema::create('patients', function (Blueprint $table) {
             $table->increments('id')->unsigned();
             $table->unsignedInteger('lab_id');
             $table->string('name');
             $table->string('address');
             $table->char('phone');
             $table->string('test_name');
-            $table->date('date');
+            $table->string('pid')->nullable();
+            $table->date('date')->nullable();
             $table->timestamps();
             $table->foreign('lab_id')->references('id')->on('labs')->onDelete('cascade');
         });
@@ -52,7 +53,7 @@ class CreateLabsTable extends Migration
             $table->string('test_result');
             $table->timestamps();
             $table->foreign('test_id')->references('id')->on('TestMenus')->onDelete('cascade');
-            $table->foreign('requester')->references('id')->on('HomeVisits')->onDelete('cascade');
+            $table->foreign('requester')->references('id')->on('patients')->onDelete('cascade');
             $table->foreign('lab_id')->references('id')->on('labs')->onDelete('cascade');
         });
     }

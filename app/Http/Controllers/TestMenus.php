@@ -44,7 +44,7 @@ class TestMenus extends Controller
         $labTest->test_name = $request->name;
         $save = $labTest->save();
         if ($save) {
-            return redirect()->back()->with('success', 'A');
+            return redirect()->back()->with('success', 'Test Has Been Added Successfully');
         } else {
             return redirect()->back()->with('fail', 'Something went wrong');
         }
