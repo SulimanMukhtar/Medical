@@ -8,7 +8,7 @@
 
 <body>
     <div class=" lapsBrand">
-        <p><strong>Dr Suliman Moktar </strong><span class="badge bg-info">
+        <p><strong>Dr Qamer Ibrahim</strong><span class="badge bg-info">
                 {{ Auth::guard('doctor')->user()->name }}</span>
             <span><a href="{{ route('doctor.logout') }}"
                     onclick="event.preventDefault();document.getElementById('logout-form').submit();">Logout</a>
