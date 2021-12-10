@@ -14,9 +14,4 @@ class Pharmacy extends Model
     {
         return $this->hasMany(Drug::class);
     }
-
-    public function Drugss()
-    {
-        return $this->hasMany(Drug::class, 'pharmacy_id', 'id');
-    }
 }

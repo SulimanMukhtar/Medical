@@ -133,6 +133,8 @@ class LabsController extends Controller
         Lab::destroy($id);
         return back()->with('success', 'Lab Has Been Deleted Successfully');
     }
+
+    
     function check(Request $request)
     {
         //Validate Inputs

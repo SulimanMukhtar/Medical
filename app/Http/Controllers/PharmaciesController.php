@@ -85,6 +85,7 @@ class PharmaciesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Pharmacy::destroy($id);
+        return back()->with('success', 'Pharmacy Has Been Deleted Successfully');
     }
 }

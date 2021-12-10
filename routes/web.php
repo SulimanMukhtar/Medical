@@ -70,6 +70,9 @@ Route::put('/drugUpdate/{id}', [DrugsController::class, 'update'])->name('drugUp
 Route::delete('/drugDel/{id}', [DrugsController::class, 'destroy'])->name('drugDel');
 Route::get('/Drugs/Search', [DrugsController::class, 'find'])->name('drug.find');
 
+Route::delete('/home/{id}', [PharmaciesController::class, 'destroy'])->name('DelPH');
+
+
 
 
 

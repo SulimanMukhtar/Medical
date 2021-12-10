@@ -19,7 +19,7 @@
         onclick="openPage('Adminstrator', this, 'rgba(0, 255, 234, 0.315)')">Adminstrators</button>
     <button class="tablink" onclick="openPage('Labs', this, 'rgba(0, 195, 255, 0.356)')">Labs</button>
     <button class="tablink" onclick="openPage('Doctors', this, 'rgba(0, 255, 106, 0.315)')">Doctors</button>
-    <button class="tablink" onclick="openPage('Drugs', this, 'rgba(43, 255, 0, 0.315)')">Drugs</button>
+    <button class="tablink" onclick="openPage('Pharmacies', this, 'rgba(43, 255, 0, 0.315)')">Pharmacies</button>
 
     <div id="Adminstrator" class="tabcontent">
         @if (Session::get('success'))
@@ -306,114 +306,96 @@
             </tbody>
         </table>
     </div>
-    <div id="Drugs" class="tabcontent">
-        <div class="container-xl">
+    <div id="Pharmacies" class="tabcontent">
+        <div>
+            <h3>Pharmacies <span> <button type="button" class="btn btn-info btn-md" data-toggle="modal"
+                        data-target="#Addpharma">Add Pharmacy</button></h3>
+            <table class="table table-striped table-hover table-responsive-xl">
+                <thead>
+                    <tr>
+                        <th scope="col">id</th>
+                        <th scope="col">Pharmacy Name</th>
+                        <th scope="col">Address</th>
+                        <th scope="col">Phone</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Modifiy</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach ($pharms as $pharm)
+                        <tr>
+                            <th scope="row">{{ $pharm['id'] }}</th>
+                            <td>{{ $pharm['name'] }}</td>
+                            <td>{{ $pharm['address'] }}</td>
+                            <td>{{ $pharm['phone'] }}</td>
+                            <td>{{ $pharm['email'] }}</td>
+                            <td>
+                                <button type="button" class="btn btn-info btn-md" data-toggle="modal"
+                                    data-target="#Drug_{{ $pharm['id'] }}">View</button>
+                                <button type="button" class="btn btn-info btn-md" data-toggle="modal"
+                                    data-target="#editpharma_{{ $pharm['id'] }}">Edit</button>
 
-            <div class="row">
-                <div class="col-lg-6">
-                    <h3>Drugs <span> <button type="button" class="btn btn-info btn-md" data-toggle="modal"
-                                data-target="#Adddrug">Add Drug</button></h3>
-                    <table class="table table-striped table-hover table-responsive-xl">
-                        <thead>
-                            <tr>
-                                <th scope="col">#</th>
-                                <th scope="col">Drug Name</th>
-                                <th scope="col">Pharmacy</th>
-                                <th scope="col">Modifiy</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach ($pharmacies as $pharmacy)
+                                <button type="button" class="btn btn-danger btn-md" data-toggle="modal"
+                                    data-target="#delpharm_{{ $pharm['id'] }}">Del</button>
 
-
-                                <tr>
-                                    <th scope="row">{{ $pharmacy['id'] }}</th>
-                                    <td>{{ $pharmacy['name'] }}</td>
-                                    <td>{{ $pharmacy['pharmacy_id'] }}</td>
-                                    <td>
-                                        <button type="button" class="btn btn-info btn-md" data-toggle="modal"
-                                            data-target="#editdrug">Edit</button>
-
-                                        <button type="button" class="btn btn-info btn-md" data-toggle="modal"
-                                            data-target="#modall">Del</button>
-                                    </td>
-                                </tr>
-                            @endforeach
-
-                        </tbody>
-                    </table>
-                </div>
-                <div class="col-lg-6">
-                    <h3>Pharmacies <span> <button type="button" class="btn btn-info btn-md" data-toggle="modal"
-                                data-target="#Addpharma">Add Pharmacy</button></h3>
-                    <table class="table table-striped table-hover table-responsive-xl">
-                        <thead>
-                            <tr>
-                                <th scope="col">id</th>
-                                <th scope="col">Pharmacy Name</th>
-                                <th scope="col">Location</th>
-                                <th scope="col">Phone Number</th>
-                                <th scope="col">Modifiy</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach ($pharms as $pharm)
-                                <tr>
-                                    <th scope="row">{{ $pharm['id'] }}</th>
-                                    <td>{{ $pharm['name'] }}</td>
-                                    <td>{{ $pharm['address'] }}</td>
-                                    <td>{{ $pharm['phone'] }}</td>
-                                    <td>
-                                        <button type="button" class="btn btn-info btn-md" data-toggle="modal"
-                                            data-target="#editpharma_{{ $pharm['id'] }}">Edit</button>
-
-                                        <button type="button" class="btn btn-info btn-md" data-toggle="modal"
-                                            data-target="#modall">Del</button>
-                                    </td>
-                                </tr>
-                                <div class="modal fade" id="editpharma_{{ $pharm['id'] }}" tabindex="-1"
+                                <div class="modal fade" id="delpharm_{{ $pharm['id'] }}" tabindex="-1"
                                     aria-labelledby="" aria-hidden="true">
                                     <div class="modal-dialog">
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                                <h5 class="modal-title" id="">Edit Record</h5>
+                                                <h5 class="modal-title" id="">Confirm Deletion</h5>
+                                                <button type="button" class="close" data-dismiss="modal"
+                                                    aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body text-center">
+                                                <form action="{{ Route('DelPH', $pharm['id']) }}" method="POST">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <h3>Are You Sure ?</h3>
+                                                    <p>You Won't Be Able To Revert This !</p>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="submit" class="btn btn-danger">Delete</button>
+                                                <button type="button" class="btn btn-secondary"
+                                                    data-dismiss="modal">Close</button>
+                                            </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="modal fade" id="Drug_{{ $pharm['id'] }}" tabindex="-1"
+                                    aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel">Test Menu</h5>
                                                 <button type="button" class="close" data-dismiss="modal"
                                                     aria-label="Close">
                                                     <span aria-hidden="true">&times;</span>
                                                 </button>
                                             </div>
                                             <div class="modal-body">
-                                                <form method="POST" action="">
-                                                    @csrf
-                                                    @method('PUT')
-                                                    <div class="form-group">
-                                                        <label for="name">Pharmacy Name </label>
-                                                        <input type="text" class="form-control" name="name"
-                                                            value="{{ $pharm['name'] }}">
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label for="username">Username</label>
-                                                        <input type="text" class="form-control" name="username"
-                                                            value="{{ $pharm['username'] }}">
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label for="email">Email</label>
-                                                        <input type="text" class="form-control" name="email"
-                                                            value="{{ $pharm['email'] }}">
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label for="address">Address</label>
-                                                        <input type="text" class="form-control" name="address"
-                                                            value="{{ $pharm['address'] }}">
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label for="phone">Phone</label>
-                                                        <input type="text" class="form-control" name="phone"
-                                                            value="{{ $pharm['phone'] }}">
-                                                    </div>
-
-                                                    <button type="submit" class="btn btn-primary">Save Change</button>
-                                                </form>
+                                                <table class="table">
+                                                    <thead>
+                                                        <tr>
+                                                            <th scope="col">#</th>
+                                                            <th scope="col">Drug Name</th>
+                                                            <th scope="col">Quantity</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        @foreach ($pharm->drugs as $drug)
+                                                            <tr>
+                                                                <th scope="row">{{ $drug['id'] }}</th>
+                                                                <td>{{ $drug['name'] }} </td>
+                                                                <td>{{ $drug['quantity'] }} </td>
+                                                            </tr>
+                                                        @endforeach
+                                                    </tbody>
+                                                </table>
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary"
@@ -422,14 +404,69 @@
                                         </div>
                                     </div>
                                 </div>
-                            @endforeach
 
-                        </tbody>
-                    </table>
-                </div>
-            </div>
+                            </td>
+                        </tr>
+                        <div class="modal fade" id="editpharma_{{ $pharm['id'] }}" tabindex="-1"
+                            aria-labelledby="" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="">Edit Record</h5>
+                                        <button type="button" class="close" data-dismiss="modal"
+                                            aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form method="POST" action="">
+                                            @csrf
+                                            @method('PUT')
+                                            <div class="form-group">
+                                                <label for="name">Pharmacy Name </label>
+                                                <input type="text" class="form-control" name="name"
+                                                    value="{{ $pharm['name'] }}">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="username">Username</label>
+                                                <input type="text" class="form-control" name="username"
+                                                    value="{{ $pharm['username'] }}">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="email">Email</label>
+                                                <input type="text" class="form-control" name="email"
+                                                    value="{{ $pharm['email'] }}">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="address">Address</label>
+                                                <input type="text" class="form-control" name="address"
+                                                    value="{{ $pharm['address'] }}">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="phone">Phone</label>
+                                                <input type="text" class="form-control" name="phone"
+                                                    value="{{ $pharm['phone'] }}">
+                                            </div>
 
+                                            <button type="submit" class="btn btn-primary">Save Change</button>
+                                        </form>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary"
+                                            data-dismiss="modal">Close</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
+
+                </tbody>
+            </table>
         </div>
+    </div>
+    </div>
+
+    </div>
     </div>
     <!----------------start----- Edit admin modal---------------------------->
     <div class="modal fade" id="editeadmin" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -652,41 +689,7 @@
             </div>
         </div>
     </div>
-    <!----------------end----- edit  Drugs modal---------------------------->
-    <!----------------start----- add  Drugs modal---------------------------->
 
-    <div class="modal fade" id="Adddrug" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Add Record</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <form action="">
-                        <div class="form-group">
-                            <label for="exampleInputPassword1">Drug Name</label>
-                            <input type="text" class="form-control" id="exampleInputPassword1">
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInputPassword1">Pharmacy </label>
-                            <input type="text" class="form-control" id="exampleInputPassword1">
-                        </div>
-                        <button type="submit" class="btn btn-primary">Save Change</button>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!----------------end----- add drug modal---------------------------->
-    <!----------------Start----- edit pharma modal---------------------------->
-
-    <!----------------end----- edit  pharma modal---------------------------->
     <!----------------start----- add  pharma modal---------------------------->
 
     <div class="modal fade" id="Addpharma" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
