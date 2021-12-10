@@ -32,25 +32,27 @@
             </ul>
         </div>
     </nav>
-    <div>
-        @if (Session::get('success'))
-            <div class="alert alert-success">
-                {{ Session::get('success') }}
-            </div>
-        @endif
-        @if (Session::get('fail'))
-            <div class="alert alert-danger">
-                {{ Session::get('fail') }}
-            </div>
-        @endif
+    <div class = "alerter">
+            @if (Session::get('success'))
+                <div class="alert alert-success">
+                    {{ Session::get('success') }}
+                </div>
+            @endif
+            @if (Session::get('fail'))
+                <div class="alert alert-danger">
+                    {{ Session::get('fail') }}
+                </div>
+            @endif
+  
+   
+            <span class="text-danger">@error('fname'){{ $message }} @enderror</span>
+            <span class="text-danger">@error('lname'){{ $message }} @enderror</span>
+            <span class="text-danger">@error('email'){{ $message }} @enderror</span>
+            <span class="text-danger">@error('phone'){{ $message }} @enderror</span>
+            <span class="text-danger">@error('address'){{ $message }} @enderror</span>
+            <span class="text-danger">@error('date'){{ $message }} @enderror</span>
+            <span class="text-danger">@error('gender'){{ $message }} @enderror</span>
     </div>
-    <span class="text-danger">@error('fname'){{ $message }} @enderror</span>
-    <span class="text-danger">@error('lname'){{ $message }} @enderror</span>
-    <span class="text-danger">@error('email'){{ $message }} @enderror</span>
-    <span class="text-danger">@error('phone'){{ $message }} @enderror</span>
-    <span class="text-danger">@error('address'){{ $message }} @enderror</span>
-    <span class="text-danger">@error('date'){{ $message }} @enderror</span>
-    <span class="text-danger">@error('gender'){{ $message }} @enderror</span>
     <!---------------------------------------------Navbar End------------------------------------------------>
 
     <div class="container  cards">
@@ -64,9 +66,9 @@
                             <h5 class="card-title">Dr. {{ $doctor['name'] }}</h5>
                             <p class="card-text">
                             <ul>
-                                <li>{{ $doctor['university'] }}</li>
-                                <li>{{ $doctor['specialist'] }}</li>
-                                <li>{{ $doctor['phone'] }}</li>
+                                <li><i class="fas fa-university"></i>{{ $doctor['university'] }}</li>
+                                <li><i class="fas fa-certificate"></i>{{ $doctor['specialist'] }}</li>
+                                <li><i class="fas fa-headset"></i>{{ $doctor['phone'] }}</li>
                             </ul>
                             </p>
                             <button type="button" class="btn btn-info btn-md" data-toggle="modal"

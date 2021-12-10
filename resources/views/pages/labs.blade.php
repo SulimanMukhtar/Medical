@@ -35,20 +35,30 @@
     </nav>
 
 
+    <div class="alerter">
+            <span class="text-danger">@error('name'){{ $message }} @enderror</span>
+            <span class="text-danger">@error('address'){{ $message }} @enderror</span>
+            <span class="text-danger">@error('phone'){{ $message }} @enderror</span>
+            <span class="text-danger">@error('test'){{ $message }} @enderror</span>
+            <span class="text-danger">@error('date'){{ $message }} @enderror</span>
+                        @if (Session::get('success'))
+                    <div class="alert alert-success submit">
+                        {{ Session::get('success') }}
+                    </div>
+                       @endif
+                       @if (Session::get('fail'))
+                    <div class="alert alert-danger submit">
+                        {{ Session::get('fail') }}
+                    </div>
+                      @endif
+    </div>
 
 
 
     <!---------------------------------------------Navbar End------------------------------------------------>
 
     <div class="container cards">
-        <div class="alerter">
-            <span class="text-danger">@error('name'){{ $message }} @enderror</span>
-            <span class="text-danger">@error('address'){{ $message }} @enderror</span>
-            <span class="text-danger">@error('phone'){{ $message }} @enderror</span>
-            <span class="text-danger">@error('test'){{ $message }} @enderror</span>
-            <span class="text-danger">@error('date'){{ $message }} @enderror</span>
-        </div>
-
+        
         <div class="row">
             @foreach ($labs as $lab)
                 <div class=" col-xl-3 col-md-4 col-sm-6 col-xs-12">
@@ -231,16 +241,7 @@
     <!--------------Visit Menu End-------------------------------------------->
     <!--------------Lab Modal End-------------------------------------------->
 
-    @if (Session::get('success'))
-        <div class="alert alert-success submit">
-            {{ Session::get('success') }}
-        </div>
-    @endif
-    @if (Session::get('fail'))
-        <div class="alert alert-danger submit">
-            {{ Session::get('fail') }}
-        </div>
-    @endif
+   
 
     @include('includes.footer')
     <script src="js/jquery-3.6.0.min.js"></script>
