@@ -117,6 +117,20 @@ class DoctorsController extends Controller
         return redirect()->back()->with('success', 'Doctor Has Been Edited Successfully');
     }
 
+
+    public function approve(Request $request, $id)
+    {
+        // dd($request);
+        $doctor = Doctor::find($id);
+        $doctor->approved = true;
+        $save = $doctor->save();
+        if ($save) {
+            return redirect()->back()->with('success', 'Doctor Has Been Approved Successfully');
+        } else {
+            return redirect()->back()->with('fail', 'Something Went Wrong');
+        }
+    }
+
     /**
      * Remove the specified resource from storage.
      *

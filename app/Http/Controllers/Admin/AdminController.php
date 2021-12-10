@@ -16,16 +16,21 @@ class AdminController extends Controller
     {
 
         // $doctors = Doctor::where('approved', '=', true)->get();
-        $doctors = Doctor::all()->toArray();
-        $labs = Lab::all()->toArray();
-        $pharms = Pharmacy::with('drugs')->get();
+        $doctors = Doctor::where('approved', '=', true)->get();
+        $labs = Lab::where('approved', '=', true)->get();
+        $pharms = Pharmacy::where('approved', '=', true)->get();
+
+        $docS = Doctor::where('approved', '=', false)->get();
+        $laS = Lab::where('approved', '=', false)->get();
+        $phaS = Pharmacy::where('approved', '=', false)->get();
+
         $pharmacies = Drug::addSelect([
             'pharmacy_id' => Pharmacy::select('name')
                 ->whereColumn('id', 'Drugs.pharmacy_id')
         ])->get();
 
         if (Auth::guard('admin')) {
-            return view('admin.dashboard', compact('doctors', 'labs', 'pharmacies', 'pharms'));
+            return view('admin.dashboard', compact('doctors', 'labs', 'pharmacies', 'pharms', 'docS', 'laS', 'phaS'));
         } else {
             return view('dashboard.admin.login');
         }

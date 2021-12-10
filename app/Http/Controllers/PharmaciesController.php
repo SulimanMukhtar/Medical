@@ -77,6 +77,18 @@ class PharmaciesController extends Controller
         //
     }
 
+    public function approve(Request $request, $id)
+    {
+        $pha = Pharmacy::find($id);
+        $pha->approved = true;
+        $save = $pha->save();
+        if ($save) {
+            return redirect()->back()->with('success', 'Pharmacy Has Been Approved Successfully');
+        } else {
+            return redirect()->back()->with('fail', 'Something Went Wrong');
+        }
+    }
+
     /**
      * Remove the specified resource from storage.
      *

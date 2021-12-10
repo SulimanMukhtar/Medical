@@ -4,12 +4,9 @@ use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Appointments;
 use App\Http\Controllers\Doctor\DoctorController;
 use App\Http\Controllers\DoctorsController;
-use App\Http\Controllers\Drug\DrugController;
 use App\Http\Controllers\DrugsController;
-use App\Http\Controllers\HomeVisits;
 use App\Http\Controllers\lab\LabmController;
 use App\Http\Controllers\LabsController;
-use App\Http\Controllers\LabTestsController;
 use App\Http\Controllers\Patients;
 use App\Http\Controllers\PharmaciesController;
 use App\Http\Controllers\phm\PhmController;
@@ -72,6 +69,12 @@ Route::get('/Drugs/Search', [DrugsController::class, 'find'])->name('drug.find')
 
 Route::delete('/home/{id}', [PharmaciesController::class, 'destroy'])->name('DelPH');
 Route::put('/phmUpdate/{id}', [PhmController::class, 'update'])->name('phmUpdate');
+
+
+
+Route::PUT('/approve/{id}', [DoctorsController::class, 'approve'])->name('DocApprove');
+Route::PUT('/approvePH/{id}', [PharmaciesController::class, 'approve'])->name('PhaApprove');
+Route::PUT('/approveLA/{id}', [LabsController::class, 'approve'])->name('LabApprove');
 
 
 

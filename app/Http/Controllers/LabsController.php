@@ -122,6 +122,18 @@ class LabsController extends Controller
         return back()->with('success', 'Lab Has Been Edited Successfully');
     }
 
+    public function approve(Request $request, $id)
+    {
+        $lab = Lab::find($id);
+        $lab->approved = true;
+        $save = $lab->save();
+        if ($save) {
+            return redirect()->back()->with('success', 'Lab Has Been Approved Successfully');
+        } else {
+            return redirect()->back()->with('fail', 'Something Went Wrong');
+        }
+    }
+
     /**
      * Remove the specified resource from storage.
      *
@@ -134,7 +146,7 @@ class LabsController extends Controller
         return back()->with('success', 'Lab Has Been Deleted Successfully');
     }
 
-    
+
     function check(Request $request)
     {
         //Validate Inputs

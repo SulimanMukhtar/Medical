@@ -16,12 +16,12 @@
     </div>
 
     <button id="defaultOpen" class="tablink"
-        onclick="openPage('Adminstrator', this, 'rgba(0, 255, 234, 0.315)')">Adminstrators</button>
+        onclick="openPage('Submissions', this, 'rgba(0, 255, 234, 0.315)')">Submissions</button>
     <button class="tablink" onclick="openPage('Labs', this, 'rgba(0, 195, 255, 0.356)')">Labs</button>
     <button class="tablink" onclick="openPage('Doctors', this, 'rgba(0, 255, 106, 0.315)')">Doctors</button>
     <button class="tablink" onclick="openPage('Pharmacies', this, 'rgba(43, 255, 0, 0.315)')">Pharmacies</button>
 
-    <div id="Adminstrator" class="tabcontent">
+    <div id="Submissions" class="tabcontent">
         @if (Session::get('success'))
             <div class="alert alert-success">
                 {{ Session::get('success') }}
@@ -32,33 +32,75 @@
                 {{ Session::get('fail') }}
             </div>
         @endif
-        <h3>Admnistrators <span><button type="button" class="btn btn-info btn-md" data-toggle="modal"
-                    data-target="#addadmin">Add Admin</button></span></h3>
+        <h3>Submissions</h3>
         <table class="table table-striped table-hover table-responsive-xl">
             <thead>
                 <tr>
                     <th scope="col">#</th>
-                    <th scope="col">User Name</th>
-                    <th scope="col">Password</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Address</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Phone</th>
                     <th scope="col">Department</th>
                     <th scope="col">Modifiy</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>09075</td>
-                    <td>Labs</td>
-                    <td>
-                        <button type="button" class="btn btn-info btn-md" data-toggle="modal"
-                            data-target="#editeadmin">Edit</button>
-                        <button type="button" class="btn btn-info btn-md" data-toggle="modal"
-                            data-target="#addadmin">Add</button>
-                        <button type="button" class="btn btn-info btn-md" data-toggle="modal"
-                            data-target="#modall">Del</button>
-                    </td>
+                    @foreach ($docS as $doc)
+                        <th scope="row">{{ $doc['id'] }}</th>
+                        <td>{{ $doc['name'] }}</td>
+                        <td>{{ $doc['address'] }}</td>
+                        <td>{{ $doc['email'] }}</td>
+                        <td>{{ $doc['phone'] }}</td>
+                        <td>Doc</td>
+                        <td>
+                            <form method="POST" action="{{ route('DocApprove', $doc['id']) }}">
+                                @csrf
+                                @method('PUT')
+                                <input type="hidden" name="id" value="{{ $doc['id'] }}">
+                                <button type="submit" class="btn btn-info btn-md">Approve</button>
+                            </form>
+                        </td>
+                    @endforeach
                 </tr>
+                <tr>
+                    @foreach ($laS as $la)
+                        <th scope="row">{{ $la['id'] }}</th>
+                        <td>{{ $la['name'] }}</td>
+                        <td>{{ $la['address'] }}</td>
+                        <td>{{ $la['email'] }}</td>
+                        <td>{{ $la['phone'] }}</td>
+                        <td>Labs</td>
+                        <td>
+                            <form method="POST" action="{{ route('LabApprove', $la['id']) }}">
+                                @csrf
+                                @method('PUT')
+                                <input type="hidden" name="id" value="{{ $la['id'] }}">
+                                <button type="submit" class="btn btn-info btn-md">Approve</button>
+                            </form>
+                        </td>
+                    @endforeach
+                </tr>
+                <tr>
+                    @foreach ($phaS as $pha)
+                        <th scope="row">{{ $pha['id'] }}</th>
+                        <td>{{ $pha['name'] }}</td>
+                        <td>{{ $pha['address'] }}</td>
+                        <td>{{ $pha['email'] }}</td>
+                        <td>{{ $pha['phone'] }}</td>
+                        <td>Pharmacy</td>
+                        <td>
+                            <form method="POST" action="{{ route('PhaApprove', $pha['id']) }}">
+                                @csrf
+                                @method('PUT')
+                                <input type="hidden" name="id" value="{{ $pha['id'] }}">
+                                <button type="submit" class="btn btn-info btn-md">Approve</button>
+                            </form>
+                        </td>
+                    @endforeach
+                </tr>
+
             </tbody>
         </table>
     </div>
