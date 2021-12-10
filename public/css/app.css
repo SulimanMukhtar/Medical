@@ -15,7 +15,8 @@ body {
   padding: 20px;
   transition: .6s;
 }
-.join{
+
+.join {
   color: #143d59 !important;
   font-weight: 600;
   font-family: "Segoe UI", Arial, sans-serif;
@@ -26,20 +27,23 @@ body {
   transition: .6s;
   border: none;
   font-size: 15pt;
-  padding: 15px;
+  padding: 13px;
 }
-.joinbt{
+
+.joinbt {
   margin: 78px 0 40px 0;
 }
-.joints{
+
+.joints {
   font-size: 13pt !important;
 }
+
 .navbar-light .navbar-nav .nav-link:hover {
   background-color: #7FD89F;
 }
 
 .active {
-  background-color:  #7fd8a0ab;
+  background-color: #7fd8a0ab;
 }
 
 .navbar {
@@ -52,12 +56,12 @@ body {
 
 .navbar-brand {
   font-size: 22pt;
-  font-family:'Times New Roman', Times, serif;
- 
+  font-family: 'Times New Roman', Times, serif;
+
   box-shadow: 0 15px 60px rgba(0, 0, 0, 0.433);
   padding: 10px 10px 10px 10px;
   color: #040D50 !important;
- 
+
 }
 
 .main-body {
@@ -103,7 +107,9 @@ body {
 
 .cards .fa-map-marker-alt,
 .fa-headset,
-.fa-business-time, .fa-university, .fa-certificate {
+.fa-business-time,
+.fa-university,
+.fa-certificate {
   color: rgb(209, 214, 218);
   margin: 1rem 0.7rem 1rem -2rem;
   vertical-align: middle;
@@ -555,19 +561,21 @@ body {
   font-size: 20pt;
 }
 
-.alerter,.alert{ 
+.alerter,
+.alert {
   clear: both;
   color: rgb(23, 24, 23);
   margin-top: 80px;
- font-weight: bold;
- font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
- background-color: #e6541a36;
- width: 100%;
+  font-weight: bold;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #e6541a36;
+  width: 100%;
 }
 
 .restabla {
   margin-top: 10px;
 }
-.alerter .alert-success{
+
+.alerter .alert-success {
   background-color: #1ae63c49 !important;
 }

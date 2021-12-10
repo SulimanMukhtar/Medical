@@ -8,7 +8,7 @@
 <body>
     <!-----------------------------  Navbar---------------------------------------------------------------->
     <nav class="navbar navbar-expand-md navbar-light fixed-top">
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" href="/">
             <i class="fas fa-user-md"></i> MEDICA
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
@@ -32,26 +32,26 @@
             </ul>
         </div>
     </nav>
-    <div class = "alerter">
-            @if (Session::get('success'))
-                <div class="alert alert-success">
-                    {{ Session::get('success') }}
-                </div>
-            @endif
-            @if (Session::get('fail'))
-                <div class="alert alert-danger">
-                    {{ Session::get('fail') }}
-                </div>
-            @endif
-  
-   
-            <span class="text-danger">@error('fname'){{ $message }} @enderror</span>
-            <span class="text-danger">@error('lname'){{ $message }} @enderror</span>
-            <span class="text-danger">@error('email'){{ $message }} @enderror</span>
-            <span class="text-danger">@error('phone'){{ $message }} @enderror</span>
-            <span class="text-danger">@error('address'){{ $message }} @enderror</span>
-            <span class="text-danger">@error('date'){{ $message }} @enderror</span>
-            <span class="text-danger">@error('gender'){{ $message }} @enderror</span>
+    <div class="alerter">
+        @if (Session::get('success'))
+            <div class="alert alert-success">
+                {{ Session::get('success') }}
+            </div>
+        @endif
+        @if (Session::get('fail'))
+            <div class="alert alert-danger">
+                {{ Session::get('fail') }}
+            </div>
+        @endif
+
+
+        <span class="text-danger">@error('fname'){{ $message }} @enderror</span>
+        <span class="text-danger">@error('lname'){{ $message }} @enderror</span>
+        <span class="text-danger">@error('email'){{ $message }} @enderror</span>
+        <span class="text-danger">@error('phone'){{ $message }} @enderror</span>
+        <span class="text-danger">@error('address'){{ $message }} @enderror</span>
+        <span class="text-danger">@error('date'){{ $message }} @enderror</span>
+        <span class="text-danger">@error('gender'){{ $message }} @enderror</span>
     </div>
     <!---------------------------------------------Navbar End------------------------------------------------>
 

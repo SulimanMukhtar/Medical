@@ -8,7 +8,7 @@
 <body>
     <!-----------------------------  Navbar---------------------------------------------------------------->
     <nav class="navbar navbar-expand-md navbar-light fixed-top">
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" href="/">
             <i class="fas fa-capsules"></i> MEDICA
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
