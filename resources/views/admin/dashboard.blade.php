@@ -358,6 +358,7 @@
                         <th scope="col">Pharmacy Name</th>
                         <th scope="col">Address</th>
                         <th scope="col">Phone</th>
+                        <th scope="col">Location Link</th>
                         <th scope="col">Email</th>
                         <th scope="col">Modifiy</th>
                     </tr>
@@ -369,6 +370,7 @@
                             <td>{{ $pharm['name'] }}</td>
                             <td>{{ $pharm['address'] }}</td>
                             <td>{{ $pharm['phone'] }}</td>
+                            <td>{{ $pharm['link'] }}</td>
                             <td>{{ $pharm['email'] }}</td>
                             <td>
                                 <button type="button" class="btn btn-info btn-md" data-toggle="modal"

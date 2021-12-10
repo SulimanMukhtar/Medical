@@ -55,6 +55,12 @@
                         <span class="text-danger">@error('address'){{ $message }} @enderror</span>
                     </div>
                     <div class="form-group">
+                        <label for="link">Address Link</label>
+                        <input type="text" class="form-control" name="link" placeholder="Enter Your Google Maps Link"
+                            value="{{ old('link') }}">
+                        <span class="text-danger">@error('link'){{ $message }} @enderror</span>
+                    </div>
+                    <div class="form-group">
                         <label for="phone">Phone</label>
                         <input type="text" class="form-control" name="phone" placeholder="Enter Phone Number"
                             value="{{ old('phone') }}">

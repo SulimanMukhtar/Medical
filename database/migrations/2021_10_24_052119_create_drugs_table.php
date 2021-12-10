@@ -20,6 +20,7 @@ class CreateDrugsTable extends Migration
             $table->string('email')->unique();
             $table->string('password');
             $table->string('address');
+            $table->string('link')->nullable();
             $table->char('phone');
             $table->boolean('approved')->default(false);
             $table->timestamps();
