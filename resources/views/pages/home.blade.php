@@ -28,6 +28,7 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/Labs">Labs</a>
                 </li>
+<<<<<<< HEAD
                 <li class="nav-item"> <button class="nav-link dropdown-toggle" type="button" id="dropdownMenu2"
                         data-bs-toggle="dropdown" aria-expanded="false">
                         Login
@@ -37,12 +38,23 @@
                         <li><button class="dropdown-item" type="button">Another action</button></li>
                         <li><button class="dropdown-item" type="button">Something else here</button></li>
                     </ul>
+=======
+                <li class = "nav-item">
+                      <div class="dropdown">
+                            <a onclick="myFunction()" class="dropbtn nav-link">Login as</a>
+                            <div id="myDropdown" class="dropdown-content">
+                                <a href="/doctor/login">Doctor</a>
+                                <a href="/phm/login">Pharmacy</a>
+                                <a href="/labm/login">Lab</a>
+                            </div>
+                        </div>
+>>>>>>> e968097e92913f077dfb19d3be4782406035cf5b
                 </li>
 
             </ul>
         </div>
     </nav>
-
+    
     <!---------------------------------------------Navbar End------------------------------------------------>
     <div class="container">
         <div class="main-body">
@@ -88,6 +100,12 @@
             </div>
         </div>
     </div>
+<<<<<<< HEAD
+=======
+  </div>
+</div>
+
+>>>>>>> e968097e92913f077dfb19d3be4782406035cf5b
     <!-- end join us modal--------------------------------------------------------- -->
     @include('includes.footer')
     <script src="js/jquery-3.6.0.min.js"></script>
