@@ -405,59 +405,62 @@
                                     </div>
                                 </div>
 
-                            </td>
-                        </tr>
-                        <div class="modal fade" id="editpharma_{{ $pharm['id'] }}" tabindex="-1"
-                            aria-labelledby="" aria-hidden="true">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title" id="">Edit Record</h5>
-                                        <button type="button" class="close" data-dismiss="modal"
-                                            aria-label="Close">
-                                            <span aria-hidden="true">&times;</span>
-                                        </button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <form method="POST" action="">
-                                            @csrf
-                                            @method('PUT')
-                                            <div class="form-group">
-                                                <label for="name">Pharmacy Name </label>
-                                                <input type="text" class="form-control" name="name"
-                                                    value="{{ $pharm['name'] }}">
+                                <div class="modal fade" id="editpharma_{{ $pharm['id'] }}" tabindex="-1"
+                                    aria-labelledby="" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="">Edit Record</h5>
+                                                <button type="button" class="close" data-dismiss="modal"
+                                                    aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
                                             </div>
-                                            <div class="form-group">
-                                                <label for="username">Username</label>
-                                                <input type="text" class="form-control" name="username"
-                                                    value="{{ $pharm['username'] }}">
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="email">Email</label>
-                                                <input type="text" class="form-control" name="email"
-                                                    value="{{ $pharm['email'] }}">
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="address">Address</label>
-                                                <input type="text" class="form-control" name="address"
-                                                    value="{{ $pharm['address'] }}">
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="phone">Phone</label>
-                                                <input type="text" class="form-control" name="phone"
-                                                    value="{{ $pharm['phone'] }}">
-                                            </div>
+                                            <div class="modal-body">
+                                                <form method="POST" action="{{ route('phmUpdate', $pharm['id']) }}">
+                                                    @csrf
+                                                    @method('PUT')
+                                                    <div class="form-group">
+                                                        <label for="name">Pharmacy Name </label>
+                                                        <input type="text" class="form-control" name="name"
+                                                            value="{{ $pharm['name'] }}">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="username">Username</label>
+                                                        <input type="text" class="form-control" name="username"
+                                                            value="{{ $pharm['username'] }}">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="email">Email</label>
+                                                        <input type="text" class="form-control" name="email"
+                                                            value="{{ $pharm['email'] }}">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="address">Address</label>
+                                                        <input type="text" class="form-control" name="address"
+                                                            value="{{ $pharm['address'] }}">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="phone">Phone</label>
+                                                        <input type="text" class="form-control" name="phone"
+                                                            value="{{ $pharm['phone'] }}">
+                                                    </div>
 
-                                            <button type="submit" class="btn btn-primary">Save Change</button>
-                                        </form>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary"
-                                            data-dismiss="modal">Close</button>
+                                                    <button type="submit" class="btn btn-primary">Save Change</button>
+                                                </form>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary"
+                                                    data-dismiss="modal">Close</button>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
+
+                            </td>
+
+
+                        </tr>
                     @endforeach
 
                 </tbody>

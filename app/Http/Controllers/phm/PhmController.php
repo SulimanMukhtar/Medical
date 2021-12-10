@@ -55,6 +55,22 @@ class PhmController extends Controller
         }
     }
 
+    function update(Request $request, $id)
+    {
+        $phm = Pharmacy::find($id);
+        $phm->name = $request->name;
+        $phm->address = $request->address;
+        $phm->phone = $request->phone;
+        $phm->email = $request->email;
+        $save = $phm->save();
+
+        if ($save) {
+            return redirect()->back()->with('success', 'Pharmacy Account Updated Successfully');
+        } else {
+            return redirect()->back()->with('fail', 'Something went Wrong, failed to register');
+        }
+    }
+
     function check(Request $request)
     {
         //Validate Inputs
