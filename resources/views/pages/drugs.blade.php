@@ -9,7 +9,7 @@
     <!-----------------------------  Navbar---------------------------------------------------------------->
     <nav class="navbar navbar-expand-md navbar-light fixed-top">
         <a class="navbar-brand" href="#">
-        <i class="fas fa-capsules"></i>   MEDICA
+            <i class="fas fa-capsules"></i> MEDICA
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
             aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -78,7 +78,8 @@
                                     <tr>
                                         <td><i class="fas fa-clinic-medical"></i><span>{{ $pharmacy['name'] }}</span>
                                         </td>
-                                        <td><i class="fas fa-map-marker-alt"></i>{{ $pharmacy['address'] }}</td>
+                                        <td><i class="fas fa-map-marker-alt"></i><a href="{{ $pharmacy['link'] }}">
+                                                {{ $pharmacy['address'] }}</a></td>
                                         <td><i class="fas fa-phone-square"></i><a
                                                 href="tel:{{ $pharmacy['phone'] }}">{{ $pharmacy['phone'] }}</a>
                                         </td>

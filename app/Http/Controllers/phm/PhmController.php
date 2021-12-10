@@ -31,6 +31,7 @@ class PhmController extends Controller
         $request->validate([
             'name' => 'required',
             'address' => 'required',
+            'link' => 'required|url',
             'phone' => 'required|digits:10',
             'email' => 'required|email|unique:pharmacies,email',
             'username' => 'required|unique:pharmacies,username',
@@ -42,6 +43,7 @@ class PhmController extends Controller
         $phm->name = $request->name;
         $phm->username = $request->username;
         $phm->address = $request->address;
+        $phm->link = $request->link;
         $phm->phone = $request->phone;
         $phm->approved = false;
         $phm->email = $request->email;
@@ -60,6 +62,7 @@ class PhmController extends Controller
         $phm = Pharmacy::find($id);
         $phm->name = $request->name;
         $phm->address = $request->address;
+        $phm->link = $request->link;
         $phm->phone = $request->phone;
         $phm->email = $request->email;
         $save = $phm->save();

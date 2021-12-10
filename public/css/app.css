@@ -7,7 +7,7 @@ body {
 }
 
 .navbar-light .navbar-nav .nav-link {
-  color:  #143d59  !important;
+  color: #143d59 !important;
   font-weight: bold;
   font-family: "Segoe UI", Arial, sans-serif;
   font-size: 15pt;
@@ -15,32 +15,37 @@ body {
   background-color: #f4b41a;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.308);
   font-family: cursive;
-  padding: 15px  15px 15px 15px;
+  padding: 15px 15px 15px 15px;
   transition: .6s;
 }
-.navbar-light .navbar-nav .nav-link:hover{
-  background-color:  rgba(127, 255, 212, 0.644);
+
+.navbar-light .navbar-nav .nav-link:hover {
+  background-color: rgba(127, 255, 212, 0.644);
 }
-.active{
+
+.active {
   background-color: aquamarine;
 }
+
 .navbar {
-  font-family:Verdana, Geneva, Tahoma, sans-serif;
- 
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+
   font-weight: bold;
- 
-  
+
+
 }
-.navbar-brand{
+
+.navbar-brand {
   letter-spacing: -4px;
   font-size: 20pt;
-  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-  background-color:#F59C1A;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  background-color: #F59C1A;
   box-shadow: 0 15px 60px rgba(0, 0, 0, 0.233);
-  padding: 10px  10px 10px 10px;
-  color:  #040D50 !important;
+  padding: 10px 10px 10px 10px;
+  color: #040D50 !important;
   border: 2px solid #040D50 !important;
 }
+
 .main-body {
   margin: 18% 20% 20% 20%;
 }
@@ -71,29 +76,34 @@ body {
   margin-left: 5rem !important;
 
 }
-.cards li{
-  font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+.cards li {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   color: #17A2B8;
 }
-.cards button{
+
+.cards button {
   text-align: center;
   width: 100%;
 }
-.cards .fa-map-marker-alt,.fa-headset,.fa-business-time, .fa-university, .fa-certificate{
-  color: rgb(209,214,218);
+
+.cards .fa-map-marker-alt,
+.fa-headset,
+.fa-business-time {
+  color: rgb(209, 214, 218);
   margin: 1rem 0.7rem 1rem -2rem;
   vertical-align: middle;
   font-size: 18pt;
 }
 
 .card-box {
-  
+
   margin-left: -0.8rem;
   margin-bottom: 0.2rem;
   border-top-left-radius: 10%;
   border-top-right-radius: 10%;
   position: relative;
-   box-shadow: 0 15px 60px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 15px 60px rgba(0, 0, 0, 0.5);
 }
 
 a.btn.btn-primary {
@@ -540,7 +550,8 @@ body {
  background-color: #e6541a36;
  width: 100%;
 }
-.restabla{
+
+.restabla {
   margin-top: 10px;
 }
 .alerter .alert-success{

@@ -8,8 +8,7 @@
 
 <body>
     <div class=" lapsBrand">
-        <p><strong>Dr Qamer Ibrahim</strong><span class="badge bg-info">
-                {{ Auth::guard('doctor')->user()->name }}</span>
+        <p><strong>Dr {{ Auth::guard('doctor')->user()->name }} </strong>
             <span><a href="{{ route('doctor.logout') }}"
                     onclick="event.preventDefault();document.getElementById('logout-form').submit();">Logout</a>
                 <form action="{{ route('doctor.logout') }}" id="logout-form" method="post">@csrf</form>

@@ -7,9 +7,8 @@
 </head>
 
 <body>
-    <div class="info admin">
-        <p><strong>Admin </strong>{{ Auth::guard('admin')->user()->name }} <span><a
-                    href="{{ route('admin.logout') }}"
+    <div class="lapsBrand">
+        <p><strong>{{ Auth::guard('admin')->user()->name }} </strong> <span><a href="{{ route('admin.logout') }}"
                     onclick="event.preventDefault();document.getElementById('logout-form').submit();">Logout</a>
                 <form action="{{ route('admin.logout') }}" id="logout-form" method="post">@csrf</form>
             </span></p>
@@ -359,6 +358,7 @@
                         <th scope="col">Pharmacy Name</th>
                         <th scope="col">Address</th>
                         <th scope="col">Phone</th>
+                        <th scope="col">Location Link</th>
                         <th scope="col">Email</th>
                         <th scope="col">Modifiy</th>
                     </tr>
@@ -370,6 +370,7 @@
                             <td>{{ $pharm['name'] }}</td>
                             <td>{{ $pharm['address'] }}</td>
                             <td>{{ $pharm['phone'] }}</td>
+                            <td>{{ $pharm['link'] }}</td>
                             <td>{{ $pharm['email'] }}</td>
                             <td>
                                 <button type="button" class="btn btn-info btn-md" data-toggle="modal"
