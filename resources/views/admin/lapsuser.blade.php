@@ -7,9 +7,8 @@
 </head>
 
 <body>
-    <div class=" lapsBrand">
-        <p><strong>Altra Labs </strong><span class="badge bg-info">
-                {{ Auth::guard('labm')->user()->name }}</span>
+    <div class="lapsBrand">
+        <p><strong>{{ Auth::guard('labm')->user()->name }} Lab </strong>
             <span><a href="{{ route('labm.logout') }}"
                     onclick="event.preventDefault();document.getElementById('logout-form').submit();">Logout</a>
                 <form action="{{ route('labm.logout') }}" id="logout-form" method="post">@csrf</form>
@@ -37,7 +36,7 @@
     <span class="text-danger">@error('result'){{ $message }} @enderror</span>
 
     <div class="container">
-        <h3>Add Paitint Result</h3>
+        <h3>Add Patient Result</h3>
         <div class="Resulteadd">
             <form action="{{ route('AddResult') }}" method="POST" enctype="multipart/form-data">
                 @csrf
@@ -45,7 +44,7 @@
                     <input type="hidden" name="lab_id" value="{{ Auth::guard('labm')->user()->id }}">
                     <div class="row">
                         <div class="col-25">
-                            <label for="fname">Patint Name</label>
+                            <label for="fname">Patient Name</label>
                         </div>
                         <div class="col-75">
                             <select class="custom-select" name="requester">
@@ -86,7 +85,7 @@
                     <tr>
                         <td>{{ $TestResult['requester'] }}</td>
                         <td>{{ $TestResult['test_result'] }}</td>
-                     </tr>
+                    </tr>
                 @endforeach
 
             </tbody>

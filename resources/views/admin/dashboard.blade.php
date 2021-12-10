@@ -7,9 +7,8 @@
 </head>
 
 <body>
-    <div class="info admin">
-        <p><strong>Admin </strong>{{ Auth::guard('admin')->user()->name }} <span><a
-                    href="{{ route('admin.logout') }}"
+    <div class="lapsBrand">
+        <p><strong>{{ Auth::guard('admin')->user()->name }} </strong> <span><a href="{{ route('admin.logout') }}"
                     onclick="event.preventDefault();document.getElementById('logout-form').submit();">Logout</a>
                 <form action="{{ route('admin.logout') }}" id="logout-form" method="post">@csrf</form>
             </span></p>
