@@ -9,7 +9,7 @@
     <!-----------------------------  Navbar---------------------------------------------------------------->
     <nav class="navbar navbar-expand-md navbar-light fixed-top">
         <a class="navbar-brand" href="#">
-        <i class="fas fa-user-md"></i> MEDICA
+            <i class="fas fa-user-md"></i> MEDICA
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
             aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">

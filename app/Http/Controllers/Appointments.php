@@ -35,34 +35,35 @@ class Appointments extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'fname' => 'required',
-            'lname' => 'required',
-            'email' => 'required|email|unique:appointments,email',
-            'phone' => 'required|digits:10',
-            'address' => 'required',
-            'date' => 'required|after:tomorrow',
-            'gender' => 'required'
-        ], [
-            'email' => 'Already Submitted An Appointment , Please Wait for An Email For Confirmation',
-            'date' => 'The Selected Date Must Not Be Tomorrow'
-        ]);
+        
+            $request->validate([
+                'fname' => 'required',
+                'lname' => 'required',
+                'email' => 'required|email|unique:appointments,email',
+                'phone' => 'required|digits:10',
+                'address' => 'required',
+                'date' => 'required|after:tomorrow',
+                'gender' => 'required'
+            ], [
+                'email' => 'Already Submitted An Appointment , Please Wait for An Email For Confirmation',
+                'date' => 'The Selected Date Must Not Be Tomorrow'
+            ]);
 
-        $appointment = new Appointment();
-        $appointment->Doc_id = $request->Doc_id;
-        $appointment->fname = $request->fname;
-        $appointment->lname = $request->lname;
-        $appointment->email = $request->email;
-        $appointment->phone = $request->phone;
-        $appointment->address = $request->address;
-        $appointment->date = $request->date;
-        $appointment->gender = $request->gender;
-        $save = $appointment->save();
-        if ($save) {
-            return redirect()->back()->with('success', 'Your Data Has Been Submitted Successfully');
-        } else {
-            return redirect()->back()->with('fail', 'Something went wrong');
-        }
+            $appointment = new Appointment();
+            $appointment->Doc_id = $request->Doc_id;
+            $appointment->fname = $request->fname;
+            $appointment->lname = $request->lname;
+            $appointment->email = $request->email;
+            $appointment->phone = $request->phone;
+            $appointment->address = $request->address;
+            $appointment->date = $request->date;
+            $appointment->gender = $request->gender;
+            $save = $appointment->save();
+            if ($save) {
+                return redirect()->back()->with('success', 'Your Data Has Been Submitted Successfully');
+            } else {
+                return redirect()->back()->with('fail', 'Something went wrong');
+            }
     }
 
     /**
