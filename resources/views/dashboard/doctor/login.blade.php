@@ -29,6 +29,16 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/Labs">Labs</a>
                 </li>
+                <li class="nav-item">
+                    <div class="dropdown">
+                        <a onclick="myFunction()" class="dropbtn nav-link">Login as</a>
+                        <div id="myDropdown" class="dropdown-content">
+                            <a href="/doctor/login">Doctor</a>
+                            <a href="/phm/login">Pharmacy</a>
+                            <a href="/labm/login">Lab</a>
+                        </div>
+                    </div>
+                </li>
             </ul>
         </div>
     </nav>
