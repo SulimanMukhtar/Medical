@@ -8,23 +8,38 @@ body {
 
 .navbar-light .navbar-nav .nav-link {
   color: #143d59 !important;
-  font-weight: bold;
+  font-weight: 600;
   font-family: "Segoe UI", Arial, sans-serif;
-  font-size: 15pt;
-  box-shadow: 0 70px 63px -60px #000000;
-  background-color: #f4b41a;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.308);
-  font-family: cursive;
-  padding: 15px 15px 15px 15px;
+  font-size: 20pt;
+  box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.408);
+  padding: 20px;
   transition: .6s;
 }
-
+.join{
+  color: #143d59 !important;
+  font-weight: 600;
+  font-family: "Segoe UI", Arial, sans-serif;
+  font-size: 20pt;
+  box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.408);
+  padding: 2px;
+  width: 100%;
+  transition: .6s;
+  border: none;
+  font-size: 15pt;
+  padding: 15px;
+}
+.joinbt{
+  margin: 78px 0 40px 0;
+}
+.joints{
+  font-size: 13pt !important;
+}
 .navbar-light .navbar-nav .nav-link:hover {
-  background-color: rgba(127, 255, 212, 0.644);
+  background-color: #7FD89F;
 }
 
 .active {
-  background-color: aquamarine;
+  background-color:  #7fd8a0ab;
 }
 
 .navbar {
@@ -36,14 +51,13 @@ body {
 }
 
 .navbar-brand {
-  letter-spacing: -4px;
-  font-size: 20pt;
-  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-  background-color: #F59C1A;
-  box-shadow: 0 15px 60px rgba(0, 0, 0, 0.233);
+  font-size: 22pt;
+  font-family:'Times New Roman', Times, serif;
+ 
+  box-shadow: 0 15px 60px rgba(0, 0, 0, 0.433);
   padding: 10px 10px 10px 10px;
   color: #040D50 !important;
-  border: 2px solid #040D50 !important;
+ 
 }
 
 .main-body {
@@ -89,7 +103,7 @@ body {
 
 .cards .fa-map-marker-alt,
 .fa-headset,
-.fa-business-time {
+.fa-business-time, .fa-university, .fa-certificate {
   color: rgb(209, 214, 218);
   margin: 1rem 0.7rem 1rem -2rem;
   vertical-align: middle;
@@ -543,7 +557,7 @@ body {
 
 .alerter,.alert{ 
   clear: both;
-  color: rgb(252, 8, 8);
+  color: rgb(23, 24, 23);
   margin-top: 80px;
  font-weight: bold;
  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
