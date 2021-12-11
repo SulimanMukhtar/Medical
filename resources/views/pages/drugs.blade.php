@@ -88,7 +88,8 @@
                                     <tr>
                                         <td><i class="fas fa-clinic-medical"></i><span>{{ $pharmacy['name'] }}</span>
                                         </td>
-                                        <td><i class="fas fa-map-marker-alt"></i><a href="{{ $pharmacy['link'] }}">
+                                        <td><i class="fas fa-map-marker-alt"></i><a target="_blank"
+                                                href="{{ $pharmacy['link'] }}">
                                                 {{ $pharmacy['address'] }}</a></td>
                                         <td><i class="fas fa-phone-square"></i><a
                                                 href="tel:{{ $pharmacy['phone'] }}">{{ $pharmacy['phone'] }}</a>

@@ -484,6 +484,12 @@
                                                             value="{{ $pharm['address'] }}">
                                                     </div>
                                                     <div class="form-group">
+                                                        <label for="link">Address Link</label>
+                                                        <input type="text" class="form-control" name="link"
+                                                            value="{{ $pharm['link'] }}">
+
+                                                    </div>
+                                                    <div class="form-group">
                                                         <label for="phone">Phone</label>
                                                         <input type="text" class="form-control" name="phone"
                                                             value="{{ $pharm['phone'] }}">
