@@ -39,12 +39,16 @@ class DrugsController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'name' => 'required',
+            'quantity' => 'required'
+        ]);
         $drug = new Drug();
         $drug->pharmacy_id = $request->pharma_id;
         $drug->name = $request->name;
         $drug->quantity = $request->quantity;
         $drug->save();
-        return back()->with('Drug_Added', 'Drug Has Been Added Successfully');
+        return back()->with('success', 'Drug Has Been Added Successfully');
     }
 
     /**

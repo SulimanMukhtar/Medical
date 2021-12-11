@@ -15,7 +15,21 @@
             </span>
         </p>
     </div>
+    <div class="alerter">
+        <span class="text-danger">@error('name'){{ $message }} @enderror</span>
+        <span class="text-danger">@error('quantity'){{ $message }} @enderror</span>
 
+        @if (Session::get('success'))
+            <div class="alert alert-success submit">
+                {{ Session::get('success') }}
+            </div>
+        @endif
+        @if (Session::get('fail'))
+            <div class="alert alert-danger submit">
+                {{ Session::get('fail') }}
+            </div>
+        @endif
+    </div>
 
     <div class="container">
         <h3>Pharmacy Information</h3>
