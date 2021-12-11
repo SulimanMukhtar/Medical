@@ -52,12 +52,12 @@
         <span class="text-danger">@error('test'){{ $message }} @enderror</span>
         <span class="text-danger">@error('date'){{ $message }} @enderror</span>
         @if (Session::get('success'))
-            <div class="alert alert-success submit">
+            <div class="alert alert-success">
                 {{ Session::get('success') }}
             </div>
         @endif
         @if (Session::get('fail'))
-            <div class="alert alert-danger submit">
+            <div class="alert alert-danger">
                 {{ Session::get('fail') }}
             </div>
         @endif
