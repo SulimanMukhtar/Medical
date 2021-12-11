@@ -16,7 +16,7 @@ class LabsController extends Controller
      */
     public function index()
     {
-        $labs = Lab::with('TestMenu')->get();
+        $labs = Lab::with('TestMenu')->where('approved', '=', true)->get();
         $TestMenus = TestMenu::all()->toArray();
         // dd($labs);
         return view('pages.labs', compact('labs'), compact('TestMenus'));

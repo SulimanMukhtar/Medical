@@ -14,7 +14,7 @@ class DoctorsController extends Controller
      */
     public function index()
     {
-        $doctors = Doctor::all()->toArray();
+        $doctors = Doctor::where('approved', '=', true)->get();
         return view('pages.doctors', compact('doctors'));
     }
 
