@@ -44,10 +44,10 @@
     </nav>
 
     <body>
-        <div class="container">
+        <div class="container drlog ">
             <div class="row">
                 <div class="col-md-4 offset-md-4" style="margin-top: 45px;">
-                    <h4>Lab Manager Login</h4>
+                    <h4 class ="regtitle">Lab Manager Login</h4>
                     <hr>
                     <form action="{{ route('labcheck') }}" method="post" autocomplete="off">
                         @if (Session::get('fail'))
@@ -69,10 +69,10 @@
                                 <span class="text-danger">@error('password'){{ $message }}@enderror</span>
                                 </div>
                                 <div class="form-group">
-                                    <button type="submit" class="btn btn-primary">Login</button>
+                                    <button type="submit" class="btn btn-primary logb">Login</button>
                                 </div>
                                 <br>
-                                <a href="{{ route('labm.register') }}">Create new Account</a>
+                                <a href="{{ route('labm.register') }}"  class ="reg">Create new Account</a>
                             </form>
                         </div>
                     </div>

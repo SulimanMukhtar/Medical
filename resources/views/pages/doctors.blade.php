@@ -81,7 +81,7 @@
                                 <li><i class="fas fa-headset"></i>{{ $doctor['phone'] }}</li>
                             </ul>
                             </p>
-                            <button type="button" class="btn btn-info btn-md" data-toggle="modal"
+                            <button type="button" class="btn btn-info btn-md btna" data-toggle="modal"
                                 data-target="#{{ $doctor['id'] }}">Make An Appointment</button>
                         </div>
                     </div>
@@ -151,7 +151,7 @@
                                 </select>
                             </div>
 
-                            <button type="submit" class="btn btn-primary">Make An Appointment</button>
+                            <button type="submit" class="btn btn-primary btna">Make An Appointment</button>
                         </form>
 
                     </div>

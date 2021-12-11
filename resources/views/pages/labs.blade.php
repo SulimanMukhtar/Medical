@@ -84,7 +84,7 @@
                                 <li><i class="fas fa-business-time"></i>24 Hour</li>
                             </ul>
                             </p>
-                            <button type="button" class="btn btn-info btn-md" data-toggle="modal"
+                            <button class = "btna" type="button" class="btn btn-info btn-md" data-toggle="modal"
                                 data-target="#lap_{{ $lab['id'] }}">Patient Services</button>
                         </div>
                     </div>
@@ -110,22 +110,22 @@
                         <div class="container">
                             <div class="row">
                                 <div class="col-4">
-                                    <button type="button" class="btn btn-info btn-md" data-toggle="modal"
+                                    <button type="button" class="btn btn-info btn-md btna" data-toggle="modal"
                                         data-target="#Result_{{ $lab['id'] }}"> Test Result</button>
                                 </div>
                                 <div class="col-4">
-                                    <button type="button" class="btn btn-info btn-md" data-toggle="modal"
+                                    <button type="button" class="btn btn-info btn-md btna" data-toggle="modal"
                                         data-target="#Test_{{ $lab['id'] }}"> Test Menu </button>
                                 </div>
                                 <div class="col-4">
-                                    <button type="button" class="btn btn-info btn-md" data-toggle="modal"
+                                    <button type="button" class="btn btn-info btn-md btna" data-toggle="modal"
                                         data-target="#Visit_{{ $lab['id'] }}"> Home Visit </button>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-secondary " data-dismiss="modal">Close</button>
                     </div>
                 </div>
             </div>
@@ -151,7 +151,7 @@
                                 <input type="text" class="form-control" name="pid"
                                     placeholder="Please Submit Your Patient ID">
                             </div>
-                            <button type="submit" class="btn btn-primary">Get Result</button>
+                            <button type="submit" class="btn btn-primary btna">Get Result</button>
                         </form>
                     </div>
                     <div class="modal-footer">
@@ -237,7 +237,7 @@
                                 <label for="date">Fav Date</label>
                                 <input type="date" class="form-control" name="date" value="{{ old('date') }}">
                             </div>
-                            <button type="submit" class="btn btn-primary">Submit</button>
+                            <button type="submit" class="btn btn-primary btna">Submit</button>
                         </form>
                     </div>
                     <div class="modal-footer">

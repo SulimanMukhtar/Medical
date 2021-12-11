@@ -48,7 +48,7 @@
         <div class="main-body">
             <h1>WE PROVIDE TOP MEDICAL SERVICE </h1>
             <P class="lead">MORE THAN 30 PROFESSIONAL</P>
-            <button data-target="#exampleModal" data-toggle="modal" class="Appiontment-btn"> JOIN TO US</button>
+            <button data-target="#exampleModal" data-toggle="modal" class="Appiontment-btn"> JOIN  US</button>
         </div>
     </div>
     <!-- stsrt join us modal--------------------------------------------------------- -->

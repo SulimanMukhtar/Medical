@@ -49,7 +49,7 @@
                 <input type="text" placeholder="Please Inter Your Drug Name..." name="query"
                     value="{{ request()->input('query') }}">
                 <span class="text-danger">@error('query'){{ $message }} @enderror</span>
-                <button><i class="fa fa-capsules"></i></button>
+                <button><i class="fa fa-capsules "></i></button>
             </div>
         </form>
 

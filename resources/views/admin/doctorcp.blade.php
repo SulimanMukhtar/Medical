@@ -52,7 +52,7 @@
                                 <form method="POST" action="{{ Route('updateStatus', $appointment['id']) }}">
                                     @csrf
                                     @method('PUT')
-                                    <button type="submit">Mark As Completed</button>
+                                    <button type="submit" class ="btn btn-info ">Mark As Completed</button>
                                 </form>
                             </td>
                         @else

@@ -45,10 +45,10 @@
 
     <body>
 
-        <div class="container">
+        <div class="container drlog">
             <div class="row">
                 <div class="col-md-4 offset-md-4" style="margin-top: 45px;">
-                    <h4>Doctor Register</h4>
+                    <h4 class="regtitle"> Doctor Register</h4>
                     <hr>
                     <form action="{{ route('Doctors.store') }}" method="post" autocomplete="off"
                         enctype="multipart/form-data">
@@ -64,12 +64,7 @@
                         @endif
 
                         @csrf
-                        <div class="form-group">
-                            <label for="image">Doctor Image</label>
-                            <input type="file" name="image" id="image" class="form-control"
-                                value="{{ old('image') }}">
-                            <span class="text-danger">@error('image'){{ $message }} @enderror</span>
-                        </div>
+                        
                         <div class="form-group">
                             <label for="name">Your Name</label>
                             <input type="text" class="form-control" name="name" placeholder="Enter Your Name"
@@ -125,10 +120,16 @@
                             <span class="text-danger">@error('cpassword'){{ $message }} @enderror</span>
                         </div>
                         <div class="form-group">
-                            <button type="submit" class="btn btn-primary">Register</button>
+                            <label for="image">Doctor Image</label>
+                            <input type="file" name="image" id="image" class="form-control"
+                                value="{{ old('image') }}">
+                            <span class="text-danger">@error('image'){{ $message }} @enderror</span>
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary logb">Register</button>
                         </div>
                         <br>
-                        <a href="{{ route('doctor.login') }}">I already have an account</a>
+                        <a href="{{ route('doctor.login') }}"  class ="reg">I already have an account</a>
                     </form>
                 </div>
             </div>

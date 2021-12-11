@@ -45,10 +45,10 @@
 
     <body>
 
-        <div class="container">
+        <div class="container drlog">
             <div class="row">
                 <div class="col-md-4 offset-md-4" style="margin-top: 45px;">
-                    <h4>Pharmacy Manger Login</h4>
+                    <h4 class ="regtitle">Pharmacy Manger Login</h4>
                     <hr>
                     <form action="{{ route('phm.check') }}" method="post" autocomplete="off">
                         @if (Session::get('fail'))
@@ -70,10 +70,10 @@
                                 <span class="text-danger">@error('password'){{ $message }}@enderror</span>
                                 </div>
                                 <div class="form-group">
-                                    <button type="submit" class="btn btn-primary">Login</button>
+                                    <button type="submit" class="btn btn-primary logb ">Login</button>
                                 </div>
                                 <br>
-                                <a href="{{ route('phm.register') }}">Create new Account</a>
+                                <a href="{{ route('phm.register') }}"  class ="reg" >Create new Account</a>
                             </form>
                         </div>
                     </div>
